@@ -10,6 +10,7 @@
     <p><%: Html.ActionLink("Create New Event", "Create", "Events")%></p>
     <div id="manageevents">
         <p><b>Manage Existing Events</b></p>
+        Below is a list of all your current events.
             <ul id="eventlist">
             <%foreach (var e in ViewData.Model)
               { %>           
