@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="novaModelStoreContainer" CdmEntityContainer="novaEntities">
+    <EntitySetMapping Name="appinfoes">
+      <EntityTypeMapping TypeName="novaModel.appinfo">
+        <MappingFragment StoreEntitySet="appinfo">
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="HashedAppID" ColumnName="HashedAppID" />
+          <ScalarProperty Name="AppName" ColumnName="AppName" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="appusers">
+      <EntityTypeMapping TypeName="novaModel.appuser">
+        <MappingFragment StoreEntitySet="appusers">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="HandsetID" ColumnName="HandsetID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comments">
+      <EntityTypeMapping TypeName="novaModel.comment">
+        <MappingFragment StoreEntitySet="comments">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="Comment1" ColumnName="Comment" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eventids">
+      <EntityTypeMapping TypeName="novaModel.eventid">
+        <MappingFragment StoreEntitySet="eventids">
+          <ScalarProperty Name="lastid" ColumnName="lastid" />
+          <ScalarProperty Name="dateadded" ColumnName="dateadded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="events">
+      <EntityTypeMapping TypeName="novaModel.event">
+        <MappingFragment StoreEntitySet="events">
+          <ScalarProperty Name="EventEnd" ColumnName="EventEnd" />
+          <ScalarProperty Name="EventStart" ColumnName="EventStart" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="SyncID" ColumnName="SyncID" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="EventDesc" ColumnName="EventDesc" />
+          <ScalarProperty Name="Attending" ColumnName="Attending" />
+          <ScalarProperty Name="NotAttending" ColumnName="NotAttending" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lastupdates">
+      <EntityTypeMapping TypeName="novaModel.lastupdate">
+        <MappingFragment StoreEntitySet="lastupdates">
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="LastEventUpdate" ColumnName="LastEventUpdate" />
+          <ScalarProperty Name="LastMessageUpdate" ColumnName="LastMessageUpdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="messages">
+      <EntityTypeMapping TypeName="novaModel.message">
+        <MappingFragment StoreEntitySet="messages">
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+          <ScalarProperty Name="MessageContents" ColumnName="MessageContents" />
+          <ScalarProperty Name="MessageDate" ColumnName="MessageDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rsvps">
+      <EntityTypeMapping TypeName="novaModel.rsvp">
+        <MappingFragment StoreEntitySet="rsvp">
+          <ScalarProperty Name="RsvpID" ColumnName="RsvpID" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="Rsvp1" ColumnName="Rsvp" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

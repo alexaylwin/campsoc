@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="novaModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="novaModelStoreContainer">
+          <EntitySet Name="appinfo" EntityType="novaModel.Store.appinfo" store:Type="Tables" Schema="novamain" />
+          <EntitySet Name="appusers" EntityType="novaModel.Store.appusers" store:Type="Tables" Schema="novamain" />
+          <EntitySet Name="beta_events" EntityType="novaModel.Store.beta_events" store:Type="Tables" Schema="novamain" />
+          <EntitySet Name="comments" EntityType="novaModel.Store.comments" store:Type="Tables" Schema="novamain" />
+          <EntitySet Name="events" EntityType="novaModel.Store.events" store:Type="Tables" Schema="novamain" />
+          <EntitySet Name="lastupdates" EntityType="novaModel.Store.lastupdates" store:Type="Tables" Schema="novamain" />
+          <EntitySet Name="messages" EntityType="novaModel.Store.messages" store:Type="Tables" Schema="novamain" />
+          <EntitySet Name="rsvp" EntityType="novaModel.Store.rsvp" store:Type="Tables" Schema="novamain" />
+          <EntitySet Name="server_logs" EntityType="novaModel.Store.server_logs" store:Type="Tables" Schema="novamain" />
+        </EntityContainer>
+        <EntityType Name="appinfo">
+          <Key>
+            <PropertyRef Name="AppID" />
+          </Key>
+          <Property Name="AppID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="HashedAppID" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="AppName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="HomeScreenText" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="appusers">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AppID" Type="int" Nullable="false" />
+          <Property Name="HandsetID" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="HandsetModel" Type="varchar" MaxLength="255" />
+          <Property Name="HandsetManufacturer" Type="varchar" MaxLength="255" />
+          <Property Name="HandsetProduct" Type="varchar" MaxLength="255" />
+          <Property Name="UserEmail" Type="varchar" MaxLength="255" />
+          <Property Name="UserFirstName" Type="varchar" MaxLength="255" />
+          <Property Name="UserLastName" Type="varchar" MaxLength="255" />
+          <Property Name="RegisterTimestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="beta_events">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="event_desc" Type="varchar" MaxLength="255" />
+          <Property Name="timestamp" Type="timestamp" Precision="0" />
+          <Property Name="submitted_by" Type="varchar" MaxLength="255" />
+          <Property Name="col1" Type="varchar" MaxLength="2000" />
+          <Property Name="col2" Type="varchar" MaxLength="2000" />
+          <Property Name="col3" Type="varchar" MaxLength="2000" />
+          <Property Name="col4" Type="varchar" MaxLength="2000" />
+          <Property Name="col5" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="comments">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="varchar" Nullable="false" MaxLength="5000" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="timestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="events">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="SyncID" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="AppID" Type="int" Nullable="false" />
+          <Property Name="EventName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="EventDesc" Type="varchar" Nullable="false" MaxLength="6000" />
+          <Property Name="Attending" Type="int" Nullable="false" />
+          <Property Name="NotAttending" Type="int" Nullable="false" />
+          <Property Name="EventStart" Type="datetime" Nullable="false" />
+          <Property Name="EventEnd" Type="datetime" Nullable="false" />
+          <Property Name="Disabled" Type="int" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="255" />
+          <Property Name="LastUpdated" Type="timestamp" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="lastupdates">
+          <Key>
+            <PropertyRef Name="UpdateID" />
+          </Key>
+          <Property Name="UpdateID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AppID" Type="int" Nullable="false" />
+          <Property Name="LastEventUpdate" Type="datetime" Nullable="false" />
+          <Property Name="LastMessageUpdate" Type="datetime" Nullable="false" />
+          <Property Name="LastHomescreenUpdate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="messages">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AppID" Type="int" Nullable="false" />
+          <Property Name="MessageTitle" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="MessageContents" Type="varchar" Nullable="false" MaxLength="5000" />
+          <Property Name="MessageDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rsvp">
+          <Key>
+            <PropertyRef Name="RsvpID" />
+          </Key>
+          <Property Name="RsvpID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="Rsvp" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="server_logs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="event_desc" Type="varchar" MaxLength="45" />
+          <Property Name="timestamp" Type="timestamp" Precision="0" />
+          <Property Name="col1" Type="varchar" MaxLength="2000" />
+          <Property Name="col2" Type="varchar" MaxLength="2000" />
+          <Property Name="col3" Type="varchar" MaxLength="2000" />
+          <Property Name="col4" Type="varchar" MaxLength="2000" />
+          <Property Name="col5" Type="varchar" MaxLength="2000" />
+          <Property Name="col6" Type="varchar" MaxLength="2000" />
+          <Property Name="col7" Type="varchar" MaxLength="2000" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="novaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="novamainEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="appinfoes" EntityType="novaModel.appinfo" />
+          <EntitySet Name="appusers" EntityType="novaModel.appuser" />
+          <EntitySet Name="comments" EntityType="novaModel.comment" />
+          <EntitySet Name="novaevents" EntityType="novaModel.novaevent" />
+          <EntitySet Name="lastupdates" EntityType="novaModel.lastupdate" />
+          <EntitySet Name="messages" EntityType="novaModel.message" />
+          <EntitySet Name="rsvps" EntityType="novaModel.rsvp" />
+          <EntitySet Name="beta_events" EntityType="novaModel.beta_events" />
+          <EntitySet Name="server_logs" EntityType="novaModel.server_logs" />
+        </EntityContainer>
+        <EntityType Name="appinfo">
+          <Key>
+            <PropertyRef Name="AppID" />
+          </Key>
+          <Property Name="AppID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HashedAppID" Type="String" Nullable="false" />
+          <Property Name="AppName" Type="String" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Type="String" Name="HomeScreenText" />
+        </EntityType>
+        <EntityType Name="appuser">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppID" Type="Int32" Nullable="false" />
+          <Property Name="HandsetID" Type="String" Nullable="false" />
+          <Property Type="String" Name="HandsetModel" />
+          <Property Type="String" Name="HandsetManufacturer" />
+          <Property Type="String" Name="HandsetProduct" />
+          <Property Type="String" Name="UserEmail" />
+          <Property Type="String" Name="UserFirstName" />
+          <Property Type="String" Name="UserLastName" />
+          <Property Type="DateTime" Name="RegisterTimestamp" />
+        </EntityType>
+        <EntityType Name="comment">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <Property Name="Comment1" Type="String" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="timestamp" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="novaevent">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <Property Name="SyncID" Type="String" Nullable="false" />
+          <Property Name="AppID" Type="Int32" Nullable="false" />
+          <Property Name="EventName" Type="String" Nullable="false" />
+          <Property Name="EventDesc" Type="String" Nullable="false" />
+          <Property Name="EventStart" Type="DateTime" Nullable="false" />
+          <Property Name="Attending" Type="Int32" Nullable="false" />
+          <Property Name="NotAttending" Type="Int32" Nullable="false" />
+          <Property Name="LastUpdated" Type="DateTime" Nullable="false" />
+          <Property Name="EventEnd" Type="DateTime" Nullable="false" />
+          <Property Type="Int32" Name="Disabled" Nullable="false" />
+          <Property Type="String" Name="Location" />
+        </EntityType>
+        <EntityType Name="lastupdate">
+          <Key>
+            <PropertyRef Name="UpdateID" />
+          </Key>
+          <Property Name="UpdateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppID" Type="Int32" Nullable="false" />
+          <Property Name="LastEventUpdate" Type="DateTime" Nullable="false" />
+          <Property Name="LastMessageUpdate" Type="DateTime" Nullable="false" />
+          <Property Type="DateTime" Name="LastHomescreenUpdate" Nullable="false" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppID" Type="Int32" Nullable="false" />
+          <Property Name="MessageTitle" Type="String" Nullable="false" />
+          <Property Name="MessageContents" Type="String" Nullable="false" />
+          <Property Name="MessageDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rsvp">
+          <Key>
+            <PropertyRef Name="RsvpID" />
+          </Key>
+          <Property Name="RsvpID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <Property Name="Rsvp1" Type="String" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="beta_events">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="event_desc" />
+          <Property Type="DateTime" Name="timestamp" />
+          <Property Type="String" Name="submitted_by" />
+          <Property Type="String" Name="col1" />
+          <Property Type="String" Name="col2" />
+          <Property Type="String" Name="col3" />
+          <Property Type="String" Name="col4" />
+          <Property Type="String" Name="col5" />
+        </EntityType>
+        <EntityType Name="server_logs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="timestamp" />
+          <Property Type="String" Name="col1" />
+          <Property Type="String" Name="col2" />
+          <Property Type="String" Name="col3" />
+          <Property Type="String" Name="col4" />
+          <Property Type="String" Name="col5" />
+          <Property Type="String" Name="event_desc" />
+          <Property Type="String" Name="col6" />
+          <Property Type="String" Name="col7" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="novaModelStoreContainer" CdmEntityContainer="novamainEntities">
+          <EntitySetMapping Name="appinfoes"><EntityTypeMapping TypeName="novaModel.appinfo"><MappingFragment StoreEntitySet="appinfo">
+            <ScalarProperty Name="HomeScreenText" ColumnName="HomeScreenText" />
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
+            <ScalarProperty Name="HashedAppID" ColumnName="HashedAppID" />
+            <ScalarProperty Name="AppName" ColumnName="AppName" />
+            <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="appusers"><EntityTypeMapping TypeName="novaModel.appuser"><MappingFragment StoreEntitySet="appusers">
+            <ScalarProperty Name="RegisterTimestamp" ColumnName="RegisterTimestamp" />
+                <ScalarProperty Name="UserLastName" ColumnName="UserLastName" />
+                <ScalarProperty Name="UserFirstName" ColumnName="UserFirstName" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="HandsetProduct" ColumnName="HandsetProduct" />
+                <ScalarProperty Name="HandsetManufacturer" ColumnName="HandsetManufacturer" />
+                <ScalarProperty Name="HandsetModel" ColumnName="HandsetModel" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+            <ScalarProperty Name="AppID" ColumnName="AppID" />
+            <ScalarProperty Name="HandsetID" ColumnName="HandsetID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="comments"><EntityTypeMapping TypeName="novaModel.comment"><MappingFragment StoreEntitySet="comments">
+            <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+            <ScalarProperty Name="EventID" ColumnName="EventID" />
+            <ScalarProperty Name="Comment1" ColumnName="Comment" />
+            <ScalarProperty Name="UserID" ColumnName="UserID" />
+            <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="novaevents"><EntityTypeMapping TypeName="novaModel.novaevent"><MappingFragment StoreEntitySet="events">
+            <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+            <ScalarProperty Name="SyncID" ColumnName="SyncID" />
+            <ScalarProperty Name="AppID" ColumnName="AppID" />
+            <ScalarProperty Name="EventName" ColumnName="EventName" />
+            <ScalarProperty Name="EventDesc" ColumnName="EventDesc" />
+            <ScalarProperty Name="EventStart" ColumnName="EventStart" />
+            <ScalarProperty Name="Attending" ColumnName="Attending" />
+            <ScalarProperty Name="NotAttending" ColumnName="NotAttending" />
+            <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+            <ScalarProperty Name="EventEnd" ColumnName="EventEnd" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="lastupdates"><EntityTypeMapping TypeName="novaModel.lastupdate"><MappingFragment StoreEntitySet="lastupdates">
+            <ScalarProperty Name="LastHomescreenUpdate" ColumnName="LastHomescreenUpdate" />
+                <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+            <ScalarProperty Name="AppID" ColumnName="AppID" />
+            <ScalarProperty Name="LastEventUpdate" ColumnName="LastEventUpdate" />
+            <ScalarProperty Name="LastMessageUpdate" ColumnName="LastMessageUpdate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="messages"><EntityTypeMapping TypeName="novaModel.message"><MappingFragment StoreEntitySet="messages">
+            <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+            <ScalarProperty Name="AppID" ColumnName="AppID" />
+            <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+            <ScalarProperty Name="MessageContents" ColumnName="MessageContents" />
+            <ScalarProperty Name="MessageDate" ColumnName="MessageDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="rsvps"><EntityTypeMapping TypeName="novaModel.rsvp"><MappingFragment StoreEntitySet="rsvp">
+            <ScalarProperty Name="RsvpID" ColumnName="RsvpID" />
+            <ScalarProperty Name="EventID" ColumnName="EventID" />
+            <ScalarProperty Name="Rsvp1" ColumnName="Rsvp" />
+            <ScalarProperty Name="UserID" ColumnName="UserID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="beta_events">
+            <EntityTypeMapping TypeName="novaModel.beta_events">
+              <MappingFragment StoreEntitySet="beta_events">
+                <ScalarProperty Name="col5" ColumnName="col5" />
+                <ScalarProperty Name="col4" ColumnName="col4" />
+                <ScalarProperty Name="col3" ColumnName="col3" />
+                <ScalarProperty Name="col2" ColumnName="col2" />
+                <ScalarProperty Name="col1" ColumnName="col1" />
+                <ScalarProperty Name="submitted_by" ColumnName="submitted_by" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="event_desc" ColumnName="event_desc" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="server_logs">
+            <EntityTypeMapping TypeName="novaModel.server_logs">
+              <MappingFragment StoreEntitySet="server_logs">
+                <ScalarProperty Name="col7" ColumnName="col7" />
+                <ScalarProperty Name="col6" ColumnName="col6" />
+                <ScalarProperty Name="event_desc" ColumnName="event_desc" />
+                <ScalarProperty Name="col5" ColumnName="col5" />
+                <ScalarProperty Name="col4" ColumnName="col4" />
+                <ScalarProperty Name="col3" ColumnName="col3" />
+                <ScalarProperty Name="col2" ColumnName="col2" />
+                <ScalarProperty Name="col1" ColumnName="col1" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="novamain">
+        <EntityTypeShape EntityType="novaModel.appinfo" Width="1.5" PointX="0.75" PointY="0.75" Height="1.787985026041667" IsExpanded="true" />
+        <EntityTypeShape EntityType="novaModel.appuser" Width="1.5" PointX="2.75" PointY="0.5" Height="2.7494921875" IsExpanded="true" />
+        <EntityTypeShape EntityType="novaModel.comment" Width="1.5" PointX="0.75" PointY="3.75" Height="1.9802864583333322" IsExpanded="true" />
+        <EntityTypeShape EntityType="novaModel.novaevent" Width="1.5" PointX="4.75" PointY="0.75" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="novaModel.lastupdate" Width="1.5" PointX="4.75" PointY="4.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="novaModel.message" Width="1.5" PointX="6.75" PointY="0.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="novaModel.rsvp" Width="1.5" PointX="0.75" PointY="6.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="novaModel.beta_events" Width="1.5" PointX="7.375" PointY="3.75" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="novaModel.server_logs" Width="1.5" PointX="2.875" PointY="4" Height="2.9417936197916656" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

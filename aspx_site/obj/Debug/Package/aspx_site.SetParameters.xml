@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Default Web Site/aspx_site_deploy" />
+  <setParameter name="ApplicationServices-Web.config Connection String" value="data source=.\SQLEXPRESS;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|aspnetdb.mdf;User Instance=true" />
+  <setParameter name="novaEntities-Web.config Connection String" value="metadata=res://*/Models.novadb.csdl|res://*/Models.novadb.ssdl|res://*/Models.novadb.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=localhost;User Id=root;database=nova&quot;" />
+</parameters>

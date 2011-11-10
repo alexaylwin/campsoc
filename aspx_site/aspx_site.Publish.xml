@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="ftp://184.168.16.1" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="False" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FTP" replaceMatchingFiles="True" userName="alexaylwin" savePWD="True" userPWD="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAz7k56NQpvEKQVmbmiLLd9AAAAAACAAAAAAAQZgAAAAEAACAAAACbkvHPCr64XEToons+1HHg9tu2b8HKCcsUs4Bg8IOTAAAAAAAOgAAAAAIAACAAAAChtNmXcjwlKXXPeOTQL957G0Ob5098Xu4PLIxTh0HZESAAAACbV3PvZT17qu78kPlDdKglFwNn7GeI5PZPii6zE/CshkAAAACWQQHmbWbX8+9Y6s3eMUMjKbHmq1lxjkEDfocDfymJJVwQbMhcTPmp3B61WwJ5uSvgVTlovIcG894+OTl1x/Ly" SelectedForPublish="True">
+    <file relUrl="Views/Home/Index.aspx" publishTime="10/03/2011 08:27:18" />
+    <file relUrl="Scripts/MicrosoftAjax.debug.js" publishTime="07/17/2011 19:01:42" />
+    <file relUrl="Views/Events/Home.aspx" publishTime="10/02/2011 16:07:28" />
+    <file relUrl="Scripts/MicrosoftAjax.js" publishTime="07/17/2011 19:01:42" />
+    <file relUrl="bin/aspx_site.dll" publishTime="10/03/2011 11:03:43" />
+    <file relUrl="Global.asax" publishTime="07/17/2011 19:01:42" />
+    <file relUrl="Scripts/jquery-1.4.1-vsdoc.js" publishTime="07/17/2011 19:01:41" />
+    <file relUrl="Views/Messages/Home.aspx" publishTime="10/01/2011 14:40:13" />
+    <file relUrl="bin/MvcContrib.xml" publishTime="07/18/2011 18:33:47" />
+    <file relUrl="Views/Dashboard/Home.aspx" publishTime="10/02/2011 16:09:31" />
+    <file relUrl="Scripts/jquery-1.4.1.js" publishTime="07/17/2011 19:01:42" />
+    <file relUrl="Views/Shared/LogOnUserControl.ascx" publishTime="10/02/2011 12:40:16" />
+    <file relUrl="Scripts/MicrosoftMvcAjax.debug.js" publishTime="07/17/2011 19:01:42" />
+    <file relUrl="Scripts/MicrosoftMvcValidation.debug.js" publishTime="07/17/2011 19:01:42" />
+    <file relUrl="Views/AppService/AppRequest.aspx" publishTime="07/19/2011 21:33:22" />
+    <file relUrl="Views/Events/Edit.aspx" publishTime="10/01/2011 14:25:56" />
+    <file relUrl="Views/Account/ChangePassword.aspx" publishTime="07/17/2011 19:01:42" />
+    <file relUrl="Scripts/jquery.validate.min.js" publishTime="07/17/2011 19:01:42" />
+    <file relUrl="Web.sitemap" publishTime="10/01/2011 22:18:40" />
+    <file relUrl="Content/images/bghigh.jpg" publishTime="02/17/2011 14:12:11" />
+    <file relUrl="bin/aspx_site.pdb" publishTime="10/03/2011 11:03:43" />
+    <file relUrl="Views/Home/Version.aspx" publishTime="08/17/2011 19:43:51" />
+    <file relUrl="Scripts/jquery.validate.js" publishTime="07/17/2011 19:01:42" />
+    <file relUrl="Views/Messages/Details.aspx" publishTime="10/02/2011 16:00:22" />
+    <file relUrl="Scripts/jquery-1.4.1.min.js" publishTime="07/17/2011 19:01:42" />
+    <file relUrl="Views/Account/LogOn.aspx" publishTime="10/03/2011 08:26:08" />
+    <file relUrl="Views/Account/Register.aspx" publishTime="07/17/2011 19:01:42" />
+    <file relUrl="Scripts/jquery.validate-vsdoc.js" publishTime="07/17/2011 19:01:42" />
+    <file relUrl="Views/Events/Details.aspx" publishTime="10/02/2011 15:20:30" />
+    <file relUrl="MembersOnly/members.htm" publishTime="10/01/2011 12:47:47" />
+    <file relUrl="Content/PublicSite.css" publishTime="10/02/2011 15:36:50" />
+    <file relUrl="Views/Account/ChangePasswordSuccess.aspx" publishTime="07/17/2011 19:01:42" />
+    <file relUrl="Views/Shared/Site.Master" publishTime="10/02/2011 00:27:44" />
+    <file relUrl="Views/Shared/Error.aspx" publishTime="07/17/2011 19:01:42" />
+    <file relUrl="Views/AppService/Index.aspx" publishTime="07/24/2011 17:19:05" />
+    <file relUrl="Scripts/MicrosoftMvcAjax.js" publishTime="07/17/2011 19:01:42" />
+    <file relUrl="Views/Shared/PublicSite.Master" publishTime="10/03/2011 08:41:44" />
+    <file relUrl="Web.config" publishTime="10/03/2011 11:20:40" />
+    <file relUrl="Views/Messages/Create.aspx" publishTime="08/29/2011 10:25:52" />
+    <file relUrl="Content/Site.css" publishTime="10/02/2011 16:09:01" />
+    <file relUrl="Views/Home/About.aspx" publishTime="10/01/2011 20:18:49" />
+    <file relUrl="bin/MvcContrib.dll" publishTime="07/18/2011 18:33:47" />
+    <file relUrl="Scripts/MicrosoftMvcValidation.js" publishTime="07/17/2011 19:01:42" />
+    <file relUrl="Views/Web.config" publishTime="08/10/2011 18:38:33" />
+    <file relUrl="Views/Events/Create.aspx" publishTime="10/03/2011 11:39:35" />
+  </publishProfile>
+</publishData>

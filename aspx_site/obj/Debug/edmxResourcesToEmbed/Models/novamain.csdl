@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="novaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="novamainEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="appinfoes" EntityType="novaModel.appinfo" />
+    <EntitySet Name="appusers" EntityType="novaModel.appuser" />
+    <EntitySet Name="comments" EntityType="novaModel.comment" />
+    <EntitySet Name="novaevents" EntityType="novaModel.novaevent" />
+    <EntitySet Name="lastupdates" EntityType="novaModel.lastupdate" />
+    <EntitySet Name="messages" EntityType="novaModel.message" />
+    <EntitySet Name="rsvps" EntityType="novaModel.rsvp" />
+    <EntitySet Name="beta_events" EntityType="novaModel.beta_events" />
+    <EntitySet Name="server_logs" EntityType="novaModel.server_logs" />
+  </EntityContainer>
+  <EntityType Name="appinfo">
+    <Key>
+      <PropertyRef Name="AppID" />
+    </Key>
+    <Property Name="AppID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HashedAppID" Type="String" Nullable="false" />
+    <Property Name="AppName" Type="String" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Type="String" Name="HomeScreenText" />
+  </EntityType>
+  <EntityType Name="appuser">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppID" Type="Int32" Nullable="false" />
+    <Property Name="HandsetID" Type="String" Nullable="false" />
+    <Property Type="String" Name="HandsetModel" />
+    <Property Type="String" Name="HandsetManufacturer" />
+    <Property Type="String" Name="HandsetProduct" />
+    <Property Type="String" Name="UserEmail" />
+    <Property Type="String" Name="UserFirstName" />
+    <Property Type="String" Name="UserLastName" />
+    <Property Type="DateTime" Name="RegisterTimestamp" />
+  </EntityType>
+  <EntityType Name="comment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventID" Type="Int32" Nullable="false" />
+    <Property Name="Comment1" Type="String" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="novaevent">
+    <Key>
+      <PropertyRef Name="EventID" />
+    </Key>
+    <Property Name="EventID" Type="Int32" Nullable="false" />
+    <Property Name="SyncID" Type="String" Nullable="false" />
+    <Property Name="AppID" Type="Int32" Nullable="false" />
+    <Property Name="EventName" Type="String" Nullable="false" />
+    <Property Name="EventDesc" Type="String" Nullable="false" />
+    <Property Name="EventStart" Type="DateTime" Nullable="false" />
+    <Property Name="Attending" Type="Int32" Nullable="false" />
+    <Property Name="NotAttending" Type="Int32" Nullable="false" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" />
+    <Property Name="EventEnd" Type="DateTime" Nullable="false" />
+    <Property Type="Int32" Name="Disabled" Nullable="false" />
+    <Property Type="String" Name="Location" />
+  </EntityType>
+  <EntityType Name="lastupdate">
+    <Key>
+      <PropertyRef Name="UpdateID" />
+    </Key>
+    <Property Name="UpdateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppID" Type="Int32" Nullable="false" />
+    <Property Name="LastEventUpdate" Type="DateTime" Nullable="false" />
+    <Property Name="LastMessageUpdate" Type="DateTime" Nullable="false" />
+    <Property Type="DateTime" Name="LastHomescreenUpdate" Nullable="false" />
+  </EntityType>
+  <EntityType Name="message">
+    <Key>
+      <PropertyRef Name="MessageID" />
+    </Key>
+    <Property Name="MessageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppID" Type="Int32" Nullable="false" />
+    <Property Name="MessageTitle" Type="String" Nullable="false" />
+    <Property Name="MessageContents" Type="String" Nullable="false" />
+    <Property Name="MessageDate" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rsvp">
+    <Key>
+      <PropertyRef Name="RsvpID" />
+    </Key>
+    <Property Name="RsvpID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventID" Type="Int32" Nullable="false" />
+    <Property Name="Rsvp1" Type="String" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="beta_events">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="event_desc" />
+    <Property Type="DateTime" Name="timestamp" />
+    <Property Type="String" Name="submitted_by" />
+    <Property Type="String" Name="col1" />
+    <Property Type="String" Name="col2" />
+    <Property Type="String" Name="col3" />
+    <Property Type="String" Name="col4" />
+    <Property Type="String" Name="col5" />
+  </EntityType>
+  <EntityType Name="server_logs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="timestamp" />
+    <Property Type="String" Name="col1" />
+    <Property Type="String" Name="col2" />
+    <Property Type="String" Name="col3" />
+    <Property Type="String" Name="col4" />
+    <Property Type="String" Name="col5" />
+    <Property Type="String" Name="event_desc" />
+    <Property Type="String" Name="col6" />
+    <Property Type="String" Name="col7" />
+  </EntityType>
+</Schema>

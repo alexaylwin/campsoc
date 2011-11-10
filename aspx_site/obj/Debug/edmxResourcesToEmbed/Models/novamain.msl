@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="novaModelStoreContainer" CdmEntityContainer="novamainEntities">
+    <EntitySetMapping Name="appinfoes">
+      <EntityTypeMapping TypeName="novaModel.appinfo">
+        <MappingFragment StoreEntitySet="appinfo">
+          <ScalarProperty Name="HomeScreenText" ColumnName="HomeScreenText" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="HashedAppID" ColumnName="HashedAppID" />
+          <ScalarProperty Name="AppName" ColumnName="AppName" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="appusers">
+      <EntityTypeMapping TypeName="novaModel.appuser">
+        <MappingFragment StoreEntitySet="appusers">
+          <ScalarProperty Name="RegisterTimestamp" ColumnName="RegisterTimestamp" />
+          <ScalarProperty Name="UserLastName" ColumnName="UserLastName" />
+          <ScalarProperty Name="UserFirstName" ColumnName="UserFirstName" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="HandsetProduct" ColumnName="HandsetProduct" />
+          <ScalarProperty Name="HandsetManufacturer" ColumnName="HandsetManufacturer" />
+          <ScalarProperty Name="HandsetModel" ColumnName="HandsetModel" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="HandsetID" ColumnName="HandsetID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comments">
+      <EntityTypeMapping TypeName="novaModel.comment">
+        <MappingFragment StoreEntitySet="comments">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="Comment1" ColumnName="Comment" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="novaevents">
+      <EntityTypeMapping TypeName="novaModel.novaevent">
+        <MappingFragment StoreEntitySet="events">
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="SyncID" ColumnName="SyncID" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="EventDesc" ColumnName="EventDesc" />
+          <ScalarProperty Name="EventStart" ColumnName="EventStart" />
+          <ScalarProperty Name="Attending" ColumnName="Attending" />
+          <ScalarProperty Name="NotAttending" ColumnName="NotAttending" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="EventEnd" ColumnName="EventEnd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lastupdates">
+      <EntityTypeMapping TypeName="novaModel.lastupdate">
+        <MappingFragment StoreEntitySet="lastupdates">
+          <ScalarProperty Name="LastHomescreenUpdate" ColumnName="LastHomescreenUpdate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="LastEventUpdate" ColumnName="LastEventUpdate" />
+          <ScalarProperty Name="LastMessageUpdate" ColumnName="LastMessageUpdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="messages">
+      <EntityTypeMapping TypeName="novaModel.message">
+        <MappingFragment StoreEntitySet="messages">
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+          <ScalarProperty Name="MessageContents" ColumnName="MessageContents" />
+          <ScalarProperty Name="MessageDate" ColumnName="MessageDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rsvps">
+      <EntityTypeMapping TypeName="novaModel.rsvp">
+        <MappingFragment StoreEntitySet="rsvp">
+          <ScalarProperty Name="RsvpID" ColumnName="RsvpID" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="Rsvp1" ColumnName="Rsvp" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="beta_events">
+      <EntityTypeMapping TypeName="novaModel.beta_events">
+        <MappingFragment StoreEntitySet="beta_events">
+          <ScalarProperty Name="col5" ColumnName="col5" />
+          <ScalarProperty Name="col4" ColumnName="col4" />
+          <ScalarProperty Name="col3" ColumnName="col3" />
+          <ScalarProperty Name="col2" ColumnName="col2" />
+          <ScalarProperty Name="col1" ColumnName="col1" />
+          <ScalarProperty Name="submitted_by" ColumnName="submitted_by" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="event_desc" ColumnName="event_desc" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="server_logs">
+      <EntityTypeMapping TypeName="novaModel.server_logs">
+        <MappingFragment StoreEntitySet="server_logs">
+          <ScalarProperty Name="col7" ColumnName="col7" />
+          <ScalarProperty Name="col6" ColumnName="col6" />
+          <ScalarProperty Name="event_desc" ColumnName="event_desc" />
+          <ScalarProperty Name="col5" ColumnName="col5" />
+          <ScalarProperty Name="col4" ColumnName="col4" />
+          <ScalarProperty Name="col3" ColumnName="col3" />
+          <ScalarProperty Name="col2" ColumnName="col2" />
+          <ScalarProperty Name="col1" ColumnName="col1" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

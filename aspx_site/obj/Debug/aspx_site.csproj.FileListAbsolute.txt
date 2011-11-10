@@ -1,0 +1,7 @@
+Z:\Code\Nova\aspx_site\aspx_site\bin\aspx_site.dll
+Z:\Code\Nova\aspx_site\aspx_site\bin\aspx_site.pdb
+Z:\Code\Nova\aspx_site\aspx_site\obj\Debug\ResolveAssemblyReference.cache
+Z:\Code\Nova\aspx_site\aspx_site\obj\Debug\aspx_site.dll
+Z:\Code\Nova\aspx_site\aspx_site\obj\Debug\aspx_site.pdb
+Z:\Code\Nova\aspx_site\aspx_site\bin\MvcContrib.dll
+Z:\Code\Nova\aspx_site\aspx_site\bin\MvcContrib.xml

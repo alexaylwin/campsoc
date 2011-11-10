@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Dashboard/Home" title="Dashboard"  description="Dashboard">
+    <siteMapNode url="~/Events/Home" title="Events Home"  description="Events Home">
+      <siteMapNode url="~/Events/Create" title="Create Event"  description="Create a new event" />
+      <siteMapNode url="~/Events/Details" title="Event Details"  description="View event details" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

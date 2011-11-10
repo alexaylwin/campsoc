@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="novaModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="novaModelStoreContainer">
+    <EntitySet Name="appinfo" EntityType="novaModel.Store.appinfo" store:Type="Tables" Schema="nova" />
+    <EntitySet Name="appusers" EntityType="novaModel.Store.appusers" store:Type="Tables" Schema="nova" />
+    <EntitySet Name="comments" EntityType="novaModel.Store.comments" store:Type="Tables" Schema="nova" />
+    <EntitySet Name="eventids" EntityType="novaModel.Store.eventids" store:Type="Tables" Schema="nova" />
+    <EntitySet Name="events" EntityType="novaModel.Store.events" store:Type="Tables" Schema="nova" />
+    <EntitySet Name="lastupdates" EntityType="novaModel.Store.lastupdates" store:Type="Tables" Schema="nova" />
+    <EntitySet Name="messages" EntityType="novaModel.Store.messages" store:Type="Tables" Schema="nova" />
+    <EntitySet Name="rsvp" EntityType="novaModel.Store.rsvp" store:Type="Tables" Schema="nova" />
+  </EntityContainer>
+  <EntityType Name="appinfo">
+    <Key>
+      <PropertyRef Name="AppID" />
+    </Key>
+    <Property Name="AppID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="HashedAppID" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="AppName" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="appusers">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AppID" Type="int" Nullable="false" />
+    <Property Name="HandsetID" Type="varchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="comments">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EventID" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="varchar" Nullable="false" MaxLength="5000" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="timestamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="eventids">
+    <Key>
+      <PropertyRef Name="lastid" />
+    </Key>
+    <Property Name="lastid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="dateadded" Type="timestamp" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="events">
+    <Key>
+      <PropertyRef Name="EventID" />
+    </Key>
+    <Property Name="EventID" Type="int" Nullable="false" />
+    <Property Name="SyncID" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="AppID" Type="int" Nullable="false" />
+    <Property Name="EventName" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="EventDesc" Type="varchar" Nullable="false" MaxLength="6000" />
+    <Property Name="EventStart" Type="datetime" Nullable="false" />
+    <Property Name="Attending" Type="int" Nullable="false" />
+    <Property Name="NotAttending" Type="int" Nullable="false" />
+    <Property Name="LastUpdated" Type="timestamp" Nullable="false" Precision="0" />
+    <Property Name="EventEnd" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="lastupdates">
+    <Key>
+      <PropertyRef Name="UpdateID" />
+    </Key>
+    <Property Name="UpdateID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AppID" Type="int" Nullable="false" />
+    <Property Name="LastEventUpdate" Type="datetime" Nullable="false" />
+    <Property Name="LastMessageUpdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="messages">
+    <Key>
+      <PropertyRef Name="MessageID" />
+    </Key>
+    <Property Name="MessageID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AppID" Type="int" Nullable="false" />
+    <Property Name="MessageTitle" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="MessageContents" Type="varchar" Nullable="false" MaxLength="5000" />
+    <Property Name="MessageDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rsvp">
+    <Key>
+      <PropertyRef Name="RsvpID" />
+    </Key>
+    <Property Name="RsvpID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EventID" Type="int" Nullable="false" />
+    <Property Name="Rsvp" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+  </EntityType>
+</Schema>
