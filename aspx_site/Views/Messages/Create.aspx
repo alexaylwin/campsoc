@@ -5,9 +5,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat=server>
  <% using (Html.BeginForm()) { %>
-    Message ID: <%: Html.TextBox("MessageID") %> <br />
-    Message Name: <%: Html.TextBox("MessageTitle") %> <br />
-    Message Description: <%: Html.TextBox("MessageContents") %> </br >
+    <table id="createform">
+        <tr><td>Message ID:</td><td> <%: Html.TextBox("MessageID", ViewData["MessageID"],new { @class = "textinput" }) %></td></tr>
+        <tr><td>Message Title: </td><td><%: Html.TextBox("MessageTitle", "" ,new { @class = "textinput" })%></td></tr>
+        <tr><td>Message Description:</td><td><%: Html.TextArea("MessageContents","", new { @class = "longtext textinput" })%></td></tr>
+   </table> <br />
     <input type="submit" name="create" value="Create Message" />
  <%} %>
  </asp:Content>

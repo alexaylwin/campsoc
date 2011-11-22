@@ -36,6 +36,7 @@ namespace aspx_site.Controllers
 
         public ActionResult Create()
         {
+            ViewData["MessageID"] = (messagemodel.getMaxMessageID() + 1);
             return View();
         } 
 
@@ -50,9 +51,16 @@ namespace aspx_site.Controllers
                     MessageContents = collection["MessageContents"],
                     MessageTitle = collection["MessageTitle"],
                     MessageDate = DateTime.Now,
-                    MessageID = Convert.ToInt32(collection["MessageID"])
+                    MessageID = Convert.ToInt32(collection["MessageID"]),
+                    AppID = 4
                 };
-                return RedirectToAction("Home");
+                int ret = messagemodel.addMessage(4, newmessage);
+                if (ret != 1)
+                {
+                    return View();
+                }
+                ret = messagemodel.setLastMessageUpdate(4, DateTime.Now);
+                return View("Home");
             }
             catch
             {

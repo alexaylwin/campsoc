@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="ApplicationServices-Web.config Connection String" description="ApplicationServices Connection String used in web.config by the application to access the database." defaultvalue="data source=.\SQLEXPRESS;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|aspnetdb.mdf;User Instance=true" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ApplicationServices']/@connectionString" />
-  </parameter>
-  <parameter name="novaEntities-Web.config Connection String" description="novaEntities Connection String used in web.config by the application to access the database." defaultvalue="metadata=res://*/Models.novadb.csdl|res://*/Models.novadb.ssdl|res://*/Models.novadb.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=localhost;User Id=root;database=nova&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='novaEntities']/@connectionString" />
-  </parameter>
-</parameters>

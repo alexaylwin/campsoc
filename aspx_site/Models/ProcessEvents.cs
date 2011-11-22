@@ -39,6 +39,24 @@ namespace aspx_site.Models
             }
         }
 
+        public int updateEvent(int appid, novaevent updatedevent)
+        {
+            try
+            {
+                var selected_event = (from e in _db.novaevents
+                                      where (e.AppID == appid && e.EventID == updatedevent.EventID)
+                                      select e).First();
+                selected_event = updatedevent;
+                _db.novaevents.ApplyCurrentValues(selected_event);
+                _db.SaveChanges();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+        }
+
         public int getMaxEventID()
         {
             var selectedEvents = from e in _db.novaevents
@@ -91,6 +109,5 @@ namespace aspx_site.Models
                                  select e).First();
             return selectedEvents.EventID;
         }
-
     }
 }

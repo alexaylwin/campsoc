@@ -8,4 +8,6 @@
 
     <h2>Home</h2>
 
+    <p><%: Html.ActionLink("Create New Message", "Create", "Messages")%></p>
+
 </asp:Content>

@@ -41,5 +41,47 @@ namespace aspx_site.Models
 
         }
 
+        public int getMaxMessageID()
+        {
+            var selectedMessages = from e in _db.messages
+                                 where e.AppID == 4
+                                 select e.MessageID;
+            return selectedMessages.Max();
+        }
+
+        public int addMessage(int appid, message newmessage)
+        {
+            newmessage.AppID = appid;
+            try
+            {
+                _db.messages.AddObject(newmessage);
+                _db.SaveChanges();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+        }
+
+        public int setLastMessageUpdate(int appid, DateTime newtime)
+        {
+            try
+            {
+                var selected_update = (from su in _db.lastupdates
+                                       where (su.AppID == appid)
+                                       select su).FirstOrDefault();
+                selected_update.LastMessageUpdate = newtime;
+                _db.lastupdates.ApplyCurrentValues(selected_update);
+                _db.SaveChanges();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+
+        }
     }
+
 }

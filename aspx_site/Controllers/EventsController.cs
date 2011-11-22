@@ -66,7 +66,7 @@ namespace aspx_site.Controllers
                 eventToAdd.NotAttending = Convert.ToInt32(collection["NotAttending"]);
                 eventToAdd.Attending = Convert.ToInt32(collection["Attending"]);
                 eventToAdd.LastUpdated = DateTime.Now;
-                eventToAdd.Disabled = 0;
+                eventToAdd.Disabled = Convert.ToInt32(collection["Disabled"]);
                 eventToAdd.Location = collection["EventLocation"];
 
                 //Compute SHA1 hash for the syncid, and encode it in 32bit
@@ -115,6 +115,19 @@ namespace aspx_site.Controllers
 
         public ActionResult Edit(int id)
         {
+            var selectedEvent = (from events in _db.novaevents 
+                                 where events.EventID == id 
+                                 select events).First();
+
+            ViewData.Model = selectedEvent;
+            ViewData["EventID"] = selectedEvent.EventID;
+            ViewData["EventStart"] = selectedEvent.EventStart;
+            ViewData["EventEnd"] = selectedEvent.EventEnd;
+            ViewData["EventName"] = selectedEvent.EventName;
+            ViewData["EventDescription"] = selectedEvent.EventDesc;
+            ViewData["EventLocation"] = selectedEvent.Location;
+            ViewData["Attending"] = selectedEvent.Attending;
+            ViewData["NotAttending"] = selectedEvent.NotAttending;
             return View();
         }
 
@@ -123,12 +136,42 @@ namespace aspx_site.Controllers
         {
             try
             {
-                // TODO: Add update logic here
- 
-                return RedirectToAction("Home");
+                //get the form data from the create event form, and apply it to the new event
+                var selectedEvent = (from events in _db.novaevents
+                                     where events.EventID == id
+                                     select events).First();
+                novaevent updatedEvent = new novaevent();
+                updatedEvent = selectedEvent;
+                //eventToAdd.EventID = Convert.ToInt32(collection["EventID"]);
+                updatedEvent.EventDesc = collection["EventDescription"];
+                //updatedEvent.AppID = 4;
+                updatedEvent.EventName = collection["EventName"];
+                updatedEvent.EventStart = Convert.ToDateTime(collection["EventStart"]);
+                updatedEvent.EventEnd = Convert.ToDateTime(collection["EventEnd"]);
+                updatedEvent.NotAttending = Convert.ToInt32(collection["NotAttending"]);
+                updatedEvent.Attending = Convert.ToInt32(collection["Attending"]);
+                updatedEvent.LastUpdated = DateTime.Now;
+                //updatedEvent.Disabled = 0;
+                updatedEvent.Location = collection["EventLocation"];
+
+                //add the new object to the database
+                int ret = eventmodel.updateEvent(4, updatedEvent);
+                if (ret != 1)
+                {
+                    ViewData["ReturnMessage"] = "Error, could not add event.";
+                    return View();
+                }
+                ret = eventmodel.setLastEventUpdate(4, DateTime.Now);
+                if (ret != 1)
+                {
+                    ViewData["ReturnMessage"] = "Error, could not update last event date.";
+                    return View();
+                }
+                return View();
             }
             catch
             {
+                ViewData["ReturnMessage"] = "Error, could not create event from form data";
                 return View();
             }
         }
