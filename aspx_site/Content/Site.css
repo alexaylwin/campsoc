@@ -5,14 +5,21 @@ to use a different color start by replacing all instances of
 ----------------------------------------------------------*/
 body
 {
-    background-color: #5c87b2;
+    background-color: #35AB57;
     font-size: .75em;
     font-family: Verdana, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
-    color: #696969;
-    background-image: url('images/bghigh.jpg');
-    background-size: 120%;
+    color: #000;
+    font-weight:normal;
+    /*
+    kuler theme:
+    #0084B0;
+    #009694;
+    #35AB57; -BASE
+    #8AB833;
+    #BCF564;
+    */
 }
 
 a:link
@@ -86,7 +93,7 @@ first child of the left and right table columns */
 page width. Or, you can specify an exact pixel width. */
 .page
 {
-    width: 90%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -114,10 +121,14 @@ page width. Or, you can specify an exact pixel width. */
 #main
 {
     padding: 30px 30px 15px 30px;
-    background-color: #F4F5F7;
-    margin-bottom: 30px;
+    background-color: #BCF564;
+    margin-bottom: 0px;
+    border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
     _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
-}
+-webkit-box-shadow: 3px 3px 8px 3px #333333;
+-moz-box-shadow: 3px 3px 8px 3px #333333;
+box-shadow: 3px 3px 8px 3px #333333; }
 
 #footer
 {
@@ -133,11 +144,34 @@ page width. Or, you can specify an exact pixel width. */
 ----------------------------------------------------------*/
 ul#menu
 {
-    border-bottom: 1px #5C87B2 solid;
-    padding: 0 0 0px;
+    padding: 4px 4px 0px 4px;
     position: relative;
     margin: 0;
-    text-align: left;
+    top: 2px;
+    text-align: right;
+}
+
+#menucontainer
+{
+    position: relative;
+    margin-top:40px;
+    /*background-color: #0084B0;*/
+background-image: linear-gradient(bottom, #0084B0 23%, #009492 79%);
+background-image: -o-linear-gradient(bottom, #0084B0 23%, #009492 79%);
+background-image: -moz-linear-gradient(bottom, #0084B0 23%, #009492 79%);
+background-image: -webkit-linear-gradient(bottom, #0084B0 23%, #009492 79%);
+background-image: -ms-linear-gradient(bottom, #0084B0 23%, #009492 79%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.23, #0084B0),
+	color-stop(0.79, #009492)
+);
+    border-top: 0px solid #0084B0;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 ul#menu li
@@ -155,14 +189,33 @@ ul#menu li#greeting
     color: #000;
 }
 
-ul#menu li a
+ul#menu li div
 {
-    padding: 10px 20px;
+    border: 1px solid #BCF564;
+    border-bottom: 0px;
+    padding: 8px 4px;
+    background-color: #BCF564;
+    display: inline;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+}
+
+
+ul#menu li div a
+{
+    padding: 8px 15px;
     font-weight: bold;
     text-decoration: none;
     line-height: 2.8em;
-    background-color: #F4F5F7;
+    background-color: #BCF564;
     color: #034af3;
+}
+
+ul#menu li div:hover
+{
+    background-color: #fff;
+    text-decoration: none;
 }
 
 ul#menu li a:hover
@@ -250,11 +303,6 @@ table th
 .error
 {
     color:Red;
-}
-
-#menucontainer
-{
-    margin-top:40px;
 }
 
 div#title
@@ -414,9 +462,9 @@ div#title a:hover
 {
     text-align: left;
     vertical-align: top;
-    /*border-style: none;*/
-    border-color: #F4F5F7;
-    border-width: 10px;
+    border-style: none;
+    /*border-color: #F4F5F7;
+    border-width: 10px;*/
     width: 45%;
     padding-right: 10px;
     padding-left: 10px;

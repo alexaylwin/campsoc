@@ -25,9 +25,9 @@
             <div id="menucontainer">
             
                 <ul id="menu">              
-                    <li><%: Html.ActionLink("Dashboard", "Index", "Dashboard")%></li>
-                    <li><%: Html.ActionLink("Events", "Index", "Events")%></li>
-                    <li><%: Html.ActionLink("Messages", "Index", "Messages")%></li>
+                    <li><div><%: Html.ActionLink("Dashboard", "Index", "Dashboard")%></div></li>
+                    <li><div><%: Html.ActionLink("Events", "Index", "Events")%></div></li>
+                    <li><div><%: Html.ActionLink("Messages", "Index", "Messages")%></div></li>
                 </ul>
             
             </div>
