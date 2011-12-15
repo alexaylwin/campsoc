@@ -4,17 +4,29 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat=server>
 <h2>Create New Event</h2>
+<%List<SelectListItem> timelist = new List<SelectListItem>();
+  DateTime dt = new DateTime(1, 1, 1, 00, 0, 0);
+  for (int i = 0; i < 24; i++)
+  {
+      timelist.Add(new SelectListItem { Text = dt.ToString("h:mm"), Value = dt.ToString("h:mm") });
+      dt = dt.AddMinutes(30);
+  };
+  timelist[0].Selected = true;
+  
+  List<SelectListItem> ampm = new List<SelectListItem>();
+  ampm.Add(new SelectListItem { Text = "AM", Value = "AM", Selected = true });
+  ampm.Add(new SelectListItem { Text = "PM", Value = "PM" });
+ %>
  <% using (Html.BeginForm()) { %>
- <table id="createform">
-    <tr><td>Event ID:</td> <td><%: Html.TextBox("EventID", ViewData["EventID"], new { @class = "textinput"})%></td></tr>
-    <tr><td>Event Name:</td> <td><%: Html.TextBox("EventName", "", new { @class = "textinput" })%></td></tr>
-    <tr><td>Event Location:</td> <td><%: Html.TextBox("EventLocation", "", new {@class="textinput"}) %></td></tr>
-    <tr><td>Event Description:</td> <td><%: Html.TextArea("EventDescription", new { @class = "longtext textinput" })%></td></tr>
-    <tr><td>Event Start:</td> <td><%: Html.TextBox("EventStart", ViewData["EventStart"], new { @class = "dateinput" })%></td></tr>
-    <tr><td>Event End:</td> <td><%: Html.TextBox("EventEnd", ViewData["EventEnd"], new { @class = "dateinput" })%></td></tr>
-    <tr><td>Attending:</td> <td><%: Html.TextBox("Attending", "", new { @class = "textinput" })%></td></tr>
-    <tr><td>Not Attending:</td> <td><%: Html.TextBox("NotAttending", "", new { @class = "textinput" })%></td></tr>
-    <tr><td>Do not publish:</td> <td><%: Html.CheckBox("Disabled",false, new { @class="checkboxinput"}) %></td></tr>
+ <table class="createform">
+    <tr><td class="header">Event ID</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("EventID", ViewData["EventID"], new { @class = "textinput"})%></td></tr>
+    <tr><td class="header">Event Name</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("EventName", "", new { @class = "textinput" })%></td></tr>
+    <tr><td class="header">Event Location</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("EventLocation", "", new {@class="textinput"}) %></td></tr>
+    <tr><td class="header">Event Description</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextArea("EventDescription", new { @class = "longtext textinput" })%></td></tr>
+    <tr><td class="header">Runs from</td></tr> <tr><td><%: Html.TextBox("EventStartDate", ViewData["EventStartDate"], new { @class = "dateinput" })%> <%: Html.DropDownList("EventStartTime", timelist, new { @class = "timeinput" })%> <%: Html.DropDownList("EventStartTimeAMPM", ampm, new { @class = "timeinput ampm" })%> to <%: Html.TextBox("EventEndDate", ViewData["EventEndDate"], new { @class = "dateinput" })%> <%: Html.DropDownList("EventEndTime", timelist, new { @class = "timeinput" })%> <%: Html.DropDownList("EventEndTimeAMPM", ampm, new { @class = "timeinput ampm" })%></td></tr>
+    <tr><td class="header">Attending</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("Attending", "", new { @class = "numberinput" })%></td></tr>
+    <tr><td class="header">Not Attending</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("NotAttending", "", new { @class = "numberinput" })%></td></tr>
+    <tr><td>Do not publish:<%: Html.CheckBox("Disabled",false, new { @class="checkboxinput"}) %></tr>
  </table>
  <br />
     <input type="submit" name="create" value="Create Event" />
@@ -22,7 +34,7 @@
         $(function () {
             $(".dateinput").datepicker({ dateFormat: 'dd/mm/yy' });
             $('.dateinput').change(function () {
-                $(this).val($(this).val() + ' 12:00:00 AM');
+                $(this).val($(this).val());
             });
         });
     </script>

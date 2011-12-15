@@ -22,7 +22,16 @@ namespace aspx_site.Controllers
 
         public ActionResult Index()
         {
-            return View("Home");
+            return RedirectToAction("Home");//View("Home");
+        }
+
+        public ActionResult Home()
+        {
+            var selectedMessages = from messages in _db.messages
+                                   orderby messages.MessageDate descending
+                                   select messages;
+            ViewData.Model = selectedMessages.ToList();
+            return View();
         }
 
         public ActionResult Details(int id)

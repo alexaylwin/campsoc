@@ -61,12 +61,23 @@ namespace aspx_site.Controllers
                 eventToAdd.EventDesc = collection["EventDescription"];
                 eventToAdd.AppID = 4;
                 eventToAdd.EventName = collection["EventName"];
-                eventToAdd.EventStart = Convert.ToDateTime(collection["EventStart"]);
-                eventToAdd.EventEnd = Convert.ToDateTime(collection["EventEnd"]);
+
+                string eventstart;
+                eventstart = collection["EventStartDate"] + " " + collection["EventStartTime"] + collection["EventStartTimeAMPM"];
+                eventToAdd.EventStart = Convert.ToDateTime(eventstart);
+
+                string eventend;
+                eventend = collection["EventEndDate"] + " " + collection["EventEndTime"] + collection["EventEndTimeAMPM"];
+                eventToAdd.EventEnd = Convert.ToDateTime(eventend);
+                
                 eventToAdd.NotAttending = Convert.ToInt32(collection["NotAttending"]);
                 eventToAdd.Attending = Convert.ToInt32(collection["Attending"]);
                 eventToAdd.LastUpdated = DateTime.Now;
-                eventToAdd.Disabled = Convert.ToInt32(collection["Disabled"]);
+                if(collection["Disabled"] == "true"){
+                    eventToAdd.Disabled = 1;
+                } else {
+                    eventToAdd.Disabled = 0;
+                }
                 eventToAdd.Location = collection["EventLocation"];
 
                 //Compute SHA1 hash for the syncid, and encode it in 32bit
@@ -94,13 +105,14 @@ namespace aspx_site.Controllers
                     ViewData["ReturnMessage"] = "Error, could not update last event date.";
                     return View();
                 }
-                return View();
+                return RedirectToAction("Home");
             }
             catch
             {
                 ViewData["ReturnMessage"] = "Error, could not create event from form data";
                 return View();
            }
+            
         }
 
         public ActionResult Details(int id)
@@ -121,8 +133,15 @@ namespace aspx_site.Controllers
 
             ViewData.Model = selectedEvent;
             ViewData["EventID"] = selectedEvent.EventID;
-            ViewData["EventStart"] = selectedEvent.EventStart;
-            ViewData["EventEnd"] = selectedEvent.EventEnd;
+
+            //ViewData["EventStart"] = selectedEvent.EventStart;
+            //ViewData["EventEnd"] = selectedEvent.EventEnd;
+            ViewData["EventStartDate"] = selectedEvent.EventStart.ToString("dd/M/yyyy");
+            ViewData["EventStartTime"] = selectedEvent.EventStart.ToString("h:mm");// + ":" + Convert.ToString(selectedEvent.EventStart.Minute);
+            ViewData["EventStartAMPM"] = selectedEvent.EventStart.ToString("tt");
+            ViewData["EventEndDate"] = selectedEvent.EventEnd.ToString("dd/M/yyyy");
+            ViewData["EventEndTime"] = selectedEvent.EventEnd.ToString("h:mm");// + ":" + Convert.ToString(selectedEvent.EventStart.Minute);
+            ViewData["EventEndAMPM"] = selectedEvent.EventEnd.ToString("tt");
             ViewData["EventName"] = selectedEvent.EventName;
             ViewData["EventDescription"] = selectedEvent.EventDesc;
             ViewData["EventLocation"] = selectedEvent.Location;

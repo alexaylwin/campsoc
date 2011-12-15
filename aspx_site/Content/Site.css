@@ -478,22 +478,47 @@ div#title a:hover
 
 /* Styles for create forms
 -------------------------------------------*/
-#createform
+.createform
 {
     border-style:none;
 }
-#createform tr td
+.createform tr td
 {
     border-style:none;
 }
 
-#createform .textinput
+.createform .textinput
 {
     width: 250px;
 }
 
-#createform .longtext
+.createform .dateinput
+{
+    width: 75px;
+}
+
+.createform .timeinput
+{
+    width: 60px;
+}
+
+.createform .timeinput .ampm
+{
+    width: 15px;
+}
+
+.createform .longtext
 {
     width: 250px;
     height: 100px;
+}
+
+.createform .numberinput
+{
+    width: 45px;
+}
+
+.createform .header
+{
+ font-weight:bold;
 }
