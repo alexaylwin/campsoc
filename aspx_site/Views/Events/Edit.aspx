@@ -72,7 +72,7 @@
     <tr><td class="header">Runs from</td></tr> <tr><td><%: Html.TextBox("EventStartDate", ViewData["EventStartDate"], new { @class = "dateinput" })%> <%: Html.DropDownList("EventStartTime", strtimelist, new { @class = "timeinput" })%> <%: Html.DropDownList("EventStartTimeAMPM", strampm, new { @class = "timeinput ampm" })%> to <%: Html.TextBox("EventEndDate", ViewData["EventEndDate"], new { @class = "dateinput" })%> <%: Html.DropDownList("EventEndTime", endtimelist, new { @class = "timeinput" })%> <%: Html.DropDownList("EventEndTimeAMPM", endampm, new { @class = "timeinput ampm" })%></td></tr>
     <tr><td class="header">Attending</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("Attending", ViewData["Attending"], new { @class = "numberinput" })%></td></tr>
     <tr><td class="header">Not Attending</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("NotAttending", ViewData["NotAttending"], new { @class = "numberinput" })%></td></tr>
-    <tr><td>Do not publish:<%: Html.CheckBox("Disabled",false, new { @class="checkboxinput"}) %></tr>
+    <tr><td>Do not publish:<%: Html.CheckBox("Disabled",false, new { @class="checkboxinput"}) %></td></tr>
  </table>
  <br />
     <input type="submit" name="create" value="Submit Changes" />

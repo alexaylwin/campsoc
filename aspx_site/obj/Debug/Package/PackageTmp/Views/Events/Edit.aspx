@@ -17,17 +17,62 @@
      {
          desctext = ViewData["EventDescription"].ToString();
      }
+     
+     List<SelectListItem> strtimelist = new List<SelectListItem>();
+     List<SelectListItem> endtimelist = new List<SelectListItem>();
+     DateTime dt = new DateTime(1, 1, 1, 00, 0, 0);
+     for (int i = 0; i < 24; i++)
+     {
+         strtimelist.Add(new SelectListItem { Text = dt.ToString("h:mm"), Value = dt.ToString("h:mm") });
+         endtimelist.Add(new SelectListItem { Text = dt.ToString("h:mm"), Value = dt.ToString("h:mm") });
+         string st = Convert.ToString(ViewData["EventStartTime"]);
+         string en = Convert.ToString(ViewData["EventEndTime"]);
+         if (strtimelist[i].Value == st)
+         {
+             strtimelist[i].Selected = true;
+         }
+         if (endtimelist[i].Value == en)
+         {
+             endtimelist[i].Selected = true;
+         }
+         dt = dt.AddMinutes(30);
+     };
+
+     List<SelectListItem> strampm = new List<SelectListItem>();
+     List<SelectListItem> endampm = new List<SelectListItem>();
+     strampm.Add(new SelectListItem { Text = "AM", Value = "AM" });
+     strampm.Add(new SelectListItem { Text = "PM", Value = "PM" });
+
+     if (Convert.ToString(ViewData["EventStartAMPM"]) == "AM")
+     {
+         strampm[0].Selected = true;
+     }
+     else
+     {
+         strampm[1].Selected = true;
+     }
+     
+     endampm.Add(new SelectListItem { Text = "AM", Value = "AM" });
+     endampm.Add(new SelectListItem { Text = "PM", Value = "PM" });
+     if (Convert.ToString(ViewData["EventEndAMPM"]) == "AM")
+     {
+         endampm[0].Selected = true;
+     }
+     else
+     {
+         endampm[1].Selected = true;
+     }
  %>
  <% using (Html.BeginForm()) { %>
- <table id="createform">
-    <tr><td>Event ID:</td> <td><%: Html.TextBox("EventID", ViewData["EventID"], new { @class = "textinput"})%></td></tr>
-    <tr><td>Event Name:</td> <td><%: Html.TextBox("EventName", ViewData["EventName"], new {@class="textinput"}) %></td></tr>
-    <tr><td>Event Location:</td> <td><%: Html.TextBox("EventLocation", ViewData["Location"], new {@class="textinput"}) %></td></tr>
-    <tr><td>Event Description:</td> <td><%: Html.TextArea("EventDescription",desctext, new {@class="longtext textinput"})%></td></tr>
-    <tr><td>Event Start:</td> <td><%: Html.TextBox("EventStart", ViewData["EventStart"], new { @class = "dateinput" })%></td></tr>
-    <tr><td>Event End:</td> <td><%: Html.TextBox("EventEnd", ViewData["EventEnd"], new { @class = "dateinput" })%></td></tr>
-    <tr><td>Attending:</td> <td><%: Html.TextBox("Attending", ViewData["Attending"], new { @class = "textinput" })%></td></tr>
-    <tr><td>Not Attending:</td> <td><%: Html.TextBox("NotAttending", ViewData["NotAttending"], new { @class = "textinput" })%></td></tr>
+ <table class="createform">
+    <tr><td class="header">Event ID</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("EventID", ViewData["EventID"], new { @class = "textinput"})%></td></tr>
+    <tr><td class="header">Event Name</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("EventName", ViewData["EventName"], new { @class = "textinput" })%></td></tr>
+    <tr><td class="header">Event Location</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("EventLocation", ViewData["EventLocation"], new {@class="textinput"}) %></td></tr>
+    <tr><td class="header">Event Description</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextArea("EventDescription", new { @class = "longtext textinput" })%></td></tr>
+    <tr><td class="header">Runs from</td></tr> <tr><td><%: Html.TextBox("EventStartDate", ViewData["EventStartDate"], new { @class = "dateinput" })%> <%: Html.DropDownList("EventStartTime", strtimelist, new { @class = "timeinput" })%> <%: Html.DropDownList("EventStartTimeAMPM", strampm, new { @class = "timeinput ampm" })%> to <%: Html.TextBox("EventEndDate", ViewData["EventEndDate"], new { @class = "dateinput" })%> <%: Html.DropDownList("EventEndTime", endtimelist, new { @class = "timeinput" })%> <%: Html.DropDownList("EventEndTimeAMPM", endampm, new { @class = "timeinput ampm" })%></td></tr>
+    <tr><td class="header">Attending</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("Attending", ViewData["Attending"], new { @class = "numberinput" })%></td></tr>
+    <tr><td class="header">Not Attending</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("NotAttending", ViewData["NotAttending"], new { @class = "numberinput" })%></td></tr>
+    <tr><td>Do not publish:<%: Html.CheckBox("Disabled",false, new { @class="checkboxinput"}) %></td></tr>
  </table>
  <br />
     <input type="submit" name="create" value="Submit Changes" />
@@ -35,7 +80,7 @@
         $(function () {
             $(".dateinput").datepicker({ dateFormat: 'dd/mm/yy' });
             $('.dateinput').change(function () {
-                $(this).val($(this).val() + ' 12:00:00 AM');
+                $(this).val($(this).val());
             });
         });
     </script>

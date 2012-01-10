@@ -8,6 +8,7 @@
 </head>
 
 <body>
+
     <div class="page">
 
         <div id="header">
@@ -15,9 +16,9 @@
                 <h1><%: Html.ActionLink("Campus Social", "Index", "Home")%></h1>
             </div>
               
-            <div id="logindisplay">
+            <span id="logindisplay">
                 <% Html.RenderPartial("LogOnUserControl"); %>
-            </div> 
+            </span>
             
             <div id="menucontainer">
             
@@ -27,7 +28,7 @@
                     <%
                     if (Request.IsAuthenticated) {
                     %>
-                    <li><%: Html.ActionLink("My Dashboard", "Home", "Dashboard") %></li>
+                    <li><div><%: Html.ActionLink("My Dashboard", "Home", "Dashboard") %></div></li>
                    <%
                    }
                    %> 

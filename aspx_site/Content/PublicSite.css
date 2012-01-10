@@ -5,7 +5,7 @@ to use a different color start by replacing all instances of
 ----------------------------------------------------------*/
 body
 {
-    background-color: #0084B0;
+    background-color: #35AB57;
     font-size: .75em;
     font-family: Verdana, Helvetica, Sans-Serif;
     margin: 0;
@@ -124,11 +124,11 @@ page width. Or, you can specify an exact pixel width. */
     background-color: #BCF564;
     margin-bottom: 0px;
     border-bottom-right-radius: 10px;
-        border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
--webkit-box-shadow: 3px 3px 8px 3px #333333;
--moz-box-shadow: 3px 3px 8px 3px #333333;
-box-shadow: 3px 3px 8px 3px #333333; 
+    -webkit-box-shadow: 3px 3px 8px 3px #333333;
+    -moz-box-shadow: 3px 3px 8px 3px #333333;
+    box-shadow: 3px 3px 8px 3px #333333; 
 }
 
 #footer
@@ -156,20 +156,18 @@ ul#menu
 {
     position: relative;
     margin-top:40px;
-    background-color:transparent;
-    /*background-color: #009694;*/
-background-image: linear-gradient(bottom, #FAFA05 50%, #FDFF75 64%);
-background-image: -o-linear-gradient(bottom, #FAFA05 50%, #FDFF75 64%);
-background-image: -moz-linear-gradient(bottom, #FAFA05 50%, #FDFF75 64%);
-background-image: -webkit-linear-gradient(bottom, #FAFA05 50%, #FDFF75 64%);
-background-image: -ms-linear-gradient(bottom, #FAFA05 50%, #FDFF75 64%);
+background-image: linear-gradient(bottom, #0084B0 23%, #009492 79%);
+background-image: -o-linear-gradient(bottom, #0084B0 23%, #009492 79%);
+background-image: -moz-linear-gradient(bottom, #0084B0 23%, #009492 79%);
+background-image: -webkit-linear-gradient(bottom, #0084B0 23%, #009492 79%);
+background-image: -ms-linear-gradient(bottom, #0084B0 23%, #009492 79%);
 
 background-image: -webkit-gradient(
 	linear,
 	left bottom,
 	left top,
-	color-stop(0.5, #FAFA05),
-	color-stop(0.64, #FDFF75)
+	color-stop(0.23, #0084B0),
+	color-stop(0.79, #009492)
 );
     border-top: 0px solid #0084B0;
     border-top-right-radius: 10px;
@@ -191,6 +189,7 @@ ul#menu li#greeting
     color: #000;
 }
 
+
 ul#menu li div
 {
     border: 1px solid #BCF564;
@@ -206,7 +205,13 @@ ul#menu li div
 
 ul#menu li div a
 {
+
+
     padding: 8px 15px;
+
+
+
+
     font-weight: bold;
     text-decoration: none;
     line-height: 2.8em;
@@ -316,17 +321,17 @@ div#title
 
 div#title a
 {
-    color: #8AB833;
+    color: #000;
     text-decoration: none;
 }
 div#title a:visited
 {
-    color: #8AB833;
+    color: #000;
     text-decoration: none;
 }
 div#title a:hover
 {
-    color: #8AB833;
+    color: #898989;
     text-decoration: none;
 }
 
@@ -335,27 +340,30 @@ div#title a:hover
     font-size:1.1em;
     display:block;
     text-align:right;
+
     margin:10px;
-    color:#696969;
-}
+    color:#000;
+    
+    display:block;
+    
+ }
 
 #logindisplay a:link
 {
-    color: #696969;
-    text-decoration: none;
+    color: #000;
+    text-decoration: underline;
 }
 
 #logindisplay a:visited
 {
-    color: #696969;
-    text-decoration: none;
+    color: #000;
+    text-decoration: underline;
 }
 
 #logindisplay a:hover
 {
-    color: #696969;
+    color: #000;
     text-decoration: none;
-    font-weight:bold;
 }
 
 /* Styles for validation helpers

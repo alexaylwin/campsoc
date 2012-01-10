@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2>Events</h2>
-    <p><%: Html.ActionLink("Create New Event", "Create", "Events")%></p>
+    <div class="button"><%: Html.ActionLink("Create New Event", "Create", "Events")%></div>
     <div id="manageevents">
         <p><b>Manage Existing Events</b></p>
         Below is a list of all your current events.

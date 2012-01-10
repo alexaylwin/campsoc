@@ -186,7 +186,7 @@ namespace aspx_site.Controllers
                     ViewData["ReturnMessage"] = "Error, could not update last event date.";
                     return View();
                 }
-                return View();
+                return Redirect("../Details/" + id);
             }
             catch
             {

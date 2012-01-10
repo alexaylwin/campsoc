@@ -99,8 +99,28 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\images\bghigh.jpg" />
+    <Content Include="Content\fullcalendar\fullcalendar.css" />
+    <Content Include="Content\fullcalendar\fullcalendar.js" />
+    <Content Include="Content\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Content\fullcalendar\fullcalendar.print.css" />
+    <Content Include="Content\fullcalendar\gcal.js" />
+    <Content Include="Content\images\ui-bg_glass_55_fcf0ba_1x400.png" />
+    <Content Include="Content\images\ui-bg_gloss-wave_100_ece8da_500x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-hard_100_f5f3e5_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-hard_100_fafaf4_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-hard_15_459e00_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-hard_95_cccccc_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_25_67b021_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_95_ffedad_1x100.png" />
+    <Content Include="Content\images\ui-bg_inset-soft_15_2b2922_1x100.png" />
+    <Content Include="Content\images\ui-icons_808080_256x240.png" />
+    <Content Include="Content\images\ui-icons_847e71_256x240.png" />
+    <Content Include="Content\images\ui-icons_8dc262_256x240.png" />
+    <Content Include="Content\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\images\ui-icons_eeeeee_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\jquery-ui-1.8.16.css" />
+    <Content Include="Content\jquery-ui-1.8.16.custom.css" />
     <Content Include="Content\PublicSite.css" />
     <Content Include="Global.asax" />
     <Content Include="MembersOnly\members.htm" />
