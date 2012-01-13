@@ -444,6 +444,54 @@ namespace aspx_site.Models
         private global::System.String _HomeScreenText;
         partial void OnHomeScreenTextChanging(global::System.String value);
         partial void OnHomeScreenTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String TwitterAccessToken
+        {
+            get
+            {
+                return _TwitterAccessToken;
+            }
+            set
+            {
+                OnTwitterAccessTokenChanging(value);
+                ReportPropertyChanging("TwitterAccessToken");
+                _TwitterAccessToken = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("TwitterAccessToken");
+                OnTwitterAccessTokenChanged();
+            }
+        }
+        private global::System.String _TwitterAccessToken;
+        partial void OnTwitterAccessTokenChanging(global::System.String value);
+        partial void OnTwitterAccessTokenChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String TwitterAccessTokenSecret
+        {
+            get
+            {
+                return _TwitterAccessTokenSecret;
+            }
+            set
+            {
+                OnTwitterAccessTokenSecretChanging(value);
+                ReportPropertyChanging("TwitterAccessTokenSecret");
+                _TwitterAccessTokenSecret = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("TwitterAccessTokenSecret");
+                OnTwitterAccessTokenSecretChanged();
+            }
+        }
+        private global::System.String _TwitterAccessTokenSecret;
+        partial void OnTwitterAccessTokenSecretChanging(global::System.String value);
+        partial void OnTwitterAccessTokenSecretChanged();
 
         #endregion
     

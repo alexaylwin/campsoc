@@ -90,6 +90,41 @@ namespace aspx_site.Models
             return 1;
         }
 
+        public int updateAppTwitterTokens(int appid, string accessToken, string accessTokenSecret)
+        {
+            try
+            {
+                var selected_app = (from sa in _db.appinfoes
+                                    where (sa.AppID == appid)
+                                    select sa).First();
+
+                selected_app.TwitterAccessToken = accessToken;
+                selected_app.TwitterAccessTokenSecret = accessTokenSecret;
+                _db.appinfoes.ApplyCurrentValues(selected_app);
+                _db.SaveChanges();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
+        public appinfo getAppInfo(int appid)
+        {
+            try
+            {
+                var selected_app = (from sa in _db.appinfoes
+                                    where (sa.AppID == appid)
+                                    select sa).First();
+                return selected_app;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
         public DateTime getHomeScreenUpdate(int appid)
         {
             try

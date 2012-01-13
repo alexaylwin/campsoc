@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using aspx_site.Models;
 using System.Web.Script.Serialization;
 
+
 namespace aspx_site.Controllers
 {
     class fullcalendar_event
@@ -109,6 +110,7 @@ namespace aspx_site.Controllers
 
                 ViewData["eventlistjson"] = replaced;
                 //ViewData["eventlistjson"] = new JavaScriptSerializer().Serialize(this.Json(jsonlist).Data).Replace("\"\\/Date(", "Date(").Replace(")\\/\"", ")");
+                
             }
             catch
             {

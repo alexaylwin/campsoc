@@ -39,6 +39,10 @@
     <Reference Include="MvcContrib">
       <HintPath>MVCContrib\MvcContrib.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.3.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -72,6 +76,10 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Twitterizer2, Version=2.4.0.2028, Culture=neutral, PublicKeyToken=69d1469eac671567, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Twitterizer2.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
@@ -80,6 +88,7 @@
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -104,6 +113,8 @@
     <Content Include="Content\fullcalendar\fullcalendar.min.js" />
     <Content Include="Content\fullcalendar\fullcalendar.print.css" />
     <Content Include="Content\fullcalendar\gcal.js" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logo_big.png" />
     <Content Include="Content\images\ui-bg_glass_55_fcf0ba_1x400.png" />
     <Content Include="Content\images\ui-bg_gloss-wave_100_ece8da_500x100.png" />
     <Content Include="Content\images\ui-bg_highlight-hard_100_f5f3e5_1x100.png" />
@@ -121,11 +132,13 @@
     <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\jquery-ui-1.8.16.css" />
     <Content Include="Content\jquery-ui-1.8.16.custom.css" />
+    <Content Include="Content\LandingPage.css" />
     <Content Include="Content\PublicSite.css" />
     <Content Include="Global.asax" />
     <Content Include="MembersOnly\members.htm" />
     <Content Include="Scripts\jquery-1.6.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.16.min.js" />
+    <Content Include="Scripts\slideFade.js" />
     <Content Include="Views\AppService\AppRequest.aspx" />
     <Content Include="Views\AppService\Index.aspx" />
     <Content Include="Views\Dashboard\Home.aspx" />
@@ -133,10 +146,13 @@
     <Content Include="Views\Events\Details.aspx" />
     <Content Include="Views\Events\Edit.aspx" />
     <Content Include="Views\Events\Home.aspx" />
+    <Content Include="Views\Home\LandingPage.aspx" />
     <Content Include="Views\Home\Version.aspx" />
     <Content Include="Views\Messages\Create.aspx" />
     <Content Include="Views\Messages\Details.aspx" />
     <Content Include="Views\Messages\Home.aspx" />
+    <Content Include="Views\Settings\Accounts.aspx" />
+    <Content Include="Views\Settings\Home.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

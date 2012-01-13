@@ -4,6 +4,8 @@
     <EntitySetMapping Name="appinfoes">
       <EntityTypeMapping TypeName="novaModel.appinfo">
         <MappingFragment StoreEntitySet="appinfo">
+          <ScalarProperty Name="TwitterAccessTokenSecret" ColumnName="TwitterAccessTokenSecret" />
+          <ScalarProperty Name="TwitterAccessToken" ColumnName="TwitterAccessToken" />
           <ScalarProperty Name="HomeScreenText" ColumnName="HomeScreenText" />
           <ScalarProperty Name="AppID" ColumnName="AppID" />
           <ScalarProperty Name="HashedAppID" ColumnName="HashedAppID" />

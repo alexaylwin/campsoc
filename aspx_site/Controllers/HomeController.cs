@@ -25,5 +25,10 @@ namespace aspx_site.Controllers
         {
             return View();
         }
+
+        public ActionResult LandingPage()
+        {
+            return View();
+        }
     }
 }

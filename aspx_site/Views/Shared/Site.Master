@@ -34,6 +34,7 @@
                     <li><div><%: Html.ActionLink("Dashboard", "Index", "Dashboard")%></div></li>
                     <li><div><%: Html.ActionLink("Events", "Index", "Events")%></div></li>
                     <li><div><%: Html.ActionLink("Messages", "Index", "Messages")%></div></li>
+                    <li><div><%: Html.ActionLink("Settings", "Index", "Settings")%></div></li>
                 </ul>
             
             </div>

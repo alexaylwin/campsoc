@@ -20,6 +20,8 @@
     <Property Name="AppName" Type="String" Nullable="false" />
     <Property Name="CustomerID" Type="Int32" Nullable="false" />
     <Property Type="String" Name="HomeScreenText" />
+    <Property Type="String" Name="TwitterAccessToken" />
+    <Property Type="String" Name="TwitterAccessTokenSecret" />
   </EntityType>
   <EntityType Name="appuser">
     <Key>
