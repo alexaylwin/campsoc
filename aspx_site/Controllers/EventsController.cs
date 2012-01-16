@@ -20,11 +20,13 @@ namespace aspx_site.Controllers
 
         novamainEntities _db;
         ProcessEvents eventmodel;
+        Util utility;
 
         public EventsController()
         {
             _db = new novamainEntities();
             eventmodel = new ProcessEvents();
+            utility = new Util();
         }
 
         public ActionResult Index()
@@ -47,6 +49,15 @@ namespace aspx_site.Controllers
             ViewData["EventID"] = (eventmodel.getMaxEventID() + 1);
             ViewData["EventStart"] = Convert.ToString(DateTime.Now);
             ViewData["EventEnd"] = Convert.ToString(DateTime.Now);
+            appinfo app = utility.getAppInfo(4);
+            if (app.TwitterAccessToken != null)
+            {
+                ViewData["twitterRegistered"] = true;
+            }
+            else
+            {
+                ViewData["twitterRegistered"] = false;
+            }
             return View();
         }
 

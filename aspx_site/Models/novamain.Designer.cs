@@ -492,6 +492,30 @@ namespace aspx_site.Models
         private global::System.String _TwitterAccessTokenSecret;
         partial void OnTwitterAccessTokenSecretChanging(global::System.String value);
         partial void OnTwitterAccessTokenSecretChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FacebookAccessToken
+        {
+            get
+            {
+                return _FacebookAccessToken;
+            }
+            set
+            {
+                OnFacebookAccessTokenChanging(value);
+                ReportPropertyChanging("FacebookAccessToken");
+                _FacebookAccessToken = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FacebookAccessToken");
+                OnFacebookAccessTokenChanged();
+            }
+        }
+        private global::System.String _FacebookAccessToken;
+        partial void OnFacebookAccessTokenChanging(global::System.String value);
+        partial void OnFacebookAccessTokenChanged();
 
         #endregion
     

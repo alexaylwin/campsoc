@@ -110,6 +110,25 @@ namespace aspx_site.Models
             }
         }
 
+        public int updateAppFacebookTokens(int appid, string accessToken)
+        {
+            try
+            {
+                var selected_app = (from sa in _db.appinfoes
+                                    where (sa.AppID == appid)
+                                    select sa).First();
+
+                selected_app.FacebookAccessToken = accessToken;
+                _db.appinfoes.ApplyCurrentValues(selected_app);
+                _db.SaveChanges();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
         public appinfo getAppInfo(int appid)
         {
             try

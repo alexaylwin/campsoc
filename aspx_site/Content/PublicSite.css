@@ -143,6 +143,16 @@ page width. Or, you can specify an exact pixel width. */
     font-size: .9em;
 }
 
+#footer a
+{
+    color: #034af3;
+}
+
+#footer a:visited
+{
+    color: #034af3;
+}
+
 /* TAB MENU   
 ----------------------------------------------------------*/
 ul#menu
@@ -250,7 +260,7 @@ fieldset
 {
     margin: 1em 0;
     padding: 1em;
-    border: 1px solid #CCC;
+    border-style:none;
 }
 
 fieldset p 
@@ -347,7 +357,7 @@ div#title a:hover
     text-align:right;
 
     margin:10px;
-    color:#000;
+    color:#404040;
     
     display:block;
     
@@ -355,19 +365,19 @@ div#title a:hover
 
 #logindisplay a:link
 {
-    color: #000;
+    color: #404040;
     text-decoration: underline;
 }
 
 #logindisplay a:visited
 {
-    color: #000;
+    color: #404040;
     text-decoration: underline;
 }
 
 #logindisplay a:hover
 {
-    color: #000;
+    color: #404040;
     text-decoration: none;
 }
 

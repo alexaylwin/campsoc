@@ -3,358 +3,9 @@ The base color for this template is #5c87b2. If you'd like
 to use a different color start by replacing all instances of
 #5c87b2 with your new color.
 ----------------------------------------------------------*/
-body
-{
-    background-color: #35AB57;
-    font-size: .75em;
-    font-family: Verdana, Helvetica, Sans-Serif;
-    margin: 0;
-    padding: 0;
-    color: #000;
-    font-weight:normal;
-    /*
-    kuler theme:
-    #0084B0;
-    #009694;
-    #35AB57; -BASE
-    #8AB833;
-    #BCF564;
-    */
-}
-
-a:link
-{
-    color: #034af3;
-    text-decoration: underline;
-}
-a:visited
-{
-    color: #505abc;
-}
-a:hover
-{
-    color: #1d60ff;
-    text-decoration: none;
-}
-a:active
-{
-    color: #12eb87;
-}
-
-p, ul
-{
-    margin-bottom: 20px;
-    line-height: 1.6em;
-}
-
-/* HEADINGS   
-----------------------------------------------------------*/
-h1, h2, h3, h4, h5, h6
-{
-    font-size: 1.5em;
-    color: #000;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-h1
-{
-    font-size: 2em;
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
-h2
-{
-    padding: 0 0 10px 0;
-}
-h3
-{
-    font-size: 1.2em;
-}
-h4
-{
-    font-size: 1.1em;
-}
-h5, h6
-{
-    font-size: 1em;
-}
-
-/* this rule styles <h2> tags that are the 
-first child of the left and right table columns */
-.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
-{
-    margin-top: 0;
-}
-
-/* PRIMARY LAYOUT ELEMENTS   
-----------------------------------------------------------*/
-
-/* you can specify a greater or lesser percentage for the 
-page width. Or, you can specify an exact pixel width. */
-.page
-{
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#header
-{
-    position: relative;
-    margin-bottom: 0px;
-    color: #000;
-    padding: 0;
-}
-
-#header h1
-{
-    font-weight: bold;
-    padding: 5px 0;
-    margin: 0;
-    color: #000;
-    border: none;
-    line-height: 2em;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 32px !important;
-}
-
-#main
-{
-    padding: 30px 30px 15px 30px;
-    background-color: #BCF564;
-    margin-bottom: 0px;
-    border-bottom-right-radius: 10px;
-        border-bottom-left-radius: 10px;
-    _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
--webkit-box-shadow: 3px 3px 8px 3px #333333;
--moz-box-shadow: 3px 3px 8px 3px #333333;
-box-shadow: 3px 3px 8px 3px #333333; }
-
-#footer
-{
-    color: #999;
-    padding: 10px 0;
-    text-align: center;
-    line-height: normal;
-    margin: 0;
-    font-size: .9em;
-}
-
-/* TAB MENU   
-----------------------------------------------------------*/
-ul#menu
-{
-    padding: 4px 4px 0px 4px;
-    position: relative;
-    margin: 0;
-    top: 2px;
-    text-align: right;
-}
-
-#menucontainer
-{
-    position: relative;
-    margin-top:40px;
-    /*background-color: #0084B0;*/
-background-image: linear-gradient(bottom, #0084B0 23%, #009492 79%);
-background-image: -o-linear-gradient(bottom, #0084B0 23%, #009492 79%);
-background-image: -moz-linear-gradient(bottom, #0084B0 23%, #009492 79%);
-background-image: -webkit-linear-gradient(bottom, #0084B0 23%, #009492 79%);
-background-image: -ms-linear-gradient(bottom, #0084B0 23%, #009492 79%);
-
-background-image: -webkit-gradient(
-	linear,
-	left bottom,
-	left top,
-	color-stop(0.23, #0084B0),
-	color-stop(0.79, #009492)
-);
-    border-top: 0px solid #0084B0;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-}
-
-ul#menu li
-{
-    display: inline;
-    list-style: none;
-}
-
-ul#menu li#greeting
-{
-    padding: 10px 20px;
-    font-weight: bold;
-    text-decoration: none;
-    line-height: 2.8em;
-    color: #000;
-}
-
-ul#menu li div
-{
-    border: 1px solid #BCF564;
-    border-bottom: 0px;
-    padding: 8px 4px;
-    background-color: #BCF564;
-    display: inline;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-
-}
-
-
-ul#menu li div a
-{
-    padding: 8px 15px;
-    font-weight: bold;
-    text-decoration: none;
-    line-height: 2.8em;
-    background-color: #BCF564;
-    color: #034af3;
-}
-
-ul#menu li div:hover
-{
-    background-color: #fff;
-    text-decoration: none;
-}
-
-ul#menu li a:hover
-{
-    background-color: #fff;
-    text-decoration: none;
-}
-
-ul#menu li a:active
-{
-    background-color: #a6e2a6;
-    text-decoration: none;
-}
-
-ul#menu li.selected a
-{
-    background-color: #fff;
-    color: #000;
-}
-
-/* FORM LAYOUT ELEMENTS   
-----------------------------------------------------------*/
-
-fieldset 
-{
-    margin: 1em 0;
-    padding: 1em;
-    border: 1px solid #CCC;
-}
-
-fieldset p 
-{
-    margin: 2px 12px 10px 10px;
-}
-
-legend 
-{
-    font-size: 1.1em;
-    font-weight: 600;
-    padding: 2px 4px 8px 4px;
-}
-
-input[type="text"] 
-{
-    width: 200px;
-    border: 1px solid #CCC;
-}
-
-input[type="password"] 
-{
-    width: 200px;
-    border: 1px solid #CCC;
-}
-
-/* TABLE
-----------------------------------------------------------*/
-
-table 
-{
-  border: solid 1px #e8eef4;
-  border-collapse: collapse;
-}
-
-table td 
-{
-  padding: 5px;   
-  border: solid 1px #e8eef4;
-}
-
-table th
-{
-  padding: 6px 5px;
-  text-align: left;
-  background-color: #e8eef4; 
-  border: solid 1px #e8eef4;   
-}
-
-/* MISC  
-----------------------------------------------------------*/
-.clear
-{
-    clear: both;
-}
-
-.error
-{
-    color:Red;
-}
-
-div#title
-{
-    display:block;
-    float:left;
-    text-align:left;
-}
-div#title a
-{
-    color: #000;
-    text-decoration: none;
-}
-div#title a:visited
-{
-    color: #000;
-    text-decoration: none;
-}
-div#title a:hover
-{
-    color: #898989;
-    text-decoration: none;
-}
-
-#logindisplay
-{
-    font-size:1.1em;
-    display:block;
-    text-align:right;
-    margin:10px;
-    color:#696969;
-}
-
-#logindisplay a:link
-{
-    color: #696969;
-    text-decoration: underline;
-}
-
-#logindisplay a:visited
-{
-    color: #696969;
-    text-decoration: underline;
-}
-
-#logindisplay a:hover
-{
-    color: #696969;
-    text-decoration: none;
-}
-
-div.button a
+@import url("PublicSite.css");
+/*not in publicsite*/
+span.button a
 {
     color: #FFFFFF;
     font-size:1.2em;
@@ -362,70 +13,10 @@ div.button a
     font-weight:bolder;
     text-transform:uppercase;
     text-decoration:none;
-}
-div.button
-{
     border-style:solid;
     border-width:1px;
-    border-bottom-right-radius:10px;
-    border-bottom-left-radius:10px;
-    border-top-right-radius:10px;
-    border-top-left-radius:10px;
-    
-}
-
-/* Styles for validation helpers
------------------------------------------------------------*/
-.field-validation-error
-{
-    color: #ff0000;
-}
-
-.field-validation-valid
-{
-    display: none;
-}
-
-.input-validation-error
-{
-    border: 1px solid #ff0000;
-    background-color: #ffeeee;
-}
-
-.validation-summary-errors
-{
-    font-weight: bold;
-    color: #ff0000;
-}
-
-.validation-summary-valid
-{
-    display: none;
-}
-
-/* Styles for editor and display helpers
-----------------------------------------------------------*/
-.display-label,
-.editor-label,
-.display-field,
-.editor-field
-{
-    margin: 0.5em 0;
-}
-
-.text-box
-{
-    width: 30em;
-}
-
-.text-box.multi-line
-{
-    height: 6.5em;
-}
-
-.tri-state
-{
-    width: 6em;
+    padding: 5px;
+    background-color: Gray;
 }
 
 /* Styles for the events page 
@@ -435,40 +26,93 @@ div.button
     list-style: none;
 }
 
-#eventlist a
-{
-    color: #696969;
-}
-
-#eventlist a:visted
-{
-    color: #696969;
-}
-
-#eventlist a:hover
-{
-    color: #696969;
-    background-color: #FFF;
-}
-
-
-.eventlistitem 
-{
-    margin-bottom: 8px;
-    background-color: #E0E0E0;
-    padding: 5px;
-}
-
 .eventlistitem a
 {
+    color: #000;
     text-decoration: none;
     display: block;
+    margin-bottom: 8px;
+    background-color: transparent;/*//#E0E0E0;*/
+    border-left: 4px solid #404040;
+    padding: 5px;
+    padding-top:2px;
+    padding-bottom:2px;
+}
+
+.eventlistitem a:visted
+{
+    color: #000;
+}
+
+.eventlistitem a:hover
+{
+    padding:0px 3px 0px 3px;
+        border-style: solid;
+    border-width: 2px;
+    border-color: #404040;
+    border-left-width: 4px;
+    background-color: #C9F781;/*#BCF564;*/
+}
+
+.eventlistitem .header
+{
+    text-decoration:underline;
+    margin-bottom: 4px;
 }
 
 #manageevents
 {
     width: 50%;
 }
+
+/* Styles for the messages page */
+/*---------------------------------------------------------*/
+#messagelist
+{
+    list-style: none;
+}
+
+.messagelistitem a
+{
+    color: #000;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    background-color: transparent; /*#E0E0E0;*/
+    border-left: 4px solid #404040;
+    padding: 5px;
+    padding-top:2px;
+    padding-bottom:2px;
+}
+
+.messagelistitem a:visted
+{
+    color: #000;
+}
+
+.messagelistitem a:hover
+{
+    padding:0px 3px 0px 3px;
+        border-style: solid;
+    border-width: 2px;
+    border-color: #404040;
+    border-left-width: 4px;
+    background-color: #C9F781;
+}
+
+.messagelistitem .header
+{
+    text-decoration:underline;
+    margin-bottom: 4px;
+    text-transform:capitalize;
+}
+
+#managemessages
+{
+    width: 50%;
+}
+
+
 
 /* Styles for the dashboard page
 ---------------------------------------------------------*/
@@ -495,6 +139,20 @@ div.button
 {
     border-bottom: 1px solid black;
 }
+
+#calendar
+{
+    background-color:#FFFFFF;
+    width:100%;
+    padding: 5px;
+    border-color: Black;
+    border-style: solid;
+}
+#calendar tr td
+{
+    width:auto;
+}
+
 
 /* Styles for create forms
 -------------------------------------------*/

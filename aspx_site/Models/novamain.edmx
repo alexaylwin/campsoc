@@ -27,6 +27,7 @@
           <Property Name="HomeScreenText" Type="varchar" MaxLength="2000" />
           <Property Name="TwitterAccessToken" Type="varchar" MaxLength="255" />
           <Property Name="TwitterAccessTokenSecret" Type="varchar" MaxLength="255" />
+          <Property Name="FacebookAccessToken" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="appusers">
           <Key>
@@ -154,6 +155,7 @@
           <Property Type="String" Name="HomeScreenText" />
           <Property Type="String" Name="TwitterAccessToken" />
           <Property Type="String" Name="TwitterAccessTokenSecret" />
+          <Property Type="String" Name="FacebookAccessToken" />
         </EntityType>
         <EntityType Name="appuser">
           <Key>
@@ -262,7 +264,8 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="novaModelStoreContainer" CdmEntityContainer="novamainEntities">
           <EntitySetMapping Name="appinfoes"><EntityTypeMapping TypeName="novaModel.appinfo"><MappingFragment StoreEntitySet="appinfo">
-            <ScalarProperty Name="TwitterAccessTokenSecret" ColumnName="TwitterAccessTokenSecret" />
+            <ScalarProperty Name="FacebookAccessToken" ColumnName="FacebookAccessToken" />
+                <ScalarProperty Name="TwitterAccessTokenSecret" ColumnName="TwitterAccessTokenSecret" />
                 <ScalarProperty Name="TwitterAccessToken" ColumnName="TwitterAccessToken" />
                 <ScalarProperty Name="HomeScreenText" ColumnName="HomeScreenText" />
                 <ScalarProperty Name="AppID" ColumnName="AppID" />

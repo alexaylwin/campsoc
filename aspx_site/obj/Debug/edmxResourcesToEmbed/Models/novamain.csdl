@@ -22,6 +22,7 @@
     <Property Type="String" Name="HomeScreenText" />
     <Property Type="String" Name="TwitterAccessToken" />
     <Property Type="String" Name="TwitterAccessTokenSecret" />
+    <Property Type="String" Name="FacebookAccessToken" />
   </EntityType>
   <EntityType Name="appuser">
     <Key>
