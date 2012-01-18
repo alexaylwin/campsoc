@@ -89,6 +89,7 @@ namespace aspx_site.Controllers
                                       select m);
                 ViewData["messagelist"] = selectedMessages.Take(5).ToList();
 
+
                 //create the json list with fullcalendar event properties
                 List<fullcalendar_event> jsonlist = new List<fullcalendar_event>();
                 fullcalendar_event fc_event;
@@ -110,7 +111,6 @@ namespace aspx_site.Controllers
                 string replaced = serialized.Replace("\"\\/Date(", "Date(").Replace(")\\/\"", ")");
 
                 ViewData["eventlistjson"] = replaced;
-                //ViewData["eventlistjson"] = new JavaScriptSerializer().Serialize(this.Json(jsonlist).Data).Replace("\"\\/Date(", "Date(").Replace(")\\/\"", ")");
                 
             }
             catch

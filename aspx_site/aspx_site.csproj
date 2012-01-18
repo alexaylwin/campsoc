@@ -149,9 +149,11 @@
     <Content Include="Views\Events\Details.aspx" />
     <Content Include="Views\Events\Edit.aspx" />
     <Content Include="Views\Events\Home.aspx" />
+    <Content Include="Views\Home\Contact.aspx" />
     <Content Include="Views\Home\LandingPage.aspx" />
     <Content Include="Views\Home\PrivacyPolicy.aspx" />
     <Content Include="Views\Home\Terms.aspx" />
+    <Content Include="Views\Home\Tour.aspx" />
     <Content Include="Views\Home\Version.aspx" />
     <Content Include="Views\Messages\Create.aspx" />
     <Content Include="Views\Messages\Details.aspx" />

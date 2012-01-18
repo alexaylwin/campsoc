@@ -249,7 +249,7 @@ namespace aspx_site.Controllers
                 {
                     //first submit, this is if the user presses the 'link facebook account button'
                     //it redirects to facebooks auth dialog
-                    redirect_url = "https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=http://localhost:2222/settings/facebookaccount&scope=create_event,offline_access,manage_pages";
+                    redirect_url = "https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=http://localhost:2222/settings/facebookaccount&scope=create_event,offline_access,manage_pages,publish_stream";
                     Response.Redirect(redirect_url);
                 }
                 else

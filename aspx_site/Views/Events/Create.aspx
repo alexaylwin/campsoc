@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat=server>
-	Create new event
+	Create Event
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat=server>
 <h2>Create New Event</h2>
@@ -71,8 +71,8 @@
  
  
  <div id="submitdiv">
- <button type="submit" class="submitbutton">
-    Create Event
+ <button type="submit">
+    <a href="#" id="submit_link" class="cssbutton_med">Create Event</a>
 </button>
 </div>
     <script src="../../Scripts/slideFade.js" type="text/javascript"></script>

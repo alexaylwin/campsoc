@@ -40,5 +40,15 @@ namespace aspx_site.Controllers
         {
             return View();
         }
+
+        public ActionResult Tour()
+        {
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            return View();
+        }
     }
 }

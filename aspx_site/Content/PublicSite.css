@@ -64,12 +64,20 @@ h1
 }
 h2
 {
-    padding: 0 0 10px 0;
+    padding: 0 0 0px 0;
+    margin-bottom: 15px;
+    /*text-align:center;*/
 }
 h3
 {
     font-size: 1.2em;
 }
+
+.pageheader
+{
+    border:none;
+}
+
 h4
 {
     font-size: 1.1em;
@@ -130,7 +138,8 @@ page width. Or, you can specify an exact pixel width. */
     _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
     -webkit-box-shadow: 3px 3px 8px 3px #333333;
     -moz-box-shadow: 3px 3px 8px 3px #333333;
-    box-shadow: 3px 3px 8px 3px #333333; 
+    box-shadow: 3px 3px 8px 3px #333333;
+    line-height:1.5; 
 }
 
 #footer
@@ -152,6 +161,29 @@ page width. Or, you can specify an exact pixel width. */
 {
     color: #034af3;
 }
+
+/*EMPHASIS LAYOUT ELEMENTS
+-----------------------------------------------*/
+.tagline
+{
+    font-size: 1.25em;
+    border-top:2px solid #999999;
+    border-bottom:2px solid #000;
+    padding: 5px;
+    text-align: center;
+    background-color: #C9F781;
+    /*border-bottom-right-radius: 8px;
+    border-bottom-left-radius:8px;
+    border-top-right-radius:8px;
+    border-top-left-radius:8px;*/
+    margin-left:-30px;
+    width: 104.7%;
+    margin-bottom: 15px;
+    -webkit-box-shadow: 0px 2px 2px 2px #333333;
+    -moz-box-shadow: 0px 2px 2px 2px #333333;
+    box-shadow: 0px 2px 2px 2px #333333; 
+}
+
 
 /* TAB MENU   
 ----------------------------------------------------------*/
@@ -433,4 +465,175 @@ div#title a:hover
 .tri-state
 {
     width: 6em;
+}
+
+
+/*HOMEPAGE STYLES
+---------------------------------------------------------------------*/
+
+#buttons
+{
+    width: 80%;
+    overflow:hidden;
+    margin-top: 30px;
+    padding-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 2px solid black;
+    
+}
+
+#buttons a
+{
+    text-decoration: none;
+}
+
+#buttons #text
+{
+    float:left;
+    margin-left:9%;
+    margin-top:10px;
+    font-size: 1.5em;
+}
+
+#buttons a:visisted
+{
+    color:#242424;
+}
+
+#aboutbutton
+{
+    float:left;
+}
+
+#tourbutton
+{
+    float:left;
+}
+
+#contactbutton
+{
+    float:left;
+}
+
+
+/* CSS BUTTON STYLES 
+-----------------------------------------------*/
+.cssbutton_big {
+	-moz-box-shadow:inset 0px 0px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 0px 0px 0px #ffffff;
+	box-shadow:inset 0px 0px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e3e3e3), color-stop(1, #a19fa1) );
+	background:-moz-linear-gradient( center top, #e3e3e3 5%, #a19fa1 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3e3e3', endColorstr='#a19fa1');
+	background-color:#e3e3e3;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:1px solid #cccccc;
+	display:inline-block;
+	/*color:#333333;*/
+	color: #0000FF;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:12px 43px;
+	margin-left: 10px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #f7f7f7;
+}
+.cssbutton_big:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #a19fa1), color-stop(1, #e3e3e3) );
+	background:-moz-linear-gradient( center top, #a19fa1 5%, #e3e3e3 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a19fa1', endColorstr='#e3e3e3');
+	background-color:#a19fa1;
+}
+.cssbutton_big:active {
+	position:relative;
+	top:1px;
+}
+.cssbutton_big:visited
+{
+    /*color:#333333;*/
+    color: #0000FF;
+    text-decoration:none;
+}
+
+.cssbutton_med {
+	-moz-box-shadow:inset 0px 0px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 0px 0px 0px #ffffff;
+	box-shadow:inset 0px 0px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e3e3e3), color-stop(1, #a19fa1) );
+	background:-moz-linear-gradient( center top, #e3e3e3 5%, #a19fa1 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3e3e3', endColorstr='#a19fa1');
+	background-color:#e3e3e3;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:1px solid #cccccc;
+	display:inline-block;
+	/*color:#333333;*/
+	color: #0000FF;
+	font-family:arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:8px 25px;
+	margin-left: 10px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #f7f7f7;
+}
+.cssbutton_med:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #a19fa1), color-stop(1, #e3e3e3) );
+	background:-moz-linear-gradient( center top, #a19fa1 5%, #e3e3e3 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a19fa1', endColorstr='#e3e3e3');
+	background-color:#a19fa1;
+}
+.cssbutton_med:active {
+	position:relative;
+	top:1px;
+}
+.cssbutton_med:visited
+{
+    color: #0000FF;
+    text-decoration:none;
+}
+
+.cssbutton_small {
+	-moz-box-shadow:inset 0px 0px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 0px 0px 0px #ffffff;
+	box-shadow:inset 0px 0px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e3e3e3), color-stop(1, #a19fa1) );
+	background:-moz-linear-gradient( center top, #e3e3e3 5%, #a19fa1 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3e3e3', endColorstr='#a19fa1');
+	background-color:#e3e3e3;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:1px solid #cccccc;
+	display:inline-block;
+	/*color:#333333;*/
+	color: #0000FF;
+	font-family:arial;
+	font-size:12px;
+	font-weight:bold;
+	padding:6px 15px;
+	margin-left: 10px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #f7f7f7;
+}
+.cssbutton_small:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #a19fa1), color-stop(1, #e3e3e3) );
+	background:-moz-linear-gradient( center top, #a19fa1 5%, #e3e3e3 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a19fa1', endColorstr='#e3e3e3');
+	background-color:#a19fa1;
+}
+.cssbutton_small:active {
+	position:relative;
+	top:1px;
+}
+.cssbutton_small:visited
+{
+    /*color:#333333;*/
+    color: #0000FF;
+    text-decoration:none;
 }
