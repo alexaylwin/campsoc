@@ -110,7 +110,7 @@ namespace aspx_site.Models
             }
         }
 
-        public int updateAppFacebookTokens(int appid, string accessToken)
+        public int updateAppFacebookUserTokens(int appid, string accessToken, string userId)
         {
             try
             {
@@ -119,6 +119,27 @@ namespace aspx_site.Models
                                     select sa).First();
 
                 selected_app.FacebookAccessToken = accessToken;
+                selected_app.FacebookUserId = userId;
+                _db.appinfoes.ApplyCurrentValues(selected_app);
+                _db.SaveChanges();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
+        public int updateAppFacebookPageTokens(int appid, string facebookPageId, string facebookPageAccessToken)
+        {
+            try
+            {
+                var selected_app = (from sa in _db.appinfoes
+                                    where (sa.AppID == appid)
+                                    select sa).First();
+
+                selected_app.FacebookPageId = facebookPageId;
+                selected_app.FacebookPageAccessToken = facebookPageAccessToken;
                 _db.appinfoes.ApplyCurrentValues(selected_app);
                 _db.SaveChanges();
                 return 1;

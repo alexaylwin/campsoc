@@ -23,6 +23,10 @@
     <Property Type="String" Name="TwitterAccessToken" />
     <Property Type="String" Name="TwitterAccessTokenSecret" />
     <Property Type="String" Name="FacebookAccessToken" />
+    <Property Type="String" Name="FacebookPageId" />
+    <Property Type="String" Name="FacebookPageAccessToken" />
+    <Property Type="String" Name="TwitterUserId" />
+    <Property Type="String" Name="FacebookUserId" />
   </EntityType>
   <EntityType Name="appuser">
     <Key>

@@ -4,6 +4,10 @@
     <EntitySetMapping Name="appinfoes">
       <EntityTypeMapping TypeName="novaModel.appinfo">
         <MappingFragment StoreEntitySet="appinfo">
+          <ScalarProperty Name="FacebookUserId" ColumnName="FacebookUserId" />
+          <ScalarProperty Name="TwitterUserId" ColumnName="TwitterUserId" />
+          <ScalarProperty Name="FacebookPageAccessToken" ColumnName="FacebookPageAccessToken" />
+          <ScalarProperty Name="FacebookPageId" ColumnName="FacebookPageId" />
           <ScalarProperty Name="FacebookAccessToken" ColumnName="FacebookAccessToken" />
           <ScalarProperty Name="TwitterAccessTokenSecret" ColumnName="TwitterAccessTokenSecret" />
           <ScalarProperty Name="TwitterAccessToken" ColumnName="TwitterAccessToken" />

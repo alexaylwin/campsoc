@@ -94,6 +94,8 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\FacebookPageModel.cs" />
+    <Compile Include="Models\FacebookUserModel.cs" />
     <Compile Include="Models\ProcessComments.cs" />
     <Compile Include="Models\ProcessEvents.cs" />
     <Compile Include="Models\ProcessMessages.cs" />
@@ -113,6 +115,7 @@
     <Content Include="Content\fullcalendar\fullcalendar.min.js" />
     <Content Include="Content\fullcalendar\fullcalendar.print.css" />
     <Content Include="Content\fullcalendar\gcal.js" />
+    <Content Include="Content\images\favicon.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logo_big.png" />
     <Content Include="Content\images\ui-bg_glass_55_fcf0ba_1x400.png" />

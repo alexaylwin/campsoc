@@ -244,6 +244,8 @@ span.button a
 {
     font-size: 1.15em;
     font-weight: bold;
+    background-color: #96C448;
+    padding: 3px;
 }
 
 .createform #submitdiv
@@ -260,4 +262,9 @@ span.button a
     background-color: #aaaaaa;
     font-size: 1.4em;
     border-style:outset;
+}
+
+.createform .hide
+{
+    display:none;
 }

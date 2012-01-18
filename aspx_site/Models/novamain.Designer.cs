@@ -516,6 +516,102 @@ namespace aspx_site.Models
         private global::System.String _FacebookAccessToken;
         partial void OnFacebookAccessTokenChanging(global::System.String value);
         partial void OnFacebookAccessTokenChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FacebookPageId
+        {
+            get
+            {
+                return _FacebookPageId;
+            }
+            set
+            {
+                OnFacebookPageIdChanging(value);
+                ReportPropertyChanging("FacebookPageId");
+                _FacebookPageId = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FacebookPageId");
+                OnFacebookPageIdChanged();
+            }
+        }
+        private global::System.String _FacebookPageId;
+        partial void OnFacebookPageIdChanging(global::System.String value);
+        partial void OnFacebookPageIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FacebookPageAccessToken
+        {
+            get
+            {
+                return _FacebookPageAccessToken;
+            }
+            set
+            {
+                OnFacebookPageAccessTokenChanging(value);
+                ReportPropertyChanging("FacebookPageAccessToken");
+                _FacebookPageAccessToken = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FacebookPageAccessToken");
+                OnFacebookPageAccessTokenChanged();
+            }
+        }
+        private global::System.String _FacebookPageAccessToken;
+        partial void OnFacebookPageAccessTokenChanging(global::System.String value);
+        partial void OnFacebookPageAccessTokenChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String TwitterUserId
+        {
+            get
+            {
+                return _TwitterUserId;
+            }
+            set
+            {
+                OnTwitterUserIdChanging(value);
+                ReportPropertyChanging("TwitterUserId");
+                _TwitterUserId = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("TwitterUserId");
+                OnTwitterUserIdChanged();
+            }
+        }
+        private global::System.String _TwitterUserId;
+        partial void OnTwitterUserIdChanging(global::System.String value);
+        partial void OnTwitterUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FacebookUserId
+        {
+            get
+            {
+                return _FacebookUserId;
+            }
+            set
+            {
+                OnFacebookUserIdChanging(value);
+                ReportPropertyChanging("FacebookUserId");
+                _FacebookUserId = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FacebookUserId");
+                OnFacebookUserIdChanged();
+            }
+        }
+        private global::System.String _FacebookUserId;
+        partial void OnFacebookUserIdChanging(global::System.String value);
+        partial void OnFacebookUserIdChanged();
 
         #endregion
     

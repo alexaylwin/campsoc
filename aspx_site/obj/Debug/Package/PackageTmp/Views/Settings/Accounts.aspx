@@ -9,7 +9,7 @@
     <h2>Accounts</h2>
 
     <h3> Twitter </h3>
-    <% using (Html.BeginForm("TwitterAccount","SettingsController", FormMethod.Post))
+    <% using (Html.BeginForm("TwitterAccount","Settings", FormMethod.Post))
        { %>
        <% if (!(bool)ViewData["TwitterRegistered"])
           { %>
@@ -27,10 +27,10 @@
     <%} %>
 
     <h3> Facebook </h3>
-    <% using (Html.BeginForm("FacebookAccount", "SettingsController", FormMethod.Post))
+    <% using (Html.BeginForm("FacebookAccount", "Settings", FormMethod.Post))
        { %>
-       <p>Adding your club's twitter account allows Campus Social to post event links to your Twitter account as soon as they appear on the app.</p>
-       <input type="submit" name="submit" value="Add Twitter Account" />
+       <p>Adding your club's Facebook account allows Campus Social to post event links to your Facebook account as soon as they appear on the app.</p>
+       <input type="submit" name="submit" value="Add Facebook Account" />
     <%} %>
     
 </asp:Content>

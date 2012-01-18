@@ -25,9 +25,13 @@
           <Property Name="AppName" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="CustomerID" Type="int" Nullable="false" />
           <Property Name="HomeScreenText" Type="varchar" MaxLength="2000" />
+          <Property Name="TwitterUserId" Type="varchar" MaxLength="255" />
           <Property Name="TwitterAccessToken" Type="varchar" MaxLength="255" />
           <Property Name="TwitterAccessTokenSecret" Type="varchar" MaxLength="255" />
+          <Property Name="FacebookUserId" Type="varchar" MaxLength="255" />
           <Property Name="FacebookAccessToken" Type="varchar" MaxLength="255" />
+          <Property Name="FacebookPageId" Type="varchar" MaxLength="255" />
+          <Property Name="FacebookPageAccessToken" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="appusers">
           <Key>
@@ -156,6 +160,10 @@
           <Property Type="String" Name="TwitterAccessToken" />
           <Property Type="String" Name="TwitterAccessTokenSecret" />
           <Property Type="String" Name="FacebookAccessToken" />
+          <Property Type="String" Name="FacebookPageId" />
+          <Property Type="String" Name="FacebookPageAccessToken" />
+          <Property Type="String" Name="TwitterUserId" />
+          <Property Type="String" Name="FacebookUserId" />
         </EntityType>
         <EntityType Name="appuser">
           <Key>
@@ -264,7 +272,11 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="novaModelStoreContainer" CdmEntityContainer="novamainEntities">
           <EntitySetMapping Name="appinfoes"><EntityTypeMapping TypeName="novaModel.appinfo"><MappingFragment StoreEntitySet="appinfo">
-            <ScalarProperty Name="FacebookAccessToken" ColumnName="FacebookAccessToken" />
+            <ScalarProperty Name="FacebookUserId" ColumnName="FacebookUserId" />
+                <ScalarProperty Name="TwitterUserId" ColumnName="TwitterUserId" />
+                <ScalarProperty Name="FacebookPageAccessToken" ColumnName="FacebookPageAccessToken" />
+                <ScalarProperty Name="FacebookPageId" ColumnName="FacebookPageId" />
+                <ScalarProperty Name="FacebookAccessToken" ColumnName="FacebookAccessToken" />
                 <ScalarProperty Name="TwitterAccessTokenSecret" ColumnName="TwitterAccessTokenSecret" />
                 <ScalarProperty Name="TwitterAccessToken" ColumnName="TwitterAccessToken" />
                 <ScalarProperty Name="HomeScreenText" ColumnName="HomeScreenText" />
@@ -380,7 +392,7 @@
       <Diagram Name="novamain">
         <EntityTypeShape EntityType="novaModel.appinfo" Width="1.5" PointX="0.75" PointY="0.75" Height="1.787985026041667" IsExpanded="true" />
         <EntityTypeShape EntityType="novaModel.appuser" Width="1.5" PointX="2.75" PointY="0.5" Height="2.7494921875" IsExpanded="true" />
-        <EntityTypeShape EntityType="novaModel.comment" Width="1.5" PointX="0.75" PointY="3.75" Height="1.9802864583333322" IsExpanded="true" />
+        <EntityTypeShape EntityType="novaModel.comment" Width="1.5" PointX="1" PointY="4.5" Height="1.9802864583333322" IsExpanded="true" />
         <EntityTypeShape EntityType="novaModel.novaevent" Width="1.5" PointX="4.75" PointY="0.75" Height="2.9417936197916656" IsExpanded="true" />
         <EntityTypeShape EntityType="novaModel.lastupdate" Width="1.5" PointX="4.75" PointY="4.75" Height="1.7879850260416674" IsExpanded="true" />
         <EntityTypeShape EntityType="novaModel.message" Width="1.5" PointX="6.75" PointY="0.75" Height="1.9802864583333317" IsExpanded="true" />

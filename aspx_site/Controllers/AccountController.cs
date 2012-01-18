@@ -18,6 +18,7 @@ namespace aspx_site.Controllers
 
         public IFormsAuthenticationService FormsService { get; set; }
         public IMembershipService MembershipService { get; set; }
+        Util utility = new Util();
 
         protected override void Initialize(RequestContext requestContext)
         {
@@ -50,6 +51,8 @@ namespace aspx_site.Controllers
                     }
                     else
                     {
+                        //TODO: Add session state for the current user to get the current app id
+                        //Session["appid"] = 
                         return RedirectToAction("Home", "Dashboard");
                     }
                 }

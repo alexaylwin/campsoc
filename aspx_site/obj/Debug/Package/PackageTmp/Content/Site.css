@@ -156,47 +156,108 @@ span.button a
 
 /* Styles for create forms
 -------------------------------------------*/
+
 .createform
 {
+    width: 100%;
+    overflow:hidden;
+}
+
+.createform .rightcol
+{
+    float:right;
+    width: 48%;
+    margin-right:auto;
+}
+
+.createform .leftcol
+{
+    float:left;
+    width: 48%;
+    margin-left:auto;
+    
+}
+
+.createform .leftcol .itemtable
+{
+    border-right: 2px solid black;
+}
+
+.createform .itemtable
+{
+    width: 100%;
+    margin-bottom: 10px;
     border-style:none;
 }
-.createform tr td
+
+.createform .itemtable tr td
 {
     border-style:none;
 }
 
-.createform .textinput
+.createform .itemtable .itemheader
+{
+ font-weight:bold;
+}
+
+.createform .itemtable .textinput
 {
     width: 250px;
 }
 
-.createform .dateinput
+.createform .itemtable .dateinput
 {
     width: 75px;
 }
 
-.createform .timeinput
+.createform .itemtable .timeinput
 {
     width: 60px;
 }
 
-.createform .timeinput .ampm
-{
-    width: 15px;
-}
-
-.createform .longtext
-{
-    width: 250px;
-    height: 100px;
-}
-
-.createform .numberinput
+.createform .itemtable .timeinput.ampm
 {
     width: 45px;
 }
 
-.createform .header
+.createform .itemtable .longtext
 {
- font-weight:bold;
+    width: 400px;
+    height: 100px;
+}
+
+.createform .itemtable .numberinput
+{
+    width: 45px;
+}
+
+
+.createform .formheader
+{
+    margin-bottom: 10px;
+    font-size: 1.25em;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+.createform .subheader
+{
+    font-size: 1.15em;
+    font-weight: bold;
+}
+
+.createform #submitdiv
+{
+    margin-top: 10px;
+    width: 100%;
+    text-align:center;
+    float:left;
+    margin-bottom: 50px;
+}
+
+.createform .submitbutton
+{
+    background-color: #aaaaaa;
+    font-size: 1.4em;
+    border-style:outset;
 }

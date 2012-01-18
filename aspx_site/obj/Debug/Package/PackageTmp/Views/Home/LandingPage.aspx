@@ -14,12 +14,13 @@
 <body>
 <div id="page">
     <div id="header">header</div>
-    <div id="logo"><img src="../../Content/images/logo_big.png" alt="campus social"/></div>
+    
+    <div id="logo"><a href="Index"><img src="../../Content/images/logo_big.png" alt="campus social" /></a></div>
 
     <div id="tagline">Event promotion and advertising <br />
     For students, by students</div>
 
-    <div id="footer">footer</div>
+    <div id="footer">(c) 2012 Campsoc.com</div>
 </div>
 </body>
 </html>

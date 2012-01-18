@@ -45,6 +45,7 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
 
             <div id="footer">
+            <%: Html.ActionLink("(c) 2012 Campsoc.com", "Index", "Home")%> | <%: Html.ActionLink("Privacy Policy", "PrivacyPolicy", "Home")%> | <%: Html.ActionLink("Terms of Use", "Terms", "Home")%>
             </div>
         </div>
     </div>

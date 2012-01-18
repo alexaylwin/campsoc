@@ -52,6 +52,7 @@ namespace aspx_site.Controllers
         ProcessEvents eventmodel;
         ProcessMessages messagesmodel;
         ProcessUsers usersmodel;
+        int defaultappid = 4;
 
         public DashboardController()
         {
@@ -71,19 +72,19 @@ namespace aspx_site.Controllers
             try
             {
                 var selectedEvents = (from e in _db.novaevents
-                                      where e.AppID == 4
+                                      where e.AppID == defaultappid
                                       orderby e.EventStart descending
                                       select e);
                 ViewData["eventlist"] = selectedEvents.Take(5).ToList();
 
                 var selectedUsers = (from u in _db.appusers
-                                      where u.AppID == 4
+                                      where u.AppID == defaultappid
                                       orderby u.UserID descending
                                       select u);
                 ViewData["userlist"] = selectedUsers.Take(20).ToList();
 
                 var selectedMessages = (from m in _db.messages
-                                        where m.AppID == 4
+                                        where m.AppID == defaultappid
                                       orderby m.MessageDate descending
                                       select m);
                 ViewData["messagelist"] = selectedMessages.Take(5).ToList();

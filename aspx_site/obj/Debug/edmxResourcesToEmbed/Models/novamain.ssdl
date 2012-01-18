@@ -20,9 +20,13 @@
     <Property Name="AppName" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="CustomerID" Type="int" Nullable="false" />
     <Property Name="HomeScreenText" Type="varchar" MaxLength="2000" />
+    <Property Name="TwitterUserId" Type="varchar" MaxLength="255" />
     <Property Name="TwitterAccessToken" Type="varchar" MaxLength="255" />
     <Property Name="TwitterAccessTokenSecret" Type="varchar" MaxLength="255" />
+    <Property Name="FacebookUserId" Type="varchar" MaxLength="255" />
     <Property Name="FacebookAccessToken" Type="varchar" MaxLength="255" />
+    <Property Name="FacebookPageId" Type="varchar" MaxLength="255" />
+    <Property Name="FacebookPageAccessToken" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="appusers">
     <Key>
