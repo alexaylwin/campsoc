@@ -7,24 +7,26 @@
 <asp:Content ID="aboutContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>About Campus Social</h2>
     <p>
-        I'm Alex, and I'm currently a fifth year undergradate at McMaster University, studying
-        Software Engineering and Society. I created Campus Social initially to support and advertise
-        McMaster Engineering Society (<a href="http://mes.mcmaster.ca">http://mes.mcmaster.ca</a>) events and programs. If you want to 
-        get in touch with me, you can email me at <a href="mailto:AlexAylwin@gmail.com">
-        AlexAylwin@gmail.com</a>, or find me on LinkedIn at 
-        <a href="http://www.linkedin.com/in/alexaylwin">http://www.linkedin.com/in/alexaylwin</a>.
-    </p>
-    <p>
-        Campus Social is a service that provides student clubs, societies, fraternities 
-        and so on with an easy way to connect with their markets and advertise their 
-        services and events. It also provides mechanisms for tracking the success or 
-        failure of events, and assists in future event planning. If you think this 
-        service would be right for you, you can get in touch with Alex via email at 
-        Alex@campsoc.com
+        I'm Alex, and I'm a fifth year undergradate at McMaster University, studying
+        Software Engineering. I created Campus Social initially to support and advertise
+        McMaster Engineering Society (<a href="http://macengsociety.ca">http://macengsociety.ca</a>) events and programs.
+        I've been involved in a lot of different clubs on campus, with a lot of different budgets and needs. The one 
+        thing that I found every club had in common was that the most important measure for the success of an event
+        was the number of people who came out to it, and that's why event advertising is so important. <br />
+        <br />
+        It's hard to get the word out about an event to your student population, especially when you're
+        working with a small budget and short deadlines. Campus Social is a way to help you advertise
+        your club events more effectively, and get more attendance out to your events.
     </p>
 
-        <h3 class="expander">Read the obligatory buzzword-filled summary and sales pitch...<hr /></h3>
-    <div class="collapsible" id="1" style="display:none">Campus Social is a service to help student clubs, societies and fraternaties 
+    <p>
+        To learn more about Campus Social, feel free to expand the sections below and find out
+        how it can help you!
+    </p>
+
+     <h3 class="expander">Read the obligatory buzzword-filled summary and sales pitch...<hr /></h3>
+    <div class="collapsible" id="1" style="display:none">
+        Campus Social is a service to help student clubs, societies and fraternaties 
         promote events and advertise specifically to their audience. It offers entirely 
         customizable features so that your student club can have it&#39;s unique needs met 
         and you continue to improve upon event attendance and involvement in your club.<br />
@@ -32,14 +34,13 @@
         Most importantly, Campus Social is CHEAP! As a service designed by students and 
         for students, we understand that club budgets are often small. With this in 
         mind, we can work to meet YOUR budget constraints. Other app developers can 
-        charge upwards of $3000 for an app with no support. We can do it for $300 (or 
+        charge upwards of $3000 for an app with no support. I can do it for $300 (or 
         maybe less!)<br />
         <br />
-        It was started by Alex Aylwin as a free app for the McMaster Engineering Society 
-        (MES), and is now being offered to other campus clubs and societies. Alex was 
-        the Communications Coordinator for the MES for three years, as well as heavily 
-        involved in first-year orientation, the Software Engineering Club, and a bunch 
-        of other clubs and societies on campus.
+        It was started by Alex (me!) as a free app for the McMaster Engineering Society 
+        (MES), and is now being offered to other campus clubs and societies. I've been
+        involved in a number of differnt clubs across campus, with budgets ranging from
+        $1000 to $35,000 and have run events for 20 attendee's as well as 1400 attendee's.
      </div>
 
     <h3 class="expander">So without the buzzwords and bull, what is Campus Social?<hr /></h3>
@@ -50,10 +51,9 @@
         <strong>1. Most importantly, a branded and customized app for your club.</strong> 
         That&#39;s right, your very own app! It can be used to advertise events, send 
         reminders for club members, send messages, get event feedback and anything else 
-        that you feel your club needs to be successful. <strong>It&#39;s built specifically 
-        for you, and so it can have anything you want!</strong> Just let us know what 
-        your needs are, and we&#39;ll tell you how we can meet them. It&#39;s available natively 
-        for Android, and as a mobile website for any other mobile device.<br />
+        that you feel your club needs to be successful. Each app is built for the specific
+        club, and can include any features you feel are important.
+        <br />
         <br />
         <strong>2. A centralized hub for advertising events online.</strong> You can use 
         Campus Social to send updates to all your standard social media sites (read: 
@@ -77,24 +77,22 @@
         or if you have more than 150 users, its $0.20/user/year, calculated at the 
         renewal of the contract. So if you signed up in August 2012, it would be $25 
         until August 2013. If you wanted to sign up for another year and had 180 
-        registered users in August 2013, it would be $36 until August 2014.<br />
+        registered users in August 2013, it would be $36 until August 2014.
         <br />
-        T<strong>he higher cost is a one time fee for the app design</strong>. This cost 
-        is largely negotiable and is really based on what you want done, and how many 
-        hours it will take us. <strong>An app that just needs our standard features and 
-        customizations (like your logo, done in your colors, etc.) will be in the 
-        $200-$500 range</strong>. If you need some really complicated and unique 
-        features like GPS tracking for all your users&#39; cats, it might cost a bit more. 
-        No matter what, you&#39;ll get a complete breakdown of what exactly we&#39;re charging you 
-        for in our quote, and can help design something that will fit in YOUR budget.<br />
+        <br />
+        The higher cost is a one-time fee for building the app. This largely depends
+        on the features you want and the amount of customization you need. In general,
+        this will range somewhere between $200-$1000, based on what you're looking for.
+        <strong>Any budget can be met, and I can work to customize something that will suit 
+        your budget restraints.</strong>
+        <br />
         <br />
     </div>
 
     <h3 class="expander">Who makes Campus Social, and why should I care?<hr /></h3>
     <div class="collapsible" id="4" style="display:none;">
-        The &#39;we&#39; used on this site is really referring to me, Alex Aylwin. <strong>I&#39;m 
-        an undergrad at McMaster University, located in Hamilton Ontario, finishing up 
-        my final year of Software Engineering.</strong> I&#39;ve been involved in planning, 
+        I&#39;m Alex, an undergrad at McMaster University, located in Hamilton Ontario, finishing up 
+        my final year of Software Engineering. I&#39;ve been involved in planning, 
         running, and being a general member of a number of clubs across campus, and I&#39;ve 
         held a few positions on the McMaster Engineering Society (MES) council. <strong>
         Most importantly, I&#39;ve been the MES Communications Coordinator for the last 

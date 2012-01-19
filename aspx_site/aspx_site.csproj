@@ -88,6 +88,7 @@
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
+    <Compile Include="Controllers\MobileController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -135,7 +136,10 @@
     <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\jquery-ui-1.8.16.css" />
     <Content Include="Content\jquery-ui-1.8.16.custom.css" />
+    <Content Include="Content\jquery.mobile-1.0.min.css" />
+    <Content Include="Scripts\jquery.mobile-1.0.min.js" />
     <Content Include="Content\LandingPage.css" />
+    <Content Include="Content\mobilesites\scripts\macengsociety.css" />
     <Content Include="Content\PublicSite.css" />
     <Content Include="Global.asax" />
     <Content Include="MembersOnly\members.htm" />
@@ -158,6 +162,11 @@
     <Content Include="Views\Messages\Create.aspx" />
     <Content Include="Views\Messages\Details.aspx" />
     <Content Include="Views\Messages\Home.aspx" />
+    <Content Include="Views\Mobile\EventDetails.aspx" />
+    <Content Include="Views\Mobile\Events.aspx" />
+    <Content Include="Views\Mobile\Home.aspx" />
+    <Content Include="Views\Mobile\MessageDetails.aspx" />
+    <Content Include="Views\Mobile\Messages.aspx" />
     <Content Include="Views\Settings\Accounts.aspx" />
     <Content Include="Views\Settings\Home.aspx" />
     <Content Include="Web.config">
@@ -194,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\mobilesites\images\" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\novamain.edmx">
@@ -208,6 +218,9 @@
     <Content Include="Web.sitemap">
       <SubType>Designer</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\mobilesites\masterpages\macengsociety.Master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -356,7 +356,7 @@ table th
 
 div#title
 {
-    background-image: url('http://localhost:2222/Content/images/logo.png');
+    background-image: url('images/logo.png');
     background-repeat: no-repeat;
     text-indent:-9999px;
     display:block;

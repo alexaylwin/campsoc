@@ -45,9 +45,11 @@ namespace aspx_site.Controllers
         public ActionResult Home()
         {
             //ViewData.Model = _db.events.ToList();
-            var selectedEvents = from events in _db.novaevents 
+            //what the shit?
+            var selectedEvents = from events in _db.novaevents
+                                 where events.AppID == defaultappid
                                  orderby events.EventStart descending
-                                 select events;// where events.EventID == 6 select events;
+                                 select events;
             ViewData.Model = selectedEvents.ToList();
 
             //create the json list with fullcalendar event properties

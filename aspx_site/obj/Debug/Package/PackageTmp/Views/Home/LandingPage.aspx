@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <title>LandingPage</title>
+    <title>Campus Social</title>
     <link rel="Stylesheet" href="../../Content/LandingPage.css" />
     <!--
     i love you!!!!!! =)
@@ -13,13 +13,12 @@
 </head>
 <body>
 <div id="page">
-    <div id="header">header</div>
+    <div id="header"></div>
     
-    <div id="logo"><a href="Index"><img src="../../Content/images/logo_big.png" alt="campus social" /></a></div>
+    <div id="logo"><a href="/Home/Index"><img src="../../Content/images/logo_big.png" alt="campus social" /></a></div>
 
-    <div id="tagline">Event promotion and advertising <br />
-    For students, by students</div>
-
+    <div id="tagline"><a href="/Home/Index">Event promotion and advertising <br />
+    For students, by students</a></div>
     <div id="footer">(c) 2012 Campsoc.com</div>
 </div>
 </body>

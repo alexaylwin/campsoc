@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Home
+	Dashboard
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -30,6 +30,9 @@
     <p>
     Welcome back to Campus Social, <%: Page.User.Identity.Name %>!
     </p>
+    <div id="dashboardbuttons"><span>Quick Tasks:</span> <a href="../Events/Create" class="cssbutton_small">Create Event</a><a href="../Messages/Create" class="cssbutton_small">Send Message</a><a href="../Settings/Accounts" class="cssbutton_small">Link Social Accounts</a></div>
+
+    
     <table id="dashboard">
         <tr>
             <td>

@@ -60,9 +60,11 @@ span.button a
     margin-bottom: 4px;
 }
 
-#manageevents
+.createeventlink
 {
-    width: 50%;
+    font-size: 1.3em;
+    margin-left: 30%;
+    margin-top: 10px;
 }
 
 /* Styles for the messages page */
@@ -109,8 +111,15 @@ span.button a
 
 #managemessages
 {
-    width: 50%;
 }
+
+.createmessagelink
+{
+    font-size: 1.3em;
+    margin-left: 30%;
+    margin-top: 10px;
+}
+
 
 
 
@@ -153,6 +162,22 @@ span.button a
     width:auto;
 }
 
+#dashboardbuttons
+{
+    margin-left: 10px;
+}
+
+#dashboardbuttons a
+{
+    text-decoration:none;
+}
+
+#dashboardbuttons span
+{
+    font-size: 1.15em;
+    font-weight:bold;
+}
+
 
 /* Styles for create forms
 -------------------------------------------*/
@@ -161,6 +186,11 @@ span.button a
 {
     width: 100%;
     overflow:hidden;
+}
+
+.createform a
+{
+    text-decoration:none;
 }
 
 .createform .rightcol
@@ -244,6 +274,8 @@ span.button a
 {
     font-size: 1.15em;
     font-weight: bold;
+    background-color: #96C448;
+    padding: 3px;
 }
 
 .createform #submitdiv
@@ -257,7 +289,18 @@ span.button a
 
 .createform .submitbutton
 {
-    background-color: #aaaaaa;
+    /*background-color: #aaaaaa;
     font-size: 1.4em;
-    border-style:outset;
+    border-style:outset;*/
+}
+
+.createform .hide
+{
+    display:none;
+}
+
+.createform button
+{
+    background:transparent;
+    border-style:none;
 }

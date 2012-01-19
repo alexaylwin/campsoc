@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" />McMaster Engineering Society</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../scripts/macengsociety.css" rel="stylesheet" type="text/css" />
+    <link href="../../jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../../Scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
+    <script src="../../../Scripts/jquery-ui-1.8.16.min.js" type="text/javascript"></script>
+    <script src="../../../Scripts/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <div data-role="page" id="page">
+        <div data-role="header" id="header">
+            <div id="title">McMaster Engineering Society</div>
+            <div id="menucontainer">
+            <ul id="menu">
+            <li><%: Html.ActionLink("Home","Home") %></li>
+            <li><%: Html.ActionLink("Events","Events") %></li>
+            <li><%: Html.ActionLink("Messages","Messages") %></li>
+            </ul>
+            </div>
+        </div>
+        <div data-role="content" id="main">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        </div>
+        <div data-role="footer" id="footer">(c) Campsoc.com</div>
+    </div>
+</body>
+</html>
