@@ -17,6 +17,7 @@
   ampm.Add(new SelectListItem { Text = "AM", Value = "AM", Selected = true });
   ampm.Add(new SelectListItem { Text = "PM", Value = "PM" });
  %>
+ <%=ViewData["ReturnMessage"] %>
  <div class="createform" id="events">
  <% using (Html.BeginForm()) { %>
  <div class="leftcol" id="eventinfo">

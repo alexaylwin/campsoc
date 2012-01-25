@@ -13,10 +13,15 @@ span.button a
     font-weight:bolder;
     text-transform:uppercase;
     text-decoration:none;
-    border-style:solid;
-    border-width:1px;
+    /*border-style:solid;
+    border-width:1px;*/
     padding: 5px;
-    background-color: Gray;
+    /*background-color: Gray;*/
+}
+
+#main
+{
+    margin-top: 0px;
 }
 
 /* Styles for the events page 
@@ -114,6 +119,58 @@ span.button a
 }
 
 .createmessagelink
+{
+    font-size: 1.3em;
+    margin-left: 30%;
+    margin-top: 10px;
+}
+
+/* Styles for Feedback Page */
+#feedbacklist
+{
+    list-style: none;
+}
+
+.feedbacklistitem a
+{
+    color: #000;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    background-color: transparent; /*#E0E0E0;*/
+    border-left: 4px solid #404040;
+    padding: 5px;
+    padding-top:2px;
+    padding-bottom:2px;
+}
+
+.feedbacklistitem a:visted
+{
+    color: #000;
+}
+
+.feedbacklistitem a:hover
+{
+    padding:0px 3px 0px 3px;
+        border-style: solid;
+    border-width: 2px;
+    border-color: #404040;
+    border-left-width: 4px;
+    background-color: #C9F781;
+}
+
+.feedbacklistitem .header
+{
+    text-decoration:underline;
+    margin-bottom: 4px;
+    text-transform:capitalize;
+}
+
+#managefeedbacks
+{
+}
+
+.createfeedbacklink
 {
     font-size: 1.3em;
     margin-left: 30%;
@@ -303,4 +360,5 @@ span.button a
 {
     background:transparent;
     border-style:none;
+    text-decoration:none;
 }

@@ -5,7 +5,10 @@
     <EntitySet Name="appusers" EntityType="novaModel.Store.appusers" store:Type="Tables" Schema="novamain" />
     <EntitySet Name="beta_events" EntityType="novaModel.Store.beta_events" store:Type="Tables" Schema="novamain" />
     <EntitySet Name="comments" EntityType="novaModel.Store.comments" store:Type="Tables" Schema="novamain" />
+    <EntitySet Name="customers" EntityType="novaModel.Store.customers" store:Type="Tables" Schema="novamain" />
+    <EntitySet Name="eventfeedback" EntityType="novaModel.Store.eventfeedback" store:Type="Tables" Schema="novamain" />
     <EntitySet Name="events" EntityType="novaModel.Store.events" store:Type="Tables" Schema="novamain" />
+    <EntitySet Name="eventsurvey" EntityType="novaModel.Store.eventsurvey" store:Type="Tables" Schema="novamain" />
     <EntitySet Name="lastupdates" EntityType="novaModel.Store.lastupdates" store:Type="Tables" Schema="novamain" />
     <EntitySet Name="messages" EntityType="novaModel.Store.messages" store:Type="Tables" Schema="novamain" />
     <EntitySet Name="rsvp" EntityType="novaModel.Store.rsvp" store:Type="Tables" Schema="novamain" />
@@ -67,6 +70,29 @@
     <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="timestamp" Type="datetime" />
   </EntityType>
+  <EntityType Name="customers">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="AppID" Type="int" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="eventfeedback">
+    <Key>
+      <PropertyRef Name="FeedbackID" />
+    </Key>
+    <Property Name="FeedbackID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AppUserID" Type="int" />
+    <Property Name="EventID" Type="int" Nullable="false" />
+    <Property Name="QuestionOne" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionTwo" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionThree" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionFour" Type="varchar" MaxLength="255" />
+    <Property Name="SurveyID" Type="int" Nullable="false" />
+    <Property Name="SubmitTime" Type="datetime" />
+  </EntityType>
   <EntityType Name="events">
     <Key>
       <PropertyRef Name="EventID" />
@@ -83,6 +109,21 @@
     <Property Name="Disabled" Type="int" Nullable="false" />
     <Property Name="Location" Type="varchar" MaxLength="255" />
     <Property Name="LastUpdated" Type="timestamp" Nullable="false" Precision="0" />
+    <Property Name="Survey" Type="int" />
+  </EntityType>
+  <EntityType Name="eventsurvey">
+    <Key>
+      <PropertyRef Name="SurveyID" />
+    </Key>
+    <Property Name="SurveyID" Type="int" Nullable="false" />
+    <Property Name="QuestionOne" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionTwo" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionThree" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionFour" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionOneChoice" Type="int" />
+    <Property Name="QuestionTwoChoice" Type="int" />
+    <Property Name="QuestionThreeChoice" Type="int" />
+    <Property Name="QuestionFourChoice" Type="int" />
   </EntityType>
   <EntityType Name="lastupdates">
     <Key>

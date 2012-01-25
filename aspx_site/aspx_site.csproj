@@ -116,7 +116,12 @@
     <Content Include="Content\fullcalendar\fullcalendar.min.js" />
     <Content Include="Content\fullcalendar\fullcalendar.print.css" />
     <Content Include="Content\fullcalendar\gcal.js" />
+    <Content Include="Content\images\ajax-loader.png" />
     <Content Include="Content\images\favicon.png" />
+    <Content Include="Content\images\icons-18-black.png" />
+    <Content Include="Content\images\icons-18-white.png" />
+    <Content Include="Content\images\icons-36-black.png" />
+    <Content Include="Content\images\icons-36-white.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logo_big.png" />
     <Content Include="Content\images\ui-bg_glass_55_fcf0ba_1x400.png" />
@@ -137,6 +142,8 @@
     <Content Include="Content\jquery-ui-1.8.16.css" />
     <Content Include="Content\jquery-ui-1.8.16.custom.css" />
     <Content Include="Content\jquery.mobile-1.0.min.css" />
+    <Content Include="Content\jquery.mobile.simpledialog.min.css" />
+    <Content Include="Scripts\jquery.fittext.js" />
     <Content Include="Scripts\jquery.mobile-1.0.min.js" />
     <Content Include="Content\LandingPage.css" />
     <Content Include="Content\mobilesites\scripts\macengsociety.css" />
@@ -145,6 +152,7 @@
     <Content Include="MembersOnly\members.htm" />
     <Content Include="Scripts\jquery-1.6.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.16.min.js" />
+    <Content Include="Scripts\jquery.mobile.simpledialog.min.js" />
     <Content Include="Scripts\slideFade.js" />
     <Content Include="Views\AppService\AppRequest.aspx" />
     <Content Include="Views\AppService\Index.aspx" />
@@ -152,6 +160,7 @@
     <Content Include="Views\Events\Create.aspx" />
     <Content Include="Views\Events\Details.aspx" />
     <Content Include="Views\Events\Edit.aspx" />
+    <Content Include="Views\Events\Feedback.aspx" />
     <Content Include="Views\Events\Home.aspx" />
     <Content Include="Views\Home\Contact.aspx" />
     <Content Include="Views\Home\LandingPage.aspx" />

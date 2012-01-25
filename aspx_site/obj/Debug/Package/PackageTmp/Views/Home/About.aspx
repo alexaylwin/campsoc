@@ -116,4 +116,12 @@
             $(this).next().slideToggle(100);
         });
     </script>
+
+    <div id="buttons">
+        <div id="text"><strong> Learn more:</strong></div>
+        <%: Html.ActionLink("home", "Index", null, new { @class="cssbutton_big", @id="aboutbutton"})%>
+        <%: Html.ActionLink("tour", "Tour", null, new { @class="cssbutton_big", @id="aboutbutton"})%>
+        <%: Html.ActionLink("contact", "Contact", null, new { @class="cssbutton_big", @id="aboutbutton"})%>
+    </div>
+        <br />
 </asp:Content>

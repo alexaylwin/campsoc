@@ -111,10 +111,42 @@ namespace aspx_site.Controllers
                 string replaced = serialized.Replace("\"\\/Date(", "Date(").Replace(")\\/\"", ")");
 
                 ViewData["eventlistjson"] = replaced;
+
+
+                //get user feedback and survey results
+                var selectedFeedback = (from f in _db.eventfeedbacks
+                                        orderby f.SubmitTime descending
+                                        select f).Take(5).ToList();
+                novaevent currentEvent;
+
+                string[] eventids = new string[5];
+                string[] eventnames = new string[5];
+                string[] feedbackids = new string[5];
+                DateTime[] submittimes = new DateTime[5];
+
+
+
+                for (int i = 0; i < selectedFeedback.Count; i++)
+                {
+                    currentEvent = (from e in _db.novaevents
+                                    where e.EventID == selectedFeedback.ElementAt(i).EventID
+                                    select e).First();
+                    eventids[i] = Convert.ToString(currentEvent.EventID);
+                    eventnames[i] = currentEvent.EventName;
+                    feedbackids[i] = Convert.ToString(selectedFeedback[i].FeedbackID);
+                    submittimes[i] = selectedFeedback[i].SubmitTime.GetValueOrDefault();
+                }
+
+                ViewData["feedbackeventids"] = eventids;
+                ViewData["feedbackeventnames"] = eventids;
+                ViewData["feedbackids"] = eventids;
+                ViewData["feedbacksubmittimes"] = eventids;
+                ViewData["feedback"] = selectedFeedback;
                 
             }
-            catch
+            catch(Exception e)
             {
+                return View();
             }
             //ViewData.Model = selectedEvents.ToList();
             return View();

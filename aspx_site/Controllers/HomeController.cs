@@ -16,6 +16,16 @@ namespace aspx_site.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Index(FormCollection collection)
+        {
+            ViewData["Message"] = "";
+            Util utility = new Util();
+            utility.insertBetaEvent("email submission", "-", collection["email"], "", "", "", "");
+
+            return View();
+        }
+
         public ActionResult About()
         {
             return View();

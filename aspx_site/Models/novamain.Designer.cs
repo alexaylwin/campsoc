@@ -208,6 +208,54 @@ namespace aspx_site.Models
             }
         }
         private ObjectSet<server_logs> _server_logs;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<customer> customers
+        {
+            get
+            {
+                if ((_customers == null))
+                {
+                    _customers = base.CreateObjectSet<customer>("customers");
+                }
+                return _customers;
+            }
+        }
+        private ObjectSet<customer> _customers;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<eventfeedback> eventfeedbacks
+        {
+            get
+            {
+                if ((_eventfeedbacks == null))
+                {
+                    _eventfeedbacks = base.CreateObjectSet<eventfeedback>("eventfeedbacks");
+                }
+                return _eventfeedbacks;
+            }
+        }
+        private ObjectSet<eventfeedback> _eventfeedbacks;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<eventsurvey> eventsurveys
+        {
+            get
+            {
+                if ((_eventsurveys == null))
+                {
+                    _eventsurveys = base.CreateObjectSet<eventsurvey>("eventsurveys");
+                }
+                return _eventsurveys;
+            }
+        }
+        private ObjectSet<eventsurvey> _eventsurveys;
 
         #endregion
         #region AddTo Methods
@@ -282,6 +330,30 @@ namespace aspx_site.Models
         public void AddToserver_logs(server_logs server_logs)
         {
             base.AddObject("server_logs", server_logs);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the customers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTocustomers(customer customer)
+        {
+            base.AddObject("customers", customer);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the eventfeedbacks EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToeventfeedbacks(eventfeedback eventfeedback)
+        {
+            base.AddObject("eventfeedbacks", eventfeedback);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the eventsurveys EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToeventsurveys(eventsurvey eventsurvey)
+        {
+            base.AddObject("eventsurveys", eventsurvey);
         }
 
         #endregion
@@ -1299,6 +1371,635 @@ namespace aspx_site.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="novaModel", Name="customer")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class customer : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new customer object.
+        /// </summary>
+        /// <param name="customerID">Initial value of the CustomerID property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="appID">Initial value of the AppID property.</param>
+        public static customer Createcustomer(global::System.Int32 customerID, global::System.Int32 userId, global::System.Int32 appID)
+        {
+            customer customer = new customer();
+            customer.CustomerID = customerID;
+            customer.UserId = userId;
+            customer.AppID = appID;
+            return customer;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CustomerID
+        {
+            get
+            {
+                return _CustomerID;
+            }
+            set
+            {
+                if (_CustomerID != value)
+                {
+                    OnCustomerIDChanging(value);
+                    ReportPropertyChanging("CustomerID");
+                    _CustomerID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("CustomerID");
+                    OnCustomerIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _CustomerID;
+        partial void OnCustomerIDChanging(global::System.Int32 value);
+        partial void OnCustomerIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private global::System.Int32 _UserId;
+        partial void OnUserIdChanging(global::System.Int32 value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 AppID
+        {
+            get
+            {
+                return _AppID;
+            }
+            set
+            {
+                OnAppIDChanging(value);
+                ReportPropertyChanging("AppID");
+                _AppID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AppID");
+                OnAppIDChanged();
+            }
+        }
+        private global::System.Int32 _AppID;
+        partial void OnAppIDChanging(global::System.Int32 value);
+        partial void OnAppIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Username
+        {
+            get
+            {
+                return _Username;
+            }
+            set
+            {
+                OnUsernameChanging(value);
+                ReportPropertyChanging("Username");
+                _Username = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Username");
+                OnUsernameChanged();
+            }
+        }
+        private global::System.String _Username;
+        partial void OnUsernameChanging(global::System.String value);
+        partial void OnUsernameChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="novaModel", Name="eventfeedback")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class eventfeedback : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new eventfeedback object.
+        /// </summary>
+        /// <param name="feedbackID">Initial value of the FeedbackID property.</param>
+        /// <param name="eventID">Initial value of the EventID property.</param>
+        /// <param name="surveyID">Initial value of the SurveyID property.</param>
+        public static eventfeedback Createeventfeedback(global::System.Int32 feedbackID, global::System.Int32 eventID, global::System.Int32 surveyID)
+        {
+            eventfeedback eventfeedback = new eventfeedback();
+            eventfeedback.FeedbackID = feedbackID;
+            eventfeedback.EventID = eventID;
+            eventfeedback.SurveyID = surveyID;
+            return eventfeedback;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 FeedbackID
+        {
+            get
+            {
+                return _FeedbackID;
+            }
+            set
+            {
+                if (_FeedbackID != value)
+                {
+                    OnFeedbackIDChanging(value);
+                    ReportPropertyChanging("FeedbackID");
+                    _FeedbackID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("FeedbackID");
+                    OnFeedbackIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _FeedbackID;
+        partial void OnFeedbackIDChanging(global::System.Int32 value);
+        partial void OnFeedbackIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> AppUserID
+        {
+            get
+            {
+                return _AppUserID;
+            }
+            set
+            {
+                OnAppUserIDChanging(value);
+                ReportPropertyChanging("AppUserID");
+                _AppUserID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AppUserID");
+                OnAppUserIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _AppUserID;
+        partial void OnAppUserIDChanging(Nullable<global::System.Int32> value);
+        partial void OnAppUserIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 EventID
+        {
+            get
+            {
+                return _EventID;
+            }
+            set
+            {
+                OnEventIDChanging(value);
+                ReportPropertyChanging("EventID");
+                _EventID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EventID");
+                OnEventIDChanged();
+            }
+        }
+        private global::System.Int32 _EventID;
+        partial void OnEventIDChanging(global::System.Int32 value);
+        partial void OnEventIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionOne
+        {
+            get
+            {
+                return _QuestionOne;
+            }
+            set
+            {
+                OnQuestionOneChanging(value);
+                ReportPropertyChanging("QuestionOne");
+                _QuestionOne = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuestionOne");
+                OnQuestionOneChanged();
+            }
+        }
+        private global::System.String _QuestionOne;
+        partial void OnQuestionOneChanging(global::System.String value);
+        partial void OnQuestionOneChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionTwo
+        {
+            get
+            {
+                return _QuestionTwo;
+            }
+            set
+            {
+                OnQuestionTwoChanging(value);
+                ReportPropertyChanging("QuestionTwo");
+                _QuestionTwo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuestionTwo");
+                OnQuestionTwoChanged();
+            }
+        }
+        private global::System.String _QuestionTwo;
+        partial void OnQuestionTwoChanging(global::System.String value);
+        partial void OnQuestionTwoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionThree
+        {
+            get
+            {
+                return _QuestionThree;
+            }
+            set
+            {
+                OnQuestionThreeChanging(value);
+                ReportPropertyChanging("QuestionThree");
+                _QuestionThree = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuestionThree");
+                OnQuestionThreeChanged();
+            }
+        }
+        private global::System.String _QuestionThree;
+        partial void OnQuestionThreeChanging(global::System.String value);
+        partial void OnQuestionThreeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionFour
+        {
+            get
+            {
+                return _QuestionFour;
+            }
+            set
+            {
+                OnQuestionFourChanging(value);
+                ReportPropertyChanging("QuestionFour");
+                _QuestionFour = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuestionFour");
+                OnQuestionFourChanged();
+            }
+        }
+        private global::System.String _QuestionFour;
+        partial void OnQuestionFourChanging(global::System.String value);
+        partial void OnQuestionFourChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 SurveyID
+        {
+            get
+            {
+                return _SurveyID;
+            }
+            set
+            {
+                OnSurveyIDChanging(value);
+                ReportPropertyChanging("SurveyID");
+                _SurveyID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SurveyID");
+                OnSurveyIDChanged();
+            }
+        }
+        private global::System.Int32 _SurveyID;
+        partial void OnSurveyIDChanging(global::System.Int32 value);
+        partial void OnSurveyIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> SubmitTime
+        {
+            get
+            {
+                return _SubmitTime;
+            }
+            set
+            {
+                OnSubmitTimeChanging(value);
+                ReportPropertyChanging("SubmitTime");
+                _SubmitTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SubmitTime");
+                OnSubmitTimeChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _SubmitTime;
+        partial void OnSubmitTimeChanging(Nullable<global::System.DateTime> value);
+        partial void OnSubmitTimeChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="novaModel", Name="eventsurvey")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class eventsurvey : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new eventsurvey object.
+        /// </summary>
+        /// <param name="surveyID">Initial value of the SurveyID property.</param>
+        public static eventsurvey Createeventsurvey(global::System.Int32 surveyID)
+        {
+            eventsurvey eventsurvey = new eventsurvey();
+            eventsurvey.SurveyID = surveyID;
+            return eventsurvey;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 SurveyID
+        {
+            get
+            {
+                return _SurveyID;
+            }
+            set
+            {
+                if (_SurveyID != value)
+                {
+                    OnSurveyIDChanging(value);
+                    ReportPropertyChanging("SurveyID");
+                    _SurveyID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("SurveyID");
+                    OnSurveyIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _SurveyID;
+        partial void OnSurveyIDChanging(global::System.Int32 value);
+        partial void OnSurveyIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionOne
+        {
+            get
+            {
+                return _QuestionOne;
+            }
+            set
+            {
+                OnQuestionOneChanging(value);
+                ReportPropertyChanging("QuestionOne");
+                _QuestionOne = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuestionOne");
+                OnQuestionOneChanged();
+            }
+        }
+        private global::System.String _QuestionOne;
+        partial void OnQuestionOneChanging(global::System.String value);
+        partial void OnQuestionOneChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionTwo
+        {
+            get
+            {
+                return _QuestionTwo;
+            }
+            set
+            {
+                OnQuestionTwoChanging(value);
+                ReportPropertyChanging("QuestionTwo");
+                _QuestionTwo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuestionTwo");
+                OnQuestionTwoChanged();
+            }
+        }
+        private global::System.String _QuestionTwo;
+        partial void OnQuestionTwoChanging(global::System.String value);
+        partial void OnQuestionTwoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionThree
+        {
+            get
+            {
+                return _QuestionThree;
+            }
+            set
+            {
+                OnQuestionThreeChanging(value);
+                ReportPropertyChanging("QuestionThree");
+                _QuestionThree = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuestionThree");
+                OnQuestionThreeChanged();
+            }
+        }
+        private global::System.String _QuestionThree;
+        partial void OnQuestionThreeChanging(global::System.String value);
+        partial void OnQuestionThreeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionFour
+        {
+            get
+            {
+                return _QuestionFour;
+            }
+            set
+            {
+                OnQuestionFourChanging(value);
+                ReportPropertyChanging("QuestionFour");
+                _QuestionFour = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuestionFour");
+                OnQuestionFourChanged();
+            }
+        }
+        private global::System.String _QuestionFour;
+        partial void OnQuestionFourChanging(global::System.String value);
+        partial void OnQuestionFourChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> QuestionOneChoice
+        {
+            get
+            {
+                return _QuestionOneChoice;
+            }
+            set
+            {
+                OnQuestionOneChoiceChanging(value);
+                ReportPropertyChanging("QuestionOneChoice");
+                _QuestionOneChoice = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("QuestionOneChoice");
+                OnQuestionOneChoiceChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _QuestionOneChoice;
+        partial void OnQuestionOneChoiceChanging(Nullable<global::System.Int32> value);
+        partial void OnQuestionOneChoiceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> QuestionTwoChoice
+        {
+            get
+            {
+                return _QuestionTwoChoice;
+            }
+            set
+            {
+                OnQuestionTwoChoiceChanging(value);
+                ReportPropertyChanging("QuestionTwoChoice");
+                _QuestionTwoChoice = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("QuestionTwoChoice");
+                OnQuestionTwoChoiceChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _QuestionTwoChoice;
+        partial void OnQuestionTwoChoiceChanging(Nullable<global::System.Int32> value);
+        partial void OnQuestionTwoChoiceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> QuestionThreeChoice
+        {
+            get
+            {
+                return _QuestionThreeChoice;
+            }
+            set
+            {
+                OnQuestionThreeChoiceChanging(value);
+                ReportPropertyChanging("QuestionThreeChoice");
+                _QuestionThreeChoice = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("QuestionThreeChoice");
+                OnQuestionThreeChoiceChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _QuestionThreeChoice;
+        partial void OnQuestionThreeChoiceChanging(Nullable<global::System.Int32> value);
+        partial void OnQuestionThreeChoiceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> QuestionFourChoice
+        {
+            get
+            {
+                return _QuestionFourChoice;
+            }
+            set
+            {
+                OnQuestionFourChoiceChanging(value);
+                ReportPropertyChanging("QuestionFourChoice");
+                _QuestionFourChoice = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("QuestionFourChoice");
+                OnQuestionFourChoiceChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _QuestionFourChoice;
+        partial void OnQuestionFourChoiceChanging(Nullable<global::System.Int32> value);
+        partial void OnQuestionFourChoiceChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="novaModel", Name="lastupdate")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -1948,6 +2649,30 @@ namespace aspx_site.Models
         private global::System.String _Location;
         partial void OnLocationChanging(global::System.String value);
         partial void OnLocationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Survey
+        {
+            get
+            {
+                return _Survey;
+            }
+            set
+            {
+                OnSurveyChanging(value);
+                ReportPropertyChanging("Survey");
+                _Survey = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Survey");
+                OnSurveyChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Survey;
+        partial void OnSurveyChanging(Nullable<global::System.Int32> value);
+        partial void OnSurveyChanged();
 
         #endregion
     

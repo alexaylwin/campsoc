@@ -60,8 +60,8 @@ namespace aspx_site.Controllers
                 fc_event = new fullcalendar_event();
                 fc_event.allDay = false;
                 fc_event.title = ne.EventName;
-                fc_event.start = ne.EventStart.ToString("yyyy-MM-dd") + " " + ne.EventStart.ToString("HH:mm");//ne.EventStart;//
-                fc_event.end = ne.EventEnd.ToString("yyyy-MM-dd") + " " + ne.EventEnd.ToString("HH:mm");//ne.EventEnd;//
+                fc_event.start = ne.EventStart.ToString("yyyy-MM-dd") + " " + ne.EventStart.ToString("HH:mm");
+                fc_event.end = ne.EventEnd.ToString("yyyy-MM-dd") + " " + ne.EventEnd.ToString("HH:mm");
                 fc_event.url = "../Events/Details/" + ne.EventID;
                 fc_event.id = ne.EventID;
                 jsonlist.Add(fc_event);
@@ -137,14 +137,16 @@ namespace aspx_site.Controllers
                 eventToAdd.EventName = collection["EventName"];
 
                 string eventstart;
-                eventstart = collection["EventStartDate"] + " " + collection["EventStartTime"] + collection["EventStartTimeAMPM"];
-                eventToAdd.EventStart = Convert.ToDateTime(eventstart);
+                eventstart = collection["EventStartDate"] + " " + collection["EventStartTime"] + " " + collection["EventStartTimeAMPM"];
+                //eventToAdd.EventStart = Convert.ToDateTime(eventstart, new CultureInfo("fr-FR",false));
+                eventToAdd.EventStart = DateTime.ParseExact(eventstart, "dd/MM/yyyy h:m tt", null);
 
                 string eventend;
                 if (!collection["NoEndDate"].Contains("true"))
                 {
-                    eventend = collection["EventEndDate"] + " " + collection["EventEndTime"] + collection["EventEndTimeAMPM"];
-                    eventToAdd.EventEnd = Convert.ToDateTime(eventend);
+                    eventend = collection["EventEndDate"] + " " + collection["EventEndTime"] + " " + collection["EventEndTimeAMPM"];
+                    //eventToAdd.EventEnd = Convert.ToDateTime(eventend);
+                    eventToAdd.EventEnd = DateTime.ParseExact(eventend, "dd/MM/yyyy h:m tt", null);
                 }
                 else
                 {
@@ -178,7 +180,7 @@ namespace aspx_site.Controllers
                     syncid = syncid + hash.Hash[i].ToString("x2");
                 }
                 eventToAdd.SyncID = syncid;
-
+                //throw new Exception();
                 //add the new object to the database
                 int ret = eventmodel.addEvent(defaultappid, eventToAdd);
                 if (ret != 1)
@@ -256,7 +258,8 @@ namespace aspx_site.Controllers
             }
             catch(Exception e)
             {
-                ViewData["ReturnMessage"] = "Error, could not create event from form data";
+                ViewData["ReturnMessage"] = "Error, could not create event from form data <br /> Exception: " + e.Message + "<br /> Source: " + e.StackTrace ;
+                ViewData["ReturnMessage"] += " <br /> Event start collections: " + collection["EventStartDate"] + " " + collection["EventStartTime"] + collection["EventStartTimeAMPM"];
                 return View();
            }
             
@@ -367,5 +370,11 @@ namespace aspx_site.Controllers
                 return View();
             }
         }
+
+        public ActionResult Feedback()
+        {
+            return View();
+        }
+    
     }
 }

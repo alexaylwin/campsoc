@@ -92,6 +92,19 @@
             <td>
             <div id="feedback">
                <h3>Recent Feedback</h3>
+                <ul id="feedbacklist">
+                <%foreach (var f in (List<aspx_site.Models.eventfeedback>)ViewData["feedback"])
+                  { %>
+                <li class="feedbacklistitem">
+                <a href="../Events/Feedback?id=<%= f.EventID%>">
+                <div class="header"><%=f.SubmitTime %></div>
+                Survey for event <%= f.EventID%> submitted <br />
+                </li>
+                </a>
+                <%} %>
+                </ul>
+
+
                <br />
             </div>
             </td>

@@ -92,6 +92,19 @@
             <td>
             <div id="feedback">
                <h3>Recent Feedback</h3>
+                <ul id="feedbacklist">
+                <%for (int i = 0; i < 5; i++ )
+                  { %>
+                <li class="feedbacklistitem">
+                <a href="../Events/Feedback?id=<%= ((int [])ViewData["feedbackeventids"])[i] %>">
+                <div class="header"><%= ((string [])ViewData["feedbacksubmittimes"])[i]%></div>
+                Survey for <%= ((string[])ViewData["feedbackeventnames"])[i]%> submitted <br />
+                </li>
+                </a>
+                <%} %>
+                </ul>
+
+
                <br />
             </div>
             </td>

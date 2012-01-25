@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Home</h2>
+    <h2>Messages</h2>
 
     <table id="dashboard">
     <tr>

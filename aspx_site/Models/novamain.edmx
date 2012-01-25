@@ -10,7 +10,10 @@
           <EntitySet Name="appusers" EntityType="novaModel.Store.appusers" store:Type="Tables" Schema="novamain" />
           <EntitySet Name="beta_events" EntityType="novaModel.Store.beta_events" store:Type="Tables" Schema="novamain" />
           <EntitySet Name="comments" EntityType="novaModel.Store.comments" store:Type="Tables" Schema="novamain" />
+          <EntitySet Name="customers" EntityType="novaModel.Store.customers" store:Type="Tables" Schema="novamain" />
+          <EntitySet Name="eventfeedback" EntityType="novaModel.Store.eventfeedback" store:Type="Tables" Schema="novamain" />
           <EntitySet Name="events" EntityType="novaModel.Store.events" store:Type="Tables" Schema="novamain" />
+          <EntitySet Name="eventsurvey" EntityType="novaModel.Store.eventsurvey" store:Type="Tables" Schema="novamain" />
           <EntitySet Name="lastupdates" EntityType="novaModel.Store.lastupdates" store:Type="Tables" Schema="novamain" />
           <EntitySet Name="messages" EntityType="novaModel.Store.messages" store:Type="Tables" Schema="novamain" />
           <EntitySet Name="rsvp" EntityType="novaModel.Store.rsvp" store:Type="Tables" Schema="novamain" />
@@ -72,6 +75,29 @@
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="timestamp" Type="datetime" />
         </EntityType>
+        <EntityType Name="customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="AppID" Type="int" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="eventfeedback">
+          <Key>
+            <PropertyRef Name="FeedbackID" />
+          </Key>
+          <Property Name="FeedbackID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AppUserID" Type="int" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="QuestionOne" Type="varchar" MaxLength="255" />
+          <Property Name="QuestionTwo" Type="varchar" MaxLength="255" />
+          <Property Name="QuestionThree" Type="varchar" MaxLength="255" />
+          <Property Name="QuestionFour" Type="varchar" MaxLength="255" />
+          <Property Name="SurveyID" Type="int" Nullable="false" />
+          <Property Name="SubmitTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="events">
           <Key>
             <PropertyRef Name="EventID" />
@@ -88,6 +114,21 @@
           <Property Name="Disabled" Type="int" Nullable="false" />
           <Property Name="Location" Type="varchar" MaxLength="255" />
           <Property Name="LastUpdated" Type="timestamp" Nullable="false" Precision="0" />
+          <Property Name="Survey" Type="int" />
+        </EntityType>
+        <EntityType Name="eventsurvey">
+          <Key>
+            <PropertyRef Name="SurveyID" />
+          </Key>
+          <Property Name="SurveyID" Type="int" Nullable="false" />
+          <Property Name="QuestionOne" Type="varchar" MaxLength="255" />
+          <Property Name="QuestionTwo" Type="varchar" MaxLength="255" />
+          <Property Name="QuestionThree" Type="varchar" MaxLength="255" />
+          <Property Name="QuestionFour" Type="varchar" MaxLength="255" />
+          <Property Name="QuestionOneChoice" Type="int" />
+          <Property Name="QuestionTwoChoice" Type="int" />
+          <Property Name="QuestionThreeChoice" Type="int" />
+          <Property Name="QuestionFourChoice" Type="int" />
         </EntityType>
         <EntityType Name="lastupdates">
           <Key>
@@ -147,6 +188,9 @@
           <EntitySet Name="rsvps" EntityType="novaModel.rsvp" />
           <EntitySet Name="beta_events" EntityType="novaModel.beta_events" />
           <EntitySet Name="server_logs" EntityType="novaModel.server_logs" />
+          <EntitySet Name="customers" EntityType="novaModel.customer" />
+          <EntitySet Name="eventfeedbacks" EntityType="novaModel.eventfeedback" />
+          <EntitySet Name="eventsurveys" EntityType="novaModel.eventsurvey" />
         </EntityContainer>
         <EntityType Name="appinfo">
           <Key>
@@ -206,6 +250,7 @@
           <Property Name="EventEnd" Type="DateTime" Nullable="false" />
           <Property Type="Int32" Name="Disabled" Nullable="false" />
           <Property Type="String" Name="Location" />
+          <Property Type="Int32" Name="Survey" />
         </EntityType>
         <EntityType Name="lastupdate">
           <Key>
@@ -265,6 +310,43 @@
           <Property Type="String" Name="col6" />
           <Property Type="String" Name="col7" />
         </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Type="Int32" Name="CustomerID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+          <Property Type="Int32" Name="AppID" Nullable="false" />
+          <Property Type="String" Name="Username" />
+        </EntityType>
+        <EntityType Name="eventfeedback">
+          <Key>
+            <PropertyRef Name="FeedbackID" />
+          </Key>
+          <Property Type="Int32" Name="FeedbackID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="AppUserID" />
+          <Property Type="Int32" Name="EventID" Nullable="false" />
+          <Property Type="String" Name="QuestionOne" />
+          <Property Type="String" Name="QuestionTwo" />
+          <Property Type="String" Name="QuestionThree" />
+          <Property Type="String" Name="QuestionFour" />
+          <Property Type="Int32" Name="SurveyID" Nullable="false" />
+          <Property Type="DateTime" Name="SubmitTime" />
+        </EntityType>
+        <EntityType Name="eventsurvey">
+          <Key>
+            <PropertyRef Name="SurveyID" />
+          </Key>
+          <Property Type="Int32" Name="SurveyID" Nullable="false" />
+          <Property Type="String" Name="QuestionOne" />
+          <Property Type="String" Name="QuestionTwo" />
+          <Property Type="String" Name="QuestionThree" />
+          <Property Type="String" Name="QuestionFour" />
+          <Property Type="Int32" Name="QuestionOneChoice" />
+          <Property Type="Int32" Name="QuestionTwoChoice" />
+          <Property Type="Int32" Name="QuestionThreeChoice" />
+          <Property Type="Int32" Name="QuestionFourChoice" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -305,7 +387,8 @@
             <ScalarProperty Name="timestamp" ColumnName="timestamp" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="novaevents"><EntityTypeMapping TypeName="novaModel.novaevent"><MappingFragment StoreEntitySet="events">
-            <ScalarProperty Name="Location" ColumnName="Location" />
+            <ScalarProperty Name="Survey" ColumnName="Survey" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
                 <ScalarProperty Name="Disabled" ColumnName="Disabled" />
                 <ScalarProperty Name="EventID" ColumnName="EventID" />
             <ScalarProperty Name="SyncID" ColumnName="SyncID" />
@@ -369,6 +452,46 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="novaModel.customer">
+              <MappingFragment StoreEntitySet="customers">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eventfeedbacks">
+            <EntityTypeMapping TypeName="novaModel.eventfeedback">
+              <MappingFragment StoreEntitySet="eventfeedback">
+                <ScalarProperty Name="SubmitTime" ColumnName="SubmitTime" />
+                <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+                <ScalarProperty Name="QuestionFour" ColumnName="QuestionFour" />
+                <ScalarProperty Name="QuestionThree" ColumnName="QuestionThree" />
+                <ScalarProperty Name="QuestionTwo" ColumnName="QuestionTwo" />
+                <ScalarProperty Name="QuestionOne" ColumnName="QuestionOne" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
+                <ScalarProperty Name="FeedbackID" ColumnName="FeedbackID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eventsurveys">
+            <EntityTypeMapping TypeName="novaModel.eventsurvey">
+              <MappingFragment StoreEntitySet="eventsurvey">
+                <ScalarProperty Name="QuestionFourChoice" ColumnName="QuestionFourChoice" />
+                <ScalarProperty Name="QuestionThreeChoice" ColumnName="QuestionThreeChoice" />
+                <ScalarProperty Name="QuestionTwoChoice" ColumnName="QuestionTwoChoice" />
+                <ScalarProperty Name="QuestionOneChoice" ColumnName="QuestionOneChoice" />
+                <ScalarProperty Name="QuestionFour" ColumnName="QuestionFour" />
+                <ScalarProperty Name="QuestionThree" ColumnName="QuestionThree" />
+                <ScalarProperty Name="QuestionTwo" ColumnName="QuestionTwo" />
+                <ScalarProperty Name="QuestionOne" ColumnName="QuestionOne" />
+                <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -399,6 +522,9 @@
         <EntityTypeShape EntityType="novaModel.rsvp" Width="1.5" PointX="0.75" PointY="6.75" Height="1.7879850260416674" IsExpanded="true" />
         <EntityTypeShape EntityType="novaModel.beta_events" Width="1.5" PointX="7.375" PointY="3.75" Height="2.7494921874999996" />
         <EntityTypeShape EntityType="novaModel.server_logs" Width="1.5" PointX="2.875" PointY="4" Height="2.9417936197916656" />
+        <EntityTypeShape EntityType="novaModel.customer" Width="1.5" PointX="3.375" PointY="7.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="novaModel.eventfeedback" Width="1.5" PointX="5.375" PointY="7.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="novaModel.eventsurvey" Width="1.5" PointX="7.375" PointY="7.75" Height="2.7494921875000031" />
       </Diagram>
     </Diagrams>
   </Designer>

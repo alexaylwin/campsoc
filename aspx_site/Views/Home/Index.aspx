@@ -14,10 +14,21 @@
         <strong>&nbsp;&nbsp;Cost:</strong> Club budgets are tight. Enough said. <br />
         <strong>&nbsp;&nbsp;Support and experience:</strong> I know how hard it can be to run student clubs, because I have before. I know what it takes, and I know how to help.<br />
         </div>
+
+        <div id="signupform">
+        <% using (Html.BeginForm()) { %>
+            Interested? Submit your email for more information: <%: Html.TextBox("email") %> <br />
+             <button type="submit">
+            <a href="#" id="submit_link" class="cssbutton_med">I want info!</a>
+            </button>
+        <%} %>
+        </div>
         
         <div id="buttons">
         <div id="text"><strong> Learn more:</strong></div>
-        <a href="Home/About" id="aboutbutton" class="cssbutton_big">about</a><a id="tourbutton"class="cssbutton_big" href="Home/Tour">tour</a><a id="contactbutton"class="cssbutton_big" href="Home/Contact">contact</a>
+        <%: Html.ActionLink("about", "About", null, new { @class="cssbutton_big", @id="aboutbutton"})%>
+        <%: Html.ActionLink("tour", "Tour", null, new { @class="cssbutton_big", @id="aboutbutton"})%>
+        <%: Html.ActionLink("contact", "Contact", null, new { @class="cssbutton_big", @id="aboutbutton"})%>
         </div>
         <br />
 

@@ -49,6 +49,7 @@
     <EntitySetMapping Name="novaevents">
       <EntityTypeMapping TypeName="novaModel.novaevent">
         <MappingFragment StoreEntitySet="events">
+          <ScalarProperty Name="Survey" ColumnName="Survey" />
           <ScalarProperty Name="Location" ColumnName="Location" />
           <ScalarProperty Name="Disabled" ColumnName="Disabled" />
           <ScalarProperty Name="EventID" ColumnName="EventID" />
@@ -124,6 +125,46 @@
           <ScalarProperty Name="col1" ColumnName="col1" />
           <ScalarProperty Name="timestamp" ColumnName="timestamp" />
           <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="novaModel.customer">
+        <MappingFragment StoreEntitySet="customers">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eventfeedbacks">
+      <EntityTypeMapping TypeName="novaModel.eventfeedback">
+        <MappingFragment StoreEntitySet="eventfeedback">
+          <ScalarProperty Name="SubmitTime" ColumnName="SubmitTime" />
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+          <ScalarProperty Name="QuestionFour" ColumnName="QuestionFour" />
+          <ScalarProperty Name="QuestionThree" ColumnName="QuestionThree" />
+          <ScalarProperty Name="QuestionTwo" ColumnName="QuestionTwo" />
+          <ScalarProperty Name="QuestionOne" ColumnName="QuestionOne" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
+          <ScalarProperty Name="FeedbackID" ColumnName="FeedbackID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eventsurveys">
+      <EntityTypeMapping TypeName="novaModel.eventsurvey">
+        <MappingFragment StoreEntitySet="eventsurvey">
+          <ScalarProperty Name="QuestionFourChoice" ColumnName="QuestionFourChoice" />
+          <ScalarProperty Name="QuestionThreeChoice" ColumnName="QuestionThreeChoice" />
+          <ScalarProperty Name="QuestionTwoChoice" ColumnName="QuestionTwoChoice" />
+          <ScalarProperty Name="QuestionOneChoice" ColumnName="QuestionOneChoice" />
+          <ScalarProperty Name="QuestionFour" ColumnName="QuestionFour" />
+          <ScalarProperty Name="QuestionThree" ColumnName="QuestionThree" />
+          <ScalarProperty Name="QuestionTwo" ColumnName="QuestionTwo" />
+          <ScalarProperty Name="QuestionOne" ColumnName="QuestionOne" />
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

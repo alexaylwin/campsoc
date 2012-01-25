@@ -117,10 +117,14 @@ namespace aspx_site.Controllers
 
         public ActionResult EventDetails(int id)
         {
+            //Display event info
+
             var selectedEvent = (from events in _db.novaevents
-                                 where events.EventID == id
+                                 where events.EventID == id && events.Disabled == 0
                                  select events).First();
             ViewData.Model = selectedEvent;
+
+            ViewData["EventID"] = selectedEvent.EventID;
 
             ViewData["EventName"] = selectedEvent.EventName;
             if (selectedEvent.EventStart == selectedEvent.EventEnd)
@@ -137,9 +141,61 @@ namespace aspx_site.Controllers
             ViewData["EventDescription"] = selectedEvent.EventDesc;
             ViewData["EventLocation"] = selectedEvent.Location;
 
+
+            //Handle user survey
+            if (selectedEvent.Survey != null && selectedEvent.Survey > 0)
+            {
+                ViewData["survey"] = 1;
+                var selectedSurvey = (from surveys in _db.eventsurveys
+                                      where surveys.SurveyID == selectedEvent.Survey
+                                      select surveys).First();
+
+                ViewData["survey_Q1"] = selectedSurvey.QuestionOne;
+                ViewData["survey_Q1C"] = selectedSurvey.QuestionOneChoice;
+
+                ViewData["survey_Q2"] = selectedSurvey.QuestionTwo;
+                ViewData["survey_Q2C"] = selectedSurvey.QuestionTwoChoice;
+
+                ViewData["survey_Q3"] = selectedSurvey.QuestionThree;
+                ViewData["survey_Q3C"] = selectedSurvey.QuestionThreeChoice;
+
+                ViewData["survey_Q4"] = selectedSurvey.QuestionFour;
+                ViewData["survey_Q4C"] = selectedSurvey.QuestionFourChoice;
+
+
+            }
+
             return View();
         }
 
+        //handle a event survey submission
+        [HttpPost]
+        public ActionResult EventDetails(FormCollection collection)
+        {
+            eventfeedback feedback = new eventfeedback();
+            feedback.AppUserID = 0;
+            feedback.SurveyID = 1;
+            feedback.QuestionOne = collection["Q1_R"];
+            feedback.QuestionTwo = collection["Q2_R"];
+            feedback.QuestionThree = collection["Q3_R"];
+            feedback.QuestionFour = collection["Q4_R"];
+            feedback.EventID = Convert.ToInt32(collection["EventID"]);
+            feedback.SubmitTime = DateTime.Now;
+
+            try
+            {
+                _db.eventfeedbacks.AddObject(feedback);
+                _db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+            }
+
+
+
+            return RedirectToAction("Events");
+        }
+        
         public ActionResult MessageDetails(int id)
         {
             var selectedMessage = (from messages in _db.messages
