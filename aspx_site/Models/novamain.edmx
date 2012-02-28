@@ -82,7 +82,7 @@
           <Property Name="CustomerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="AppID" Type="int" Nullable="false" />
-          <Property Name="Username" Type="varchar" MaxLength="45" />
+          <Property Name="Username" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="eventfeedback">
           <Key>
@@ -94,7 +94,6 @@
           <Property Name="QuestionOne" Type="varchar" MaxLength="255" />
           <Property Name="QuestionTwo" Type="varchar" MaxLength="255" />
           <Property Name="QuestionThree" Type="varchar" MaxLength="255" />
-          <Property Name="QuestionFour" Type="varchar" MaxLength="255" />
           <Property Name="SurveyID" Type="int" Nullable="false" />
           <Property Name="SubmitTime" Type="datetime" />
         </EntityType>
@@ -121,14 +120,19 @@
             <PropertyRef Name="SurveyID" />
           </Key>
           <Property Name="SurveyID" Type="int" Nullable="false" />
+          <Property Name="AppID" Type="int" />
           <Property Name="QuestionOne" Type="varchar" MaxLength="255" />
           <Property Name="QuestionTwo" Type="varchar" MaxLength="255" />
           <Property Name="QuestionThree" Type="varchar" MaxLength="255" />
-          <Property Name="QuestionFour" Type="varchar" MaxLength="255" />
-          <Property Name="QuestionOneChoice" Type="int" />
-          <Property Name="QuestionTwoChoice" Type="int" />
-          <Property Name="QuestionThreeChoice" Type="int" />
-          <Property Name="QuestionFourChoice" Type="int" />
+          <Property Name="QuestionOneMC1" Type="varchar" MaxLength="255" />
+          <Property Name="QuestionOneMC2" Type="varchar" MaxLength="255" />
+          <Property Name="QuestionOneMC3" Type="varchar" MaxLength="255" />
+          <Property Name="QuestionTwoMC1" Type="varchar" MaxLength="255" />
+          <Property Name="QuestionTwoMC2" Type="varchar" MaxLength="255" />
+          <Property Name="QuestionTwoMC3" Type="varchar" MaxLength="255" />
+          <Property Name="QuestionThreeMC1" Type="varchar" MaxLength="255" />
+          <Property Name="QuestionThreeMC2" Type="varchar" MaxLength="255" />
+          <Property Name="QuestionThreeMC3" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="lastupdates">
           <Key>
@@ -329,7 +333,6 @@
           <Property Type="String" Name="QuestionOne" />
           <Property Type="String" Name="QuestionTwo" />
           <Property Type="String" Name="QuestionThree" />
-          <Property Type="String" Name="QuestionFour" />
           <Property Type="Int32" Name="SurveyID" Nullable="false" />
           <Property Type="DateTime" Name="SubmitTime" />
         </EntityType>
@@ -341,11 +344,16 @@
           <Property Type="String" Name="QuestionOne" />
           <Property Type="String" Name="QuestionTwo" />
           <Property Type="String" Name="QuestionThree" />
-          <Property Type="String" Name="QuestionFour" />
-          <Property Type="Int32" Name="QuestionOneChoice" />
-          <Property Type="Int32" Name="QuestionTwoChoice" />
-          <Property Type="Int32" Name="QuestionThreeChoice" />
-          <Property Type="Int32" Name="QuestionFourChoice" />
+          <Property Type="Int32" Name="AppID" />
+          <Property Type="String" Name="QuestionOneMC1" />
+          <Property Type="String" Name="QuestionOneMC2" />
+          <Property Type="String" Name="QuestionOneMC3" />
+          <Property Type="String" Name="QuestionTwoMC1" />
+          <Property Type="String" Name="QuestionTwoMC2" />
+          <Property Type="String" Name="QuestionTwoMC3" />
+          <Property Type="String" Name="QuestionThreeMC1" />
+          <Property Type="String" Name="QuestionThreeMC2" />
+          <Property Type="String" Name="QuestionThreeMC3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -467,7 +475,6 @@
               <MappingFragment StoreEntitySet="eventfeedback">
                 <ScalarProperty Name="SubmitTime" ColumnName="SubmitTime" />
                 <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
-                <ScalarProperty Name="QuestionFour" ColumnName="QuestionFour" />
                 <ScalarProperty Name="QuestionThree" ColumnName="QuestionThree" />
                 <ScalarProperty Name="QuestionTwo" ColumnName="QuestionTwo" />
                 <ScalarProperty Name="QuestionOne" ColumnName="QuestionOne" />
@@ -480,11 +487,16 @@
           <EntitySetMapping Name="eventsurveys">
             <EntityTypeMapping TypeName="novaModel.eventsurvey">
               <MappingFragment StoreEntitySet="eventsurvey">
-                <ScalarProperty Name="QuestionFourChoice" ColumnName="QuestionFourChoice" />
-                <ScalarProperty Name="QuestionThreeChoice" ColumnName="QuestionThreeChoice" />
-                <ScalarProperty Name="QuestionTwoChoice" ColumnName="QuestionTwoChoice" />
-                <ScalarProperty Name="QuestionOneChoice" ColumnName="QuestionOneChoice" />
-                <ScalarProperty Name="QuestionFour" ColumnName="QuestionFour" />
+                <ScalarProperty Name="QuestionThreeMC3" ColumnName="QuestionThreeMC3" />
+                <ScalarProperty Name="QuestionThreeMC2" ColumnName="QuestionThreeMC2" />
+                <ScalarProperty Name="QuestionThreeMC1" ColumnName="QuestionThreeMC1" />
+                <ScalarProperty Name="QuestionTwoMC3" ColumnName="QuestionTwoMC3" />
+                <ScalarProperty Name="QuestionTwoMC2" ColumnName="QuestionTwoMC2" />
+                <ScalarProperty Name="QuestionTwoMC1" ColumnName="QuestionTwoMC1" />
+                <ScalarProperty Name="QuestionOneMC3" ColumnName="QuestionOneMC3" />
+                <ScalarProperty Name="QuestionOneMC2" ColumnName="QuestionOneMC2" />
+                <ScalarProperty Name="QuestionOneMC1" ColumnName="QuestionOneMC1" />
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
                 <ScalarProperty Name="QuestionThree" ColumnName="QuestionThree" />
                 <ScalarProperty Name="QuestionTwo" ColumnName="QuestionTwo" />
                 <ScalarProperty Name="QuestionOne" ColumnName="QuestionOne" />
@@ -523,8 +535,8 @@
         <EntityTypeShape EntityType="novaModel.beta_events" Width="1.5" PointX="7.375" PointY="3.75" Height="2.7494921874999996" />
         <EntityTypeShape EntityType="novaModel.server_logs" Width="1.5" PointX="2.875" PointY="4" Height="2.9417936197916656" />
         <EntityTypeShape EntityType="novaModel.customer" Width="1.5" PointX="3.375" PointY="7.75" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="novaModel.eventfeedback" Width="1.5" PointX="5.375" PointY="7.75" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="novaModel.eventsurvey" Width="1.5" PointX="7.375" PointY="7.75" Height="2.7494921875000031" />
+        <EntityTypeShape EntityType="novaModel.eventfeedback" Width="1.5" PointX="5.375" PointY="7.75" Height="2.5571907552083335" />
+        <EntityTypeShape EntityType="novaModel.eventsurvey" Width="2.25" PointX="7.375" PointY="7.75" Height="3.7109993489583335" />
       </Diagram>
     </Diagrams>
   </Designer>

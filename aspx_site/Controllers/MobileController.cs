@@ -151,18 +151,60 @@ namespace aspx_site.Controllers
                                       select surveys).First();
 
                 ViewData["survey_Q1"] = selectedSurvey.QuestionOne;
-                ViewData["survey_Q1C"] = selectedSurvey.QuestionOneChoice;
+                ViewData["survey_Q1MC"] = 0;
+                if (selectedSurvey.QuestionOneMC1 != null)
+                {
+                    ViewData["survey_Q1MC"] = 1;
+                    ViewData["survey_Q1C1"] = selectedSurvey.QuestionOneMC1;
+                }
+                if(selectedSurvey.QuestionOneMC2 != null)
+                {
+                    ViewData["survey_Q1MC"] = 1;
+                    ViewData["survey_Q1C2"] = selectedSurvey.QuestionOneMC2;
+                }
+                if(selectedSurvey.QuestionOneMC3 != null)
+                {
+                    ViewData["survey_Q1MC"] = 1;
+                    ViewData["survey_Q1C3"] = selectedSurvey.QuestionOneMC3;
+                }
+
 
                 ViewData["survey_Q2"] = selectedSurvey.QuestionTwo;
-                ViewData["survey_Q2C"] = selectedSurvey.QuestionTwoChoice;
+                ViewData["survey_Q2MC"] = 0;
+                if (selectedSurvey.QuestionTwoMC1 != null)
+                {
+                    ViewData["survey_Q2MC"] = 1;
+                    ViewData["survey_Q2C1"] = selectedSurvey.QuestionTwoMC1;
+                }
+                if (selectedSurvey.QuestionTwoMC2 != null)
+                {
+                    ViewData["survey_Q2MC"] = 1;
+                    ViewData["survey_Q2C2"] = selectedSurvey.QuestionTwoMC2;
+                }
+                if(selectedSurvey.QuestionTwoMC3 != null)
+                {
+                    ViewData["survey_Q2MC"] = 1;
+                    ViewData["survey_Q2C3"] = selectedSurvey.QuestionTwoMC3;
+                }
+                
 
                 ViewData["survey_Q3"] = selectedSurvey.QuestionThree;
-                ViewData["survey_Q3C"] = selectedSurvey.QuestionThreeChoice;
-
-                ViewData["survey_Q4"] = selectedSurvey.QuestionFour;
-                ViewData["survey_Q4C"] = selectedSurvey.QuestionFourChoice;
-
-
+                ViewData["survey_Q3MC"] = 0;
+                if (selectedSurvey.QuestionThreeMC1 != null)
+                {
+                    ViewData["survey_Q3MC"] = 1;
+                    ViewData["survey_Q3C1"] = selectedSurvey.QuestionThreeMC1;
+                }
+                if (selectedSurvey.QuestionThreeMC2 != null)
+                {
+                    ViewData["survey_Q3MC"] = 1;
+                    ViewData["survey_Q3C2"] = selectedSurvey.QuestionThreeMC2;
+                }
+                if(selectedSurvey.QuestionThreeMC3 != null)
+                {
+                    ViewData["survey_Q3MC"] = 1;
+                    ViewData["survey_Q3C3"] = selectedSurvey.QuestionThreeMC3;
+                }
             }
 
             return View();
@@ -178,7 +220,6 @@ namespace aspx_site.Controllers
             feedback.QuestionOne = collection["Q1_R"];
             feedback.QuestionTwo = collection["Q2_R"];
             feedback.QuestionThree = collection["Q3_R"];
-            feedback.QuestionFour = collection["Q4_R"];
             feedback.EventID = Convert.ToInt32(collection["EventID"]);
             feedback.SubmitTime = DateTime.Now;
 

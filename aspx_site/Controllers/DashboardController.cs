@@ -125,11 +125,12 @@ namespace aspx_site.Controllers
                 DateTime[] submittimes = new DateTime[5];
 
 
-
+                int curreventid;
                 for (int i = 0; i < selectedFeedback.Count; i++)
                 {
+                    curreventid = selectedFeedback[i].EventID;
                     currentEvent = (from e in _db.novaevents
-                                    where e.EventID == selectedFeedback.ElementAt(i).EventID
+                                    where e.EventID == curreventid
                                     select e).First();
                     eventids[i] = Convert.ToString(currentEvent.EventID);
                     eventnames[i] = currentEvent.EventName;
@@ -138,9 +139,9 @@ namespace aspx_site.Controllers
                 }
 
                 ViewData["feedbackeventids"] = eventids;
-                ViewData["feedbackeventnames"] = eventids;
-                ViewData["feedbackids"] = eventids;
-                ViewData["feedbacksubmittimes"] = eventids;
+                ViewData["feedbackeventnames"] = eventnames;
+                ViewData["feedbackids"] = feedbackids;
+                ViewData["feedbacksubmittimes"] = submittimes;
                 ViewData["feedback"] = selectedFeedback;
                 
             }

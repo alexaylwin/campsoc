@@ -32,16 +32,27 @@
         <% using (Html.BeginForm("EventDetails","Mobile",FormMethod.Post,new{@id="feedback"}))
            { %>
            <%if(ViewData["survey_Q1"] != null){
-                 if(ViewData["survey_Q1C"] != null && (int)ViewData["survey_Q1C"] == 3){
+                 if(ViewData["survey_Q1MC"] != null && (int)ViewData["survey_Q1MC"] == 1){
             %>
             <fieldset data-role="controlgroup">
                 <legend><%=ViewData["survey_Q1"] %></legend>
-                <%: Html.RadioButton("Q1_R", "1", new {@id = "Q1_R1"}) %>
-                <label for="Q1_R1">Excellent</label>
-                <%: Html.RadioButton("Q1_R", "2", new { @id = "Q1_R2"})%>
-                <label for="Q1_R2">Fair</label>
-                <%: Html.RadioButton("Q1_R", "3", new { @id = "Q1_R3"})%>
-                <label for="Q1_R3">Poor</label>
+                <%if (ViewData["survey_Q1C1"] != null)
+                  { %>
+                    <%: Html.RadioButton("Q1_R", "1", new { @id = "Q1_R1" })%>
+                    <label for="Q1_R1"><%=ViewData["survey_Q1C1"]%></label>
+                <%} %>
+                
+                <%if (ViewData["survey_Q1C2"] != null)
+                  { %>
+                    <%: Html.RadioButton("Q1_R", "2", new { @id = "Q1_R2" })%>
+                    <label for="Q1_R2"><%=ViewData["survey_Q1C2"]%></label>
+                <%} %>
+
+                <%if (ViewData["survey_Q1C3"] != null)
+                  { %>
+                    <%: Html.RadioButton("Q1_R", "3", new { @id = "Q1_R3" })%>
+                    <label for="Q1_R3"><%=ViewData["survey_Q1C3"]%></label>
+                <%} %>
             </fieldset>
                 <%} else {%>
                 <label for="Q1_1"><%=ViewData["survey_Q1"] %></label>
@@ -50,16 +61,25 @@
         <%} %>
 
            <%if(ViewData["survey_Q2"] != null){
-                 if(ViewData["survey_Q2C"] != null && (int)ViewData["survey_Q2C"] == 3){
+                 if(ViewData["survey_Q2MC"] != null && (int)ViewData["survey_Q2MC"] == 1){
             %>
             <fieldset data-role="controlgroup">
                 <legend><%=ViewData["survey_Q2"] %></legend>
-                <%: Html.RadioButton("Q2_R", "1", new { @id = "Q2_R1"})%>
-                <label for="Q2_R1">Excellent</label>
-                <%: Html.RadioButton("Q2_R", "2", new { @id = "Q2_R2"})%>
-                <label for="Q2_R2">Fair</label>
-                <%: Html.RadioButton("Q2_R", "3", new { @id = "Q2_R3"})%>
-                <label for="Q2_R3">Poor</label>
+                <%if (ViewData["survey_Q2C1"] != null)
+                  { %>
+                    <%: Html.RadioButton("Q2_R", "1", new { @id = "Q2_R1"})%>
+                    <label for="Q2_R1"><%=ViewData["survey_Q2C1"] %></label>
+                <%} %>
+                <%if (ViewData["survey_Q2C2"] != null)
+                  { %>
+                    <%: Html.RadioButton("Q2_R", "2", new { @id = "Q2_R2"})%>
+                    <label for="Q2_R2"><%=ViewData["survey_Q2C2"] %></label>
+                <%} %>
+                <%if (ViewData["survey_Q2C3"] != null)
+                  { %>
+                    <%: Html.RadioButton("Q2_R", "3", new { @id = "Q2_R3"})%>
+                    <label for="Q2_R3"><%=ViewData["survey_Q2C3"] %></label>
+                <%} %>
             </fieldset>
                 <%} else {%>
                 <label for="Q2_1"><%=ViewData["survey_Q2"] %></label>
@@ -67,37 +87,29 @@
                 <%} %>
         <%} %>
            <%if(ViewData["survey_Q3"] != null){
-                 if(ViewData["survey_Q3C"] != null && (int)ViewData["survey_Q3C"] == 3){
+                 if(ViewData["survey_Q3MC"] != null && (int)ViewData["survey_Q3MC"] == 1){
             %>
             <fieldset data-role="controlgroup">
                 <legend><%=ViewData["survey_Q3"] %></legend>
-                <%: Html.RadioButton("Q3_R", "1", new { @id = "Q3_R1"})%>
-                <label for="Q3_R1">Excellent</label>
-                <%: Html.RadioButton("Q3_R", "2", new { @id = "Q3_R2" })%>
-                <label for="Q3_R2">Fair</label>
-                <%: Html.RadioButton("Q3_R", "3", new { @id = "Q3_R3"})%>
-                <label for="Q3_R3">Poor</label>
+                <%if (ViewData["survey_Q3C1"] != null)
+                  { %>
+                    <%: Html.RadioButton("Q3_R", "1", new { @id = "Q3_R1"})%>
+                    <label for="Q3_R1"><%=ViewData["survey_Q3C1"] %></label>
+                <%} %>
+                <%if (ViewData["survey_Q3C2"] != null)
+                  { %>
+                    <%: Html.RadioButton("Q3_R", "2", new { @id = "Q3_R2" })%>
+                    <label for="Q3_R2"><%=ViewData["survey_Q3C2"] %></label>
+                <%} %>
+                <%if (ViewData["survey_Q3C3"] != null)
+                  { %>
+                    <%: Html.RadioButton("Q3_R", "3", new { @id = "Q3_R3"})%>
+                    <label for="Q3_R3"><%=ViewData["survey_Q3C3"] %></label>
+                <%} %>
             </fieldset>
                 <%} else {%>
                 <label for="Q3_1"><%=ViewData["survey_Q3"] %></label>
                 <%: Html.TextBox("Q3_R", "", new {@id="Q3_R"}) %>
-                <%} %>
-        <%} %>
-           <%if(ViewData["survey_Q4"] != null){
-                 if(ViewData["survey_Q4C"] != null && (int)ViewData["survey_Q4C"] == 3){
-            %>
-            <fieldset data-role="controlgroup">
-                <legend><%=ViewData["survey_Q4"] %></legend>
-                <%: Html.RadioButton("Q4_R", "1", new { @id = "Q4_R1"})%>
-                <label for="Q4_R1">Excellent</label>
-                <%: Html.RadioButton("Q4_R", "2", new { @id = "Q4_R2"})%>
-                <label for="Q4_R2">Fair</label>
-                <%: Html.RadioButton("Q4_R", "3", new { @id = "Q4_R3"})%>
-                <label for="Q4_R3">Poor</label>
-            </fieldset>
-                <%} else {%>
-                <label for="Q4_1"><%=ViewData["survey_Q4"] %></label>
-                <%: Html.TextBox("Q4_R", "", new {@id="Q4_R"}) %>
                 <%} %>
         <%} %>
         <%: Html.Hidden("EventID", ViewData["EventID"]) %>

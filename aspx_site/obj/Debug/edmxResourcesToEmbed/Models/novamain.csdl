@@ -151,7 +151,6 @@
     <Property Type="String" Name="QuestionOne" />
     <Property Type="String" Name="QuestionTwo" />
     <Property Type="String" Name="QuestionThree" />
-    <Property Type="String" Name="QuestionFour" />
     <Property Type="Int32" Name="SurveyID" Nullable="false" />
     <Property Type="DateTime" Name="SubmitTime" />
   </EntityType>
@@ -163,10 +162,15 @@
     <Property Type="String" Name="QuestionOne" />
     <Property Type="String" Name="QuestionTwo" />
     <Property Type="String" Name="QuestionThree" />
-    <Property Type="String" Name="QuestionFour" />
-    <Property Type="Int32" Name="QuestionOneChoice" />
-    <Property Type="Int32" Name="QuestionTwoChoice" />
-    <Property Type="Int32" Name="QuestionThreeChoice" />
-    <Property Type="Int32" Name="QuestionFourChoice" />
+    <Property Type="Int32" Name="AppID" />
+    <Property Type="String" Name="QuestionOneMC1" />
+    <Property Type="String" Name="QuestionOneMC2" />
+    <Property Type="String" Name="QuestionOneMC3" />
+    <Property Type="String" Name="QuestionTwoMC1" />
+    <Property Type="String" Name="QuestionTwoMC2" />
+    <Property Type="String" Name="QuestionTwoMC3" />
+    <Property Type="String" Name="QuestionThreeMC1" />
+    <Property Type="String" Name="QuestionThreeMC2" />
+    <Property Type="String" Name="QuestionThreeMC3" />
   </EntityType>
 </Schema>

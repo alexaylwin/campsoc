@@ -77,7 +77,7 @@
     <Property Name="CustomerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="AppID" Type="int" Nullable="false" />
-    <Property Name="Username" Type="varchar" MaxLength="45" />
+    <Property Name="Username" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="eventfeedback">
     <Key>
@@ -89,7 +89,6 @@
     <Property Name="QuestionOne" Type="varchar" MaxLength="255" />
     <Property Name="QuestionTwo" Type="varchar" MaxLength="255" />
     <Property Name="QuestionThree" Type="varchar" MaxLength="255" />
-    <Property Name="QuestionFour" Type="varchar" MaxLength="255" />
     <Property Name="SurveyID" Type="int" Nullable="false" />
     <Property Name="SubmitTime" Type="datetime" />
   </EntityType>
@@ -116,14 +115,19 @@
       <PropertyRef Name="SurveyID" />
     </Key>
     <Property Name="SurveyID" Type="int" Nullable="false" />
+    <Property Name="AppID" Type="int" />
     <Property Name="QuestionOne" Type="varchar" MaxLength="255" />
     <Property Name="QuestionTwo" Type="varchar" MaxLength="255" />
     <Property Name="QuestionThree" Type="varchar" MaxLength="255" />
-    <Property Name="QuestionFour" Type="varchar" MaxLength="255" />
-    <Property Name="QuestionOneChoice" Type="int" />
-    <Property Name="QuestionTwoChoice" Type="int" />
-    <Property Name="QuestionThreeChoice" Type="int" />
-    <Property Name="QuestionFourChoice" Type="int" />
+    <Property Name="QuestionOneMC1" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionOneMC2" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionOneMC3" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionTwoMC1" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionTwoMC2" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionTwoMC3" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionThreeMC1" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionThreeMC2" Type="varchar" MaxLength="255" />
+    <Property Name="QuestionThreeMC3" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="lastupdates">
     <Key>

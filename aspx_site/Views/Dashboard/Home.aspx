@@ -96,8 +96,8 @@
                 <%for (int i = 0; i < 5; i++ )
                   { %>
                 <li class="feedbacklistitem">
-                <a href="../Events/Feedback?id=<%= ((int [])ViewData["feedbackeventids"])[i] %>">
-                <div class="header"><%= ((string [])ViewData["feedbacksubmittimes"])[i]%></div>
+                <a href="../Events/Feedback?id=<%= ((string [])ViewData["feedbackeventids"])[i] %>">
+                <div class="header"><%= ((DateTime [])ViewData["feedbacksubmittimes"])[i]%></div>
                 Survey for <%= ((string[])ViewData["feedbackeventnames"])[i]%> submitted <br />
                 </li>
                 </a>

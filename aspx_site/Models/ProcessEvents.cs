@@ -60,7 +60,7 @@ namespace aspx_site.Models
         public int getMaxEventID()
         {
             var selectedEvents = from e in _db.novaevents
-                                  where e.AppID == 4
+                                  //where e.AppID == 4
                                   select e.EventID;
             return selectedEvents.Max();
         }

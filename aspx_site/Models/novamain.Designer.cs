@@ -1677,30 +1677,6 @@ namespace aspx_site.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String QuestionFour
-        {
-            get
-            {
-                return _QuestionFour;
-            }
-            set
-            {
-                OnQuestionFourChanging(value);
-                ReportPropertyChanging("QuestionFour");
-                _QuestionFour = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("QuestionFour");
-                OnQuestionFourChanged();
-            }
-        }
-        private global::System.String _QuestionFour;
-        partial void OnQuestionFourChanging(global::System.String value);
-        partial void OnQuestionFourChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 SurveyID
@@ -1878,120 +1854,240 @@ namespace aspx_site.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String QuestionFour
+        public Nullable<global::System.Int32> AppID
         {
             get
             {
-                return _QuestionFour;
+                return _AppID;
             }
             set
             {
-                OnQuestionFourChanging(value);
-                ReportPropertyChanging("QuestionFour");
-                _QuestionFour = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("QuestionFour");
-                OnQuestionFourChanged();
+                OnAppIDChanging(value);
+                ReportPropertyChanging("AppID");
+                _AppID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AppID");
+                OnAppIDChanged();
             }
         }
-        private global::System.String _QuestionFour;
-        partial void OnQuestionFourChanging(global::System.String value);
-        partial void OnQuestionFourChanged();
+        private Nullable<global::System.Int32> _AppID;
+        partial void OnAppIDChanging(Nullable<global::System.Int32> value);
+        partial void OnAppIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> QuestionOneChoice
+        public global::System.String QuestionOneMC1
         {
             get
             {
-                return _QuestionOneChoice;
+                return _QuestionOneMC1;
             }
             set
             {
-                OnQuestionOneChoiceChanging(value);
-                ReportPropertyChanging("QuestionOneChoice");
-                _QuestionOneChoice = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("QuestionOneChoice");
-                OnQuestionOneChoiceChanged();
+                OnQuestionOneMC1Changing(value);
+                ReportPropertyChanging("QuestionOneMC1");
+                _QuestionOneMC1 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuestionOneMC1");
+                OnQuestionOneMC1Changed();
             }
         }
-        private Nullable<global::System.Int32> _QuestionOneChoice;
-        partial void OnQuestionOneChoiceChanging(Nullable<global::System.Int32> value);
-        partial void OnQuestionOneChoiceChanged();
+        private global::System.String _QuestionOneMC1;
+        partial void OnQuestionOneMC1Changing(global::System.String value);
+        partial void OnQuestionOneMC1Changed();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> QuestionTwoChoice
+        public global::System.String QuestionOneMC2
         {
             get
             {
-                return _QuestionTwoChoice;
+                return _QuestionOneMC2;
             }
             set
             {
-                OnQuestionTwoChoiceChanging(value);
-                ReportPropertyChanging("QuestionTwoChoice");
-                _QuestionTwoChoice = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("QuestionTwoChoice");
-                OnQuestionTwoChoiceChanged();
+                OnQuestionOneMC2Changing(value);
+                ReportPropertyChanging("QuestionOneMC2");
+                _QuestionOneMC2 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuestionOneMC2");
+                OnQuestionOneMC2Changed();
             }
         }
-        private Nullable<global::System.Int32> _QuestionTwoChoice;
-        partial void OnQuestionTwoChoiceChanging(Nullable<global::System.Int32> value);
-        partial void OnQuestionTwoChoiceChanged();
+        private global::System.String _QuestionOneMC2;
+        partial void OnQuestionOneMC2Changing(global::System.String value);
+        partial void OnQuestionOneMC2Changed();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> QuestionThreeChoice
+        public global::System.String QuestionOneMC3
         {
             get
             {
-                return _QuestionThreeChoice;
+                return _QuestionOneMC3;
             }
             set
             {
-                OnQuestionThreeChoiceChanging(value);
-                ReportPropertyChanging("QuestionThreeChoice");
-                _QuestionThreeChoice = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("QuestionThreeChoice");
-                OnQuestionThreeChoiceChanged();
+                OnQuestionOneMC3Changing(value);
+                ReportPropertyChanging("QuestionOneMC3");
+                _QuestionOneMC3 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuestionOneMC3");
+                OnQuestionOneMC3Changed();
             }
         }
-        private Nullable<global::System.Int32> _QuestionThreeChoice;
-        partial void OnQuestionThreeChoiceChanging(Nullable<global::System.Int32> value);
-        partial void OnQuestionThreeChoiceChanged();
+        private global::System.String _QuestionOneMC3;
+        partial void OnQuestionOneMC3Changing(global::System.String value);
+        partial void OnQuestionOneMC3Changed();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> QuestionFourChoice
+        public global::System.String QuestionTwoMC1
         {
             get
             {
-                return _QuestionFourChoice;
+                return _QuestionTwoMC1;
             }
             set
             {
-                OnQuestionFourChoiceChanging(value);
-                ReportPropertyChanging("QuestionFourChoice");
-                _QuestionFourChoice = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("QuestionFourChoice");
-                OnQuestionFourChoiceChanged();
+                OnQuestionTwoMC1Changing(value);
+                ReportPropertyChanging("QuestionTwoMC1");
+                _QuestionTwoMC1 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuestionTwoMC1");
+                OnQuestionTwoMC1Changed();
             }
         }
-        private Nullable<global::System.Int32> _QuestionFourChoice;
-        partial void OnQuestionFourChoiceChanging(Nullable<global::System.Int32> value);
-        partial void OnQuestionFourChoiceChanged();
+        private global::System.String _QuestionTwoMC1;
+        partial void OnQuestionTwoMC1Changing(global::System.String value);
+        partial void OnQuestionTwoMC1Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionTwoMC2
+        {
+            get
+            {
+                return _QuestionTwoMC2;
+            }
+            set
+            {
+                OnQuestionTwoMC2Changing(value);
+                ReportPropertyChanging("QuestionTwoMC2");
+                _QuestionTwoMC2 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuestionTwoMC2");
+                OnQuestionTwoMC2Changed();
+            }
+        }
+        private global::System.String _QuestionTwoMC2;
+        partial void OnQuestionTwoMC2Changing(global::System.String value);
+        partial void OnQuestionTwoMC2Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionTwoMC3
+        {
+            get
+            {
+                return _QuestionTwoMC3;
+            }
+            set
+            {
+                OnQuestionTwoMC3Changing(value);
+                ReportPropertyChanging("QuestionTwoMC3");
+                _QuestionTwoMC3 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuestionTwoMC3");
+                OnQuestionTwoMC3Changed();
+            }
+        }
+        private global::System.String _QuestionTwoMC3;
+        partial void OnQuestionTwoMC3Changing(global::System.String value);
+        partial void OnQuestionTwoMC3Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionThreeMC1
+        {
+            get
+            {
+                return _QuestionThreeMC1;
+            }
+            set
+            {
+                OnQuestionThreeMC1Changing(value);
+                ReportPropertyChanging("QuestionThreeMC1");
+                _QuestionThreeMC1 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuestionThreeMC1");
+                OnQuestionThreeMC1Changed();
+            }
+        }
+        private global::System.String _QuestionThreeMC1;
+        partial void OnQuestionThreeMC1Changing(global::System.String value);
+        partial void OnQuestionThreeMC1Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionThreeMC2
+        {
+            get
+            {
+                return _QuestionThreeMC2;
+            }
+            set
+            {
+                OnQuestionThreeMC2Changing(value);
+                ReportPropertyChanging("QuestionThreeMC2");
+                _QuestionThreeMC2 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuestionThreeMC2");
+                OnQuestionThreeMC2Changed();
+            }
+        }
+        private global::System.String _QuestionThreeMC2;
+        partial void OnQuestionThreeMC2Changing(global::System.String value);
+        partial void OnQuestionThreeMC2Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String QuestionThreeMC3
+        {
+            get
+            {
+                return _QuestionThreeMC3;
+            }
+            set
+            {
+                OnQuestionThreeMC3Changing(value);
+                ReportPropertyChanging("QuestionThreeMC3");
+                _QuestionThreeMC3 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("QuestionThreeMC3");
+                OnQuestionThreeMC3Changed();
+            }
+        }
+        private global::System.String _QuestionThreeMC3;
+        partial void OnQuestionThreeMC3Changing(global::System.String value);
+        partial void OnQuestionThreeMC3Changed();
 
         #endregion
     

@@ -90,6 +90,7 @@
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\MobileController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\SurveysController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -106,6 +107,7 @@
       <DependentUpon>novamain.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ProcessRSVPs.cs" />
+    <Compile Include="Models\ProcessSurveys.cs" />
     <Compile Include="Models\ProcessUsers.cs" />
     <Compile Include="Models\Util.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -178,6 +180,8 @@
     <Content Include="Views\Mobile\Messages.aspx" />
     <Content Include="Views\Settings\Accounts.aspx" />
     <Content Include="Views\Settings\Home.aspx" />
+    <Content Include="Views\Surveys\Create.aspx" />
+    <Content Include="Views\Surveys\Home.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

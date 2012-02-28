@@ -143,7 +143,6 @@
         <MappingFragment StoreEntitySet="eventfeedback">
           <ScalarProperty Name="SubmitTime" ColumnName="SubmitTime" />
           <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
-          <ScalarProperty Name="QuestionFour" ColumnName="QuestionFour" />
           <ScalarProperty Name="QuestionThree" ColumnName="QuestionThree" />
           <ScalarProperty Name="QuestionTwo" ColumnName="QuestionTwo" />
           <ScalarProperty Name="QuestionOne" ColumnName="QuestionOne" />
@@ -156,11 +155,16 @@
     <EntitySetMapping Name="eventsurveys">
       <EntityTypeMapping TypeName="novaModel.eventsurvey">
         <MappingFragment StoreEntitySet="eventsurvey">
-          <ScalarProperty Name="QuestionFourChoice" ColumnName="QuestionFourChoice" />
-          <ScalarProperty Name="QuestionThreeChoice" ColumnName="QuestionThreeChoice" />
-          <ScalarProperty Name="QuestionTwoChoice" ColumnName="QuestionTwoChoice" />
-          <ScalarProperty Name="QuestionOneChoice" ColumnName="QuestionOneChoice" />
-          <ScalarProperty Name="QuestionFour" ColumnName="QuestionFour" />
+          <ScalarProperty Name="QuestionThreeMC3" ColumnName="QuestionThreeMC3" />
+          <ScalarProperty Name="QuestionThreeMC2" ColumnName="QuestionThreeMC2" />
+          <ScalarProperty Name="QuestionThreeMC1" ColumnName="QuestionThreeMC1" />
+          <ScalarProperty Name="QuestionTwoMC3" ColumnName="QuestionTwoMC3" />
+          <ScalarProperty Name="QuestionTwoMC2" ColumnName="QuestionTwoMC2" />
+          <ScalarProperty Name="QuestionTwoMC1" ColumnName="QuestionTwoMC1" />
+          <ScalarProperty Name="QuestionOneMC3" ColumnName="QuestionOneMC3" />
+          <ScalarProperty Name="QuestionOneMC2" ColumnName="QuestionOneMC2" />
+          <ScalarProperty Name="QuestionOneMC1" ColumnName="QuestionOneMC1" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
           <ScalarProperty Name="QuestionThree" ColumnName="QuestionThree" />
           <ScalarProperty Name="QuestionTwo" ColumnName="QuestionTwo" />
           <ScalarProperty Name="QuestionOne" ColumnName="QuestionOne" />
