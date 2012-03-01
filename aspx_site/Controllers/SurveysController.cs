@@ -7,20 +7,20 @@ using aspx_site.Models;
 
 namespace aspx_site.Controllers
 {
-    public class SurveysController : Controller
+    public class SurveysController : BaseController
     {
 
         // GET: /Survey/
 
-        novamainEntities _db;
-        int defaultappid = 4;
-        Util utility;
+        //novamainEntities _db;
+        //int defaultappid = 4;
+        //Util utility;
         ProcessSurveys surveymodel;
 
-        public SurveysController()
+        public SurveysController() :base()
         {
-            _db = new novamainEntities();
-            utility = new Util();
+            //_db = new novamainEntities();
+            //utility = new Util();
             surveymodel = new ProcessSurveys();
         }
  
@@ -111,6 +111,14 @@ namespace aspx_site.Controllers
 
             newsurvey.SurveyID = surveymodel.getMaxSurveyID() + 1;
             newsurvey.AppID = app.AppID;
+            if (collection["SurveyName"] != null)
+            {
+                newsurvey.SurveyName = collection["SurveyName"];
+            }
+            else
+            {
+                newsurvey.SurveyName = Convert.ToString(newsurvey.SurveyID);
+            }
             surveymodel.addSurvey(newsurvey);
 
             return RedirectToAction("Home");

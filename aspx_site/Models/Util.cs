@@ -28,6 +28,20 @@ namespace aspx_site.Models
             return selected_app.AppID;
         }
 
+        public string getHashedAppID(int appid)
+        {
+            var selected_app = (from a in _db.appinfoes
+                                where (a.AppID == appid)
+                                select a).FirstOrDefault();
+
+            if (selected_app == null)
+            {
+                return "";
+            }
+
+            return selected_app.HashedAppID;
+        }
+
         public string getHomeText(int appid)
         {
             var selected_app = (from a in _db.appinfoes
@@ -178,6 +192,21 @@ namespace aspx_site.Models
             {
                 return new DateTime(1900, 1, 1);
             }
+        }
+
+        public int getCustomerAppID(string username)
+        {
+            var selected_customer = (from c in _db.customers
+                                     where c.Username == username
+                                     select c).FirstOrDefault();
+            if (selected_customer.UserId > 0 && selected_customer.AppID > 0)
+            {
+                return selected_customer.AppID;
+            } else {
+                return 0;
+            }
+
+
         }
     }
 }

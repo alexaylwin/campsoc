@@ -30,7 +30,7 @@
     <p>
     Welcome back to Campus Social, <%: Page.User.Identity.Name %>!
     </p>
-    <div id="dashboardbuttons"><span>Quick Tasks:</span> <a href="../Events/Create" class="cssbutton_small">Create Event</a><a href="../Messages/Create" class="cssbutton_small">Send Message</a><a href="../Settings/Accounts" class="cssbutton_small">Link Social Accounts</a></div>
+    <div id="dashboardbuttons"><span>Quick Tasks:</span> <a href="../Events/Create" class="cssbutton_small">Create Event</a><a href="../Messages/Create" class="cssbutton_small">Send Message</a><a href="../Settings/Accounts" class="cssbutton_small">Link Social Accounts</a><a href="../mobile/home?appid=<%=ViewData["hashedappid"] %>" class="cssbutton_small">View Mobile Site</a></div>
 
     
     <table id="dashboard">
@@ -93,7 +93,7 @@
             <div id="feedback">
                <h3>Recent Feedback</h3>
                 <ul id="feedbacklist">
-                <%for (int i = 0; i < 5; i++ )
+                <%for (int i = 0; i < (int)ViewData["feedbackcount"]; i++ )
                   { %>
                 <li class="feedbacklistitem">
                 <a href="../Events/Feedback?id=<%= ((string [])ViewData["feedbackeventids"])[i] %>">

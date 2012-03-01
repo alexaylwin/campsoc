@@ -14,19 +14,19 @@ using System.Configuration;
 namespace aspx_site.Controllers
 {
     [Authorize]
-    public class MessagesController : Controller
+    public class MessagesController : BaseController
     {
 
-        novamainEntities _db;
-        ProcessMessages messagemodel;
-        Util utility;
-        int defaultappid = 4;
+        //novamainEntities _db;
+        //ProcessMessages messagemodel;
+        //Util utility;
+        //int defaultappid = 4;
 
-        public MessagesController()
+        public MessagesController() : base()
         {
-            _db = new novamainEntities();
-            messagemodel = new ProcessMessages();
-            utility = new Util();
+            //_db = new novamainEntities();
+            //messagemodel = new ProcessMessages();
+            //utility = new Util();
         }
 
         public ActionResult Index()
@@ -54,7 +54,7 @@ namespace aspx_site.Controllers
 
         public ActionResult Create()
         {
-            ViewData["MessageID"] = (messagemodel.getMaxMessageID() + 1);
+            ViewData["MessageID"] = (messagesmodel.getMaxMessageID() + 1);
             appinfo app = utility.getAppInfo(defaultappid);
 
             if (app.TwitterAccessToken != null)
@@ -108,12 +108,12 @@ namespace aspx_site.Controllers
                     MessageID = Convert.ToInt32(collection["MessageID"]),
                     AppID = defaultappid
                 };
-                int ret = messagemodel.addMessage(defaultappid, newmessage);
+                int ret = messagesmodel.addMessage(defaultappid, newmessage);
                 if (ret != 1)
                 {
                     return View();
                 }
-                ret = messagemodel.setLastMessageUpdate(defaultappid, DateTime.Now);
+                ret = messagesmodel.setLastMessageUpdate(defaultappid, DateTime.Now);
 
                 //create the facebook wall post
                 if (collection["PostToFacebook"].Contains("true"))

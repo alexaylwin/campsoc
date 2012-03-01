@@ -115,6 +115,7 @@
       <PropertyRef Name="SurveyID" />
     </Key>
     <Property Name="SurveyID" Type="int" Nullable="false" />
+    <Property Name="SurveyName" Type="varchar" MaxLength="255" />
     <Property Name="AppID" Type="int" />
     <Property Name="QuestionOne" Type="varchar" MaxLength="255" />
     <Property Name="QuestionTwo" Type="varchar" MaxLength="255" />

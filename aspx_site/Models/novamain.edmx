@@ -120,6 +120,7 @@
             <PropertyRef Name="SurveyID" />
           </Key>
           <Property Name="SurveyID" Type="int" Nullable="false" />
+          <Property Name="SurveyName" Type="varchar" MaxLength="255" />
           <Property Name="AppID" Type="int" />
           <Property Name="QuestionOne" Type="varchar" MaxLength="255" />
           <Property Name="QuestionTwo" Type="varchar" MaxLength="255" />
@@ -354,6 +355,7 @@
           <Property Type="String" Name="QuestionThreeMC1" />
           <Property Type="String" Name="QuestionThreeMC2" />
           <Property Type="String" Name="QuestionThreeMC3" />
+          <Property Type="String" Name="SurveyName" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -487,6 +489,7 @@
           <EntitySetMapping Name="eventsurveys">
             <EntityTypeMapping TypeName="novaModel.eventsurvey">
               <MappingFragment StoreEntitySet="eventsurvey">
+                <ScalarProperty Name="SurveyName" ColumnName="SurveyName" />
                 <ScalarProperty Name="QuestionThreeMC3" ColumnName="QuestionThreeMC3" />
                 <ScalarProperty Name="QuestionThreeMC2" ColumnName="QuestionThreeMC2" />
                 <ScalarProperty Name="QuestionThreeMC1" ColumnName="QuestionThreeMC1" />

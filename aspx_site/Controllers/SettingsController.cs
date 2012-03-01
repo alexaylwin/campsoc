@@ -15,18 +15,17 @@ using Newtonsoft.Json.Linq;
 namespace aspx_site.Controllers
 {
     [Authorize]
-    public class SettingsController : Controller
+    public class SettingsController : BaseController
     {
         //
         // GET: /Settings/
 
-        Util utility;
-        int defaultappid = 4;
+        //Util utility;
+        //int defaultappid = 4;
 
-        public SettingsController()
+        public SettingsController() : base()
         {
-            utility = new Util();
-            
+            //utility = new Util();
         }
 
         public ActionResult Index()

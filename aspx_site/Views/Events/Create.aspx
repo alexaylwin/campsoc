@@ -16,6 +16,18 @@
   List<SelectListItem> ampm = new List<SelectListItem>();
   ampm.Add(new SelectListItem { Text = "AM", Value = "AM", Selected = true });
   ampm.Add(new SelectListItem { Text = "PM", Value = "PM" });
+
+  List<SelectListItem> surveylist = new List<SelectListItem>();
+  surveylist.Add(new SelectListItem { Text = "None", Value = "0", Selected = true});
+  if (ViewData["surveylist"] != null)
+  {
+      foreach (var s in (List<aspx_site.Models.eventsurvey>)ViewData["surveylist"])
+      {
+          surveylist.Add(new SelectListItem { Text = s.SurveyName, Value = Convert.ToString(s.SurveyID), Selected = false });
+      }
+  }
+  
+  
  %>
  <%=ViewData["ReturnMessage"] %>
  <div class="createform" id="events">
@@ -31,6 +43,7 @@
     <tr><td>&nbsp;&nbsp;&nbsp;No end date:<%: Html.CheckBox("NoEndDate",false, new { @class="checkboxinput"}) %></td></tr>
     <tr><td class="itemheader">Attending</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("Attending", "", new { @class = "numberinput" })%></td></tr>
     <tr><td class="itemheader">Not Attending</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("NotAttending", "", new { @class = "numberinput" })%></td></tr>
+    <tr><td>Attach survey: <%: Html.DropDownList("EventSurvey", surveylist, new { @class = "dropdowninput" })%></td>
     <tr><td>Do not publish:<%: Html.CheckBox("Disabled",false, new { @class="checkboxinput"}) %></td></tr>
  </table>
  </div>

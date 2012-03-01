@@ -36,5 +36,13 @@ namespace aspx_site.Models
             return selectedSurveys.Max();
         }
 
+        public int getAttachedSurvey(int eventid)
+        {
+            var selectedEvents = (from e in _db.novaevents
+                                  where (e.EventID == eventid)
+                                  select e).First();
+            return (int)selectedEvents.Survey;
+        }
+
     }
 }

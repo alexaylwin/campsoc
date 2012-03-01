@@ -52,7 +52,8 @@ namespace aspx_site.Controllers
                     else
                     {
                         //TODO: Add session state for the current user to get the current app id
-                        //Session["appid"] = 
+
+                        Session["appid"] = utility.getCustomerAppID(model.UserName);
                         return RedirectToAction("Home", "Dashboard");
                     }
                 }

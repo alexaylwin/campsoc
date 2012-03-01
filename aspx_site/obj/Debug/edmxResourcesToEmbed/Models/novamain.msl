@@ -155,6 +155,7 @@
     <EntitySetMapping Name="eventsurveys">
       <EntityTypeMapping TypeName="novaModel.eventsurvey">
         <MappingFragment StoreEntitySet="eventsurvey">
+          <ScalarProperty Name="SurveyName" ColumnName="SurveyName" />
           <ScalarProperty Name="QuestionThreeMC3" ColumnName="QuestionThreeMC3" />
           <ScalarProperty Name="QuestionThreeMC2" ColumnName="QuestionThreeMC2" />
           <ScalarProperty Name="QuestionThreeMC1" ColumnName="QuestionThreeMC1" />

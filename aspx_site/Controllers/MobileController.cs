@@ -13,11 +13,13 @@ namespace aspx_site.Controllers
         // GET: /Mobile/
         Util utility;
         novamainEntities _db;
+        ProcessFeedback feedbackmodel;
 
         public MobileController()
         {
             utility = new Util();
             _db = new novamainEntities();
+            feedbackmodel = new ProcessFeedback();
         }
 
         public ActionResult Index()
@@ -214,26 +216,17 @@ namespace aspx_site.Controllers
         [HttpPost]
         public ActionResult EventDetails(FormCollection collection)
         {
-            eventfeedback feedback = new eventfeedback();
+            /*eventfeedback feedback = new eventfeedback();
             feedback.AppUserID = 0;
             feedback.SurveyID = 1;
             feedback.QuestionOne = collection["Q1_R"];
             feedback.QuestionTwo = collection["Q2_R"];
             feedback.QuestionThree = collection["Q3_R"];
             feedback.EventID = Convert.ToInt32(collection["EventID"]);
-            feedback.SubmitTime = DateTime.Now;
+            feedback.SubmitTime = DateTime.Now;*/
 
-            try
-            {
-                _db.eventfeedbacks.AddObject(feedback);
-                _db.SaveChanges();
-            }
-            catch (Exception e)
-            {
-            }
-
-
-
+            feedbackmodel.addFeedback(0, Convert.ToInt32(collection["EventID"]), collection["Q1_R"], collection["Q2_R"], collection["Q3_R"]);
+            
             return RedirectToAction("Events");
         }
         

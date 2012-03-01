@@ -44,22 +44,15 @@ namespace aspx_site.Controllers
 
     }
     [Authorize]
-    public class DashboardController : Controller
+    public class DashboardController : BaseController
     {
         //
         // GET: /Dashboard/
-        novamainEntities _db;
-        ProcessEvents eventmodel;
-        ProcessMessages messagesmodel;
-        ProcessUsers usersmodel;
-        int defaultappid = 4;
+        //novamainEntities _db;
 
-        public DashboardController()
+        public DashboardController() : base()
         {
-            _db = new novamainEntities();
-            eventmodel = new ProcessEvents();
-            ProcessMessages messagesmodel = new ProcessMessages();
-            ProcessUsers usersmodel = new ProcessUsers();
+
         }
 
         public ActionResult Index()
@@ -71,6 +64,7 @@ namespace aspx_site.Controllers
         {
             try
             {
+                ViewData["hashedappid"] = utility.getHashedAppID(defaultappid);
                 var selectedEvents = (from e in _db.novaevents
                                       where e.AppID == defaultappid
                                       orderby e.EventStart descending
@@ -114,10 +108,12 @@ namespace aspx_site.Controllers
 
 
                 //get user feedback and survey results
-                var selectedFeedback = (from f in _db.eventfeedbacks
-                                        orderby f.SubmitTime descending
-                                        select f).Take(5).ToList();
+              //  var selectedFeedback = (from f in _db.eventfeedbacks
+              //                          orderby f.SubmitTime descending
+              //                          select f).Take(5).ToList();
                 novaevent currentEvent;
+
+                var selectedFeedback = feedbackmodel.getFeedback(defaultappid, 5);
 
                 string[] eventids = new string[5];
                 string[] eventnames = new string[5];
@@ -137,7 +133,7 @@ namespace aspx_site.Controllers
                     feedbackids[i] = Convert.ToString(selectedFeedback[i].FeedbackID);
                     submittimes[i] = selectedFeedback[i].SubmitTime.GetValueOrDefault();
                 }
-
+                ViewData["feedbackcount"] = selectedFeedback.Count;
                 ViewData["feedbackeventids"] = eventids;
                 ViewData["feedbackeventnames"] = eventnames;
                 ViewData["feedbackids"] = feedbackids;

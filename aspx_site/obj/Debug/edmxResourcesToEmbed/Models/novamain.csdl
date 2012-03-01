@@ -172,5 +172,6 @@
     <Property Type="String" Name="QuestionThreeMC1" />
     <Property Type="String" Name="QuestionThreeMC2" />
     <Property Type="String" Name="QuestionThreeMC3" />
+    <Property Type="String" Name="SurveyName" />
   </EntityType>
 </Schema>

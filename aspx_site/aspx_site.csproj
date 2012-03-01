@@ -84,6 +84,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppServiceController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Models\FacebookUserModel.cs" />
     <Compile Include="Models\ProcessComments.cs" />
     <Compile Include="Models\ProcessEvents.cs" />
+    <Compile Include="Models\ProcessFeedback.cs" />
     <Compile Include="Models\ProcessMessages.cs" />
     <Compile Include="Models\novamain.Designer.cs">
       <AutoGen>True</AutoGen>

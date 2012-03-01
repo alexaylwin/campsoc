@@ -2088,6 +2088,30 @@ namespace aspx_site.Models
         private global::System.String _QuestionThreeMC3;
         partial void OnQuestionThreeMC3Changing(global::System.String value);
         partial void OnQuestionThreeMC3Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SurveyName
+        {
+            get
+            {
+                return _SurveyName;
+            }
+            set
+            {
+                OnSurveyNameChanging(value);
+                ReportPropertyChanging("SurveyName");
+                _SurveyName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SurveyName");
+                OnSurveyNameChanged();
+            }
+        }
+        private global::System.String _SurveyName;
+        partial void OnSurveyNameChanging(global::System.String value);
+        partial void OnSurveyNameChanged();
 
         #endregion
     

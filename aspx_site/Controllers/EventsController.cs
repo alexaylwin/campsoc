@@ -20,21 +20,21 @@ namespace aspx_site.Controllers
 {
 
     [Authorize]
-    public class EventsController : Controller
+    public class EventsController : BaseController
     {
         //
         // GET: /Events/
 
-        novamainEntities _db;
-        ProcessEvents eventmodel;
-        Util utility;
-        int defaultappid = 4;
+        //novamainEntities _db;
+        //ProcessEvents eventmodel;
+       // Util utility;
+        //int defaultappid = 4;
 
-        public EventsController()
+        public EventsController() : base()
         {
-            _db = new novamainEntities();
-            eventmodel = new ProcessEvents();
-            utility = new Util();
+            //_db = new novamainEntities();
+            //eventmodel = new ProcessEvents();
+            //utility = new Util();
         }
 
         public ActionResult Index()
@@ -114,6 +114,12 @@ namespace aspx_site.Controllers
             {
                 ViewData["facebookRegistered"] = false;
             }
+
+            var selectedSurveys = (from s in _db.eventsurveys
+                                  where s.AppID == defaultappid
+                                  select s);
+            ViewData["surveylist"] = selectedSurveys.Take(10).ToList();
+
             return View();
         }
 
@@ -180,6 +186,12 @@ namespace aspx_site.Controllers
                     syncid = syncid + hash.Hash[i].ToString("x2");
                 }
                 eventToAdd.SyncID = syncid;
+
+                if (collection["EventSurvey"] != null && Convert.ToInt32(collection["EventSurvey"]) > 0)
+                {
+                    eventToAdd.Survey = Convert.ToInt32(collection["EventSurvey"]);
+                }
+
                 //throw new Exception();
                 //add the new object to the database
                 int ret = eventmodel.addEvent(defaultappid, eventToAdd);
@@ -252,7 +264,6 @@ namespace aspx_site.Controllers
                 
                     TwitterResponse<TwitterStatus> resp = TwitterStatus.Update(at, tweettext);
                 }
-
 
                 return RedirectToAction("Home");
             }

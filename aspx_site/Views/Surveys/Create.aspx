@@ -17,7 +17,8 @@
     <% using (Html.BeginForm())
        { %>
     <div id="selectevent">
-        <b>Event: </b><%: Html.DropDownList("EventList", eventlist, new { @class = "dropdownlist" })%>
+        <b>Survey Name: </b><%:Html.TextBox("SurveyName",  "", new { @class="textinput"})%>
+        <!--<br /> <b>Event: </b><%: Html.DropDownList("EventList", eventlist, new { @class = "dropdownlist" })%>-->
     </div>
 
     <div id="surveyquestions">
