@@ -56,7 +56,7 @@
            %>
     <tr><td class="itemheader">Tweet <span id="tweetchars">(max 140 chars):</span></td></tr>
     <tr><td><%: Html.TextArea("TweetText", new {@class="longtext textinput"})%></td></tr>
-    <tr><td>Include link to Facebppl event (20 characters): <%: Html.CheckBox("TwitterEventLink",false, new { @class="checkboxinput"}) %></td></tr>
+    <tr><td>Include link to Facebook event (20 characters): <%: Html.CheckBox("TwitterEventLink",false, new { @class="checkboxinput"}) %></td></tr>
     <%} else { %>
     <tr><td>To send tweets along with your event, you can <%: Html.ActionLink("link your Twitter account by clicking here!", "Accounts", "Settings")%></td></tr>
     <%} %>

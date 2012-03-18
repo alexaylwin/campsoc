@@ -44,25 +44,20 @@ namespace aspx_site.Controllers
 
         public ActionResult Home()
         {
-            //ViewData.Model = _db.events.ToList();
-            //what the shit?
-            var selectedEvents = from events in _db.novaevents
-                                 where events.AppID == defaultappid
-                                 orderby events.EventStart descending
-                                 select events;
-            ViewData.Model = selectedEvents.ToList();
+
+            ViewData.Model = eventmodel.getEvents(defaultappid, 5);
 
             //create the json list with fullcalendar event properties
             List<fullcalendar_event> jsonlist = new List<fullcalendar_event>();
             fullcalendar_event fc_event;
-            foreach (novaevent ne in selectedEvents.Take(5).ToList())
+            foreach (novaevent ne in (List<novaevent>)ViewData.Model)//selectedEvents.Take(5).ToList())
             {
                 fc_event = new fullcalendar_event();
                 fc_event.allDay = false;
                 fc_event.title = ne.EventName;
                 fc_event.start = ne.EventStart.ToString("yyyy-MM-dd") + " " + ne.EventStart.ToString("HH:mm");
                 fc_event.end = ne.EventEnd.ToString("yyyy-MM-dd") + " " + ne.EventEnd.ToString("HH:mm");
-                fc_event.url = "../Events/Details/" + ne.EventID;
+                fc_event.url = "../Events/Details?id=" + ne.EventID;
                 fc_event.id = ne.EventID;
                 jsonlist.Add(fc_event);
             }
@@ -79,55 +74,63 @@ namespace aspx_site.Controllers
 
         public ActionResult Create()
         {
-            ViewData["EventID"] = (eventmodel.getMaxEventID() + 1);
-            appinfo app = utility.getAppInfo(defaultappid);
-
-            if (app.TwitterAccessToken != null)
+            try
             {
-                ViewData["twitterRegistered"] = true;
-            }
-            else
-            {
-                ViewData["twitterRegistered"] = false;
-            }
+                ViewData["EventID"] = (eventmodel.getMaxEventID() + 1);
+                appinfo app = utility.getAppInfo(defaultappid);
 
-            if (app.FacebookAccessToken != null)
-            {
-                //We have a facebook account linked, so get the facebook user's name, page name and links
-                ViewData["facebookRegistered"] = true;
-                WebClient wc = new WebClient();
-                string wcresponse;
-                wcresponse = wc.DownloadString("https://graph.facebook.com/" + app.FacebookUserId);
-                JObject userinfo = JObject.Parse(wcresponse);
-                ViewData["facebookUserName"] = (string)userinfo["name"];
-                ViewData["facebookUserId"] = (string)userinfo["id"];
-
-                if (app.FacebookPageId != null)
+                if (app.TwitterAccessToken != null)
                 {
-                    wcresponse = wc.DownloadString("https://graph.facebook.com/" + app.FacebookPageId + "?access_token=" + app.FacebookAccessToken);
-                    JObject pageinfo = JObject.Parse(wcresponse);
-                    ViewData["facebookPageName"] = (string)pageinfo["name"];
-                    ViewData["facebookPageId"] = (string)pageinfo["id"];
+                    ViewData["twitterRegistered"] = true;
                 }
+                else
+                {
+                    ViewData["twitterRegistered"] = false;
+                }
+
+                if (app.FacebookAccessToken != null)
+                {
+                    //We have a facebook account linked, so get the facebook user's name, page name and links
+                    ViewData["facebookRegistered"] = true;
+                    WebClient wc = new WebClient();
+                    string wcresponse;
+                    wcresponse = wc.DownloadString("https://graph.facebook.com/" + app.FacebookUserId);
+                    JObject userinfo = JObject.Parse(wcresponse);
+                    ViewData["facebookUserName"] = (string)userinfo["name"];
+                    ViewData["facebookUserId"] = (string)userinfo["id"];
+
+                    if (app.FacebookPageId != null)
+                    {
+                        wcresponse = wc.DownloadString("https://graph.facebook.com/" + app.FacebookPageId + "?access_token=" + app.FacebookAccessToken);
+                        JObject pageinfo = JObject.Parse(wcresponse);
+                        ViewData["facebookPageName"] = (string)pageinfo["name"];
+                        ViewData["facebookPageId"] = (string)pageinfo["id"];
+                    }
+                }
+                else
+                {
+                    ViewData["facebookRegistered"] = false;
+                }
+
+                var selectedSurveys = (from s in _db.eventsurveys
+                                       where s.AppID == defaultappid
+                                       select s);
+                ViewData["surveylist"] = selectedSurveys.Take(10).ToList();
             }
-            else
+            catch (WebException e)
             {
-                ViewData["facebookRegistered"] = false;
+                //error in facebook tokens, delete them
+                utility.clearThirdPartyAccounts(defaultappid);
+                RedirectToAction("Create");
             }
-
-            var selectedSurveys = (from s in _db.eventsurveys
-                                  where s.AppID == defaultappid
-                                  select s);
-            ViewData["surveylist"] = selectedSurveys.Take(10).ToList();
-
             return View();
         }
 
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
-            try
-            {
+            //try
+            //{
                 appinfo app = utility.getAppInfo(defaultappid);
                 WebClient wc = new WebClient();
                 string url_request;
@@ -135,7 +138,7 @@ namespace aspx_site.Controllers
 
                 //Create the app event
                 novaevent eventToAdd = new novaevent();
-                eventToAdd.EventID = Convert.ToInt32(collection["EventID"]);
+                eventToAdd.EventID = (eventmodel.getMaxEventID() + 1);//Convert.ToInt32(collection["EventID"]);
                 eventToAdd.EventDesc = collection["EventDescription"];
 
                 //todo: session app id, not 4;
@@ -213,20 +216,24 @@ namespace aspx_site.Controllers
                     NameValueCollection nvc = new NameValueCollection();
                     DateTime tempdate;
                     TimeSpan tempspan;
+                    string fbdate;
 
-                    tempdate = Convert.ToDateTime(collection["FacebookEventStartDate"] + " " + collection["FacebookEventStartTime"] + collection["FacebookEventStartTimeAMPM"]);
+                    CultureInfo provider = CultureInfo.InvariantCulture;
+                    string dateformat = "dd/MM/yyyy h:mmtt";
+                    tempdate = DateTime.ParseExact(collection["FacebookEventStartDate"] + " " + collection["FacebookEventStartTime"] + collection["FacebookEventStartTimeAMPM"], dateformat, new System.Globalization.CultureInfo("en-GB"));
+
                     //TODO:
                     //Awkward hack to fix facebook times on events, ideally this would use the current timezone
-                    tempdate = tempdate.AddHours(8);
-                    tempspan = (tempdate - new DateTime(1970, 1, 1));
-                    nvc.Add("start_time", Convert.ToString(tempspan.TotalSeconds));
+                    fbdate = Convert.ToString(tempdate.Year) + "-" + Convert.ToString(tempdate.Day) + "-" + Convert.ToString(tempdate.Month) + "T" + Convert.ToString(tempdate.Hour) + ":" + Convert.ToString(tempdate.Minute);
+                    fbdate = tempdate.ToString("yyyy-MM-ddTHH:mm:ss");
+                    nvc.Add("start_time", fbdate);
 
                     if (!collection["NoEndDate"].Contains("true"))
                     {
-                        tempdate = Convert.ToDateTime(collection["FacebookEventEndDate"] + " " + collection["FacebookEventEndTime"] + collection["FacebookEventEndTimeAMPM"]);
-                        tempdate = tempdate.AddHours(8);
-                        tempspan = (tempdate - new DateTime(1970, 1, 1));
-                        nvc.Add("end_time", Convert.ToString(tempspan.TotalSeconds));
+                        //tempdate = Convert.ToDateTime(collection["FacebookEventEndDate"] + " " + collection["FacebookEventEndTime"] + collection["FacebookEventEndTimeAMPM"]);
+                        tempdate = DateTime.ParseExact(collection["FacebookEventEndDate"] + " " + collection["FacebookEventEndTime"] + collection["FacebookEventEndTimeAMPM"], dateformat, new System.Globalization.CultureInfo("en-GB"));
+                        fbdate = tempdate.ToString("yyyy-MM-ddTHH:mm:ss");
+                        nvc.Add("end_time", fbdate);
                     }
 
                     nvc.Add("access_token", app.FacebookPageAccessToken);
@@ -264,22 +271,22 @@ namespace aspx_site.Controllers
                 
                     TwitterResponse<TwitterStatus> resp = TwitterStatus.Update(at, tweettext);
                 }
-
+                ViewData["ReturnMessage"] = "Event created!";
                 return RedirectToAction("Home");
-            }
-            catch(Exception e)
-            {
-                ViewData["ReturnMessage"] = "Error, could not create event from form data <br /> Exception: " + e.Message + "<br /> Source: " + e.StackTrace ;
-                ViewData["ReturnMessage"] += " <br /> Event start collections: " + collection["EventStartDate"] + " " + collection["EventStartTime"] + collection["EventStartTimeAMPM"];
-                return View();
-           }
+            //}
+            //catch(Exception e)
+            //{
+            //    ViewData["ReturnMessage"] = "Error, could not create event from form data <br /> Exception: " + e.Message + "<br /> Source: " + e.StackTrace ;
+            //    ViewData["ReturnMessage"] += " <br /> Event start collections: " + collection["EventStartDate"] + " " + collection["EventStartTime"] + collection["EventStartTimeAMPM"];
+            //    return View();
+           //}
             
         }
 
         public ActionResult Details(int id)
         {
             var selectedEvent = (from events in _db.novaevents 
-                                 where events.EventID == id 
+                                 where events.EventID == id && events.AppID == defaultappid
                                  select events).First();
             ViewData.Model = selectedEvent;
             return View();
@@ -289,11 +296,11 @@ namespace aspx_site.Controllers
         public ActionResult Edit(int id)
         {
             var selectedEvent = (from events in _db.novaevents 
-                                 where events.EventID == id 
+                                 where events.EventID == id && events.AppID == defaultappid
                                  select events).First();
 
             ViewData.Model = selectedEvent;
-            ViewData["EventID"] = selectedEvent.EventID;
+            //ViewData["EventID"] = selectedEvent.EventID;
             ViewData["EventStartDate"] = selectedEvent.EventStart.ToString("dd/M/yyyy");
             ViewData["EventStartTime"] = selectedEvent.EventStart.ToString("h:mm");
             ViewData["EventStartAMPM"] = selectedEvent.EventStart.ToString("tt");
@@ -322,22 +329,32 @@ namespace aspx_site.Controllers
         {
             try
             {
-                //get the form data from the create event form, and apply it to the new event
-                var selectedEvent = (from events in _db.novaevents
-                                     where events.EventID == id
-                                     select events).First();
+                novaevent selectedEvent = eventmodel.getEvent(id);
                 novaevent updatedEvent = new novaevent();
                 updatedEvent = selectedEvent;
-                //eventToAdd.EventID = Convert.ToInt32(collection["EventID"]);
                 updatedEvent.EventDesc = collection["EventDescription"];
-                //updatedEvent.AppID = defaultappid;
                 updatedEvent.EventName = collection["EventName"];
-                updatedEvent.EventStart = Convert.ToDateTime(collection["EventStart"]);
-                updatedEvent.EventEnd = Convert.ToDateTime(collection["EventEnd"]);
+                string eventstart;
+                eventstart = collection["EventStartDate"] + " " + collection["EventStartTime"] + " " + collection["EventStartTimeAMPM"];
+                //eventToAdd.EventStart = Convert.ToDateTime(eventstart, new CultureInfo("fr-FR",false));
+                updatedEvent.EventStart = DateTime.ParseExact(eventstart, "dd/M/yyyy h:mm tt", null);
+
+                string eventend;
+                if (!collection["NoEndDate"].Contains("true"))
+                {
+                    eventend = collection["EventEndDate"] + " " + collection["EventEndTime"] + " " + collection["EventEndTimeAMPM"];
+                    //eventToAdd.EventEnd = Convert.ToDateTime(eventend);
+                    updatedEvent.EventEnd = DateTime.ParseExact(eventend, "dd/M/yyyy h:mm tt", null);
+                }
+                else
+                {
+                    updatedEvent.EventEnd = updatedEvent.EventStart;
+                }
+                //updatedEvent.EventStart = Convert.ToDateTime(collection["EventStart"]);
+                //updatedEvent.EventEnd = Convert.ToDateTime(collection["EventEnd"]);
                 updatedEvent.NotAttending = Convert.ToInt32(collection["NotAttending"]);
                 updatedEvent.Attending = Convert.ToInt32(collection["Attending"]);
                 updatedEvent.LastUpdated = DateTime.Now;
-                //updatedEvent.Disabled = 0;
                 updatedEvent.Location = collection["EventLocation"];
 
                 //add the new object to the database
@@ -353,7 +370,9 @@ namespace aspx_site.Controllers
                     ViewData["ReturnMessage"] = "Error, could not update last event date.";
                     return View();
                 }
-                return Redirect("../Details/" + id);
+                //return RedirectToRoute(new System.Web.Routing.RouteValueDictionary(new { controller = "Events", action = "Details", id = id }));
+                return Redirect("../Events/Details?id=" + Convert.ToString(id));
+
             }
             catch
             {

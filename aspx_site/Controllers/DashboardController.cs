@@ -65,36 +65,40 @@ namespace aspx_site.Controllers
             try
             {
                 ViewData["hashedappid"] = utility.getHashedAppID(defaultappid);
-                var selectedEvents = (from e in _db.novaevents
+/*                var selectedEvents = (from e in _db.novaevents
                                       where e.AppID == defaultappid
                                       orderby e.EventStart descending
                                       select e);
                 ViewData["eventlist"] = selectedEvents.Take(5).ToList();
+ */
+                ViewData["eventlist"] = eventmodel.getEvents(defaultappid, 5);
 
-                var selectedUsers = (from u in _db.appusers
+/*                var selectedUsers = (from u in _db.appusers
                                       where u.AppID == defaultappid
                                       orderby u.UserID descending
                                       select u);
                 ViewData["userlist"] = selectedUsers.Take(20).ToList();
-
-                var selectedMessages = (from m in _db.messages
+ */
+                ViewData["userlist"] = usersmodel.getUsers(defaultappid, 5);
+/*                var selectedMessages = (from m in _db.messages
                                         where m.AppID == defaultappid
                                       orderby m.MessageDate descending
                                       select m);
-                ViewData["messagelist"] = selectedMessages.Take(5).ToList();
+*/
+                ViewData["messagelist"] = messagesmodel.getMessages(defaultappid, 5);
 
 
                 //create the json list with fullcalendar event properties
                 List<fullcalendar_event> jsonlist = new List<fullcalendar_event>();
                 fullcalendar_event fc_event;
-                foreach (novaevent ne in selectedEvents.Take(5).ToList())
+                foreach (novaevent ne in (List<novaevent>)ViewData["eventlist"])
                 {
                     fc_event = new fullcalendar_event();
                     fc_event.allDay = false;
                     fc_event.title = ne.EventName;
                     fc_event.start = ne.EventStart.ToString("yyyy-MM-dd") + " " + ne.EventStart.ToString("HH:mm");//ne.EventStart;//
                     fc_event.end = ne.EventEnd.ToString("yyyy-MM-dd") + " " + ne.EventEnd.ToString("HH:mm");//ne.EventEnd;//
-                    fc_event.url = "../Events/Details/" + ne.EventID;
+                    fc_event.url = "../Events/Details?id=" + ne.EventID;
                     fc_event.id = ne.EventID;
                     jsonlist.Add(fc_event);
                 }
@@ -133,12 +137,19 @@ namespace aspx_site.Controllers
                     feedbackids[i] = Convert.ToString(selectedFeedback[i].FeedbackID);
                     submittimes[i] = selectedFeedback[i].SubmitTime.GetValueOrDefault();
                 }
-                ViewData["feedbackcount"] = selectedFeedback.Count;
-                ViewData["feedbackeventids"] = eventids;
-                ViewData["feedbackeventnames"] = eventnames;
-                ViewData["feedbackids"] = feedbackids;
-                ViewData["feedbacksubmittimes"] = submittimes;
-                ViewData["feedback"] = selectedFeedback;
+                if (selectedFeedback != null)
+                {
+                    ViewData["feedbackcount"] = selectedFeedback.Count;
+                    ViewData["feedbackeventids"] = eventids;
+                    ViewData["feedbackeventnames"] = eventnames;
+                    ViewData["feedbackids"] = feedbackids;
+                    ViewData["feedbacksubmittimes"] = submittimes;
+                    ViewData["feedback"] = selectedFeedback;
+                }
+                else
+                {
+                    ViewData["selectedfeedbackcount"] = 0;
+                }
                 
             }
             catch(Exception e)
@@ -146,6 +157,8 @@ namespace aspx_site.Controllers
                 return View();
             }
             //ViewData.Model = selectedEvents.ToList();
+            ViewData["appid"] = defaultappid;
+            ViewData["controlleruserid"] = this.User.Identity.Name;
             return View();
         }
 

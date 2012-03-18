@@ -7,7 +7,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2>Tour</h2>
+    <p>
+        To try out Campus Social, please proceed to the login page using the following credentials: <br />
+        Username: demouser <br />
+        Password: campusdemo <br />
+        <a href="../Account/LogOn">Login Here!</a>
 
+    </p>
 
         <div id="buttons">
         <div id="text"><strong> Learn more:</strong></div>

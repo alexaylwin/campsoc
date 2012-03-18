@@ -33,6 +33,10 @@ namespace aspx_site.Models
         {
             var selectedSurveys = from s in _db.eventsurveys
                                  select s.SurveyID;
+            if(selectedSurveys.Max() == null)
+            {
+                return 0;
+            }
             return selectedSurveys.Max();
         }
 

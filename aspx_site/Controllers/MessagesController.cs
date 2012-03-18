@@ -36,25 +36,28 @@ namespace aspx_site.Controllers
 
         public ActionResult Home()
         {
-            var selectedMessages = from messages in _db.messages
+/*            var selectedMessages = from messages in _db.messages
                                    orderby messages.MessageDate descending
                                    select messages;
-            ViewData.Model = selectedMessages.ToList();
+*/
+            ViewData.Model = messagesmodel.getMessages(defaultappid, 10);//selectedMessages.ToList();
             return View();
         }
 
         public ActionResult Details(int id)
         {
-            var selectedMessage = (from m in _db.messages
+/*            var selectedMessage = (from m in _db.messages
                                  where m.MessageID == id
                                  select m).First();
+*/
+            message selectedMessage = messagesmodel.getMessage(id);
             ViewData.Model = selectedMessage;
             return View();
         }
 
         public ActionResult Create()
         {
-            ViewData["MessageID"] = (messagesmodel.getMaxMessageID() + 1);
+            //ViewData["MessageID"] = (messagesmodel.getMaxMessageID() + 1);
             appinfo app = utility.getAppInfo(defaultappid);
 
             if (app.TwitterAccessToken != null)
@@ -105,7 +108,7 @@ namespace aspx_site.Controllers
                     MessageContents = collection["MessageContents"],
                     MessageTitle = collection["MessageTitle"],
                     MessageDate = DateTime.Now,
-                    MessageID = Convert.ToInt32(collection["MessageID"]),
+                    MessageID = (messagesmodel.getMaxMessageID() + 1),//Convert.ToInt32(collection["MessageID"]),
                     AppID = defaultappid
                 };
                 int ret = messagesmodel.addMessage(defaultappid, newmessage);

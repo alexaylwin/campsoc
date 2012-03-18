@@ -17,7 +17,7 @@
 
         <div id="signupform">
         <% using (Html.BeginForm()) { %>
-            Interested? Submit your email for more information: <%: Html.TextBox("email") %> <br />
+            Interested? Submit your email for more information: <%: Html.TextBox("email") %> <br /> <br />
              <button type="submit">
             <a href="#" id="submit_link" class="cssbutton_med">I want info!</a>
             </button>

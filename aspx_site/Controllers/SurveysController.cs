@@ -35,11 +35,13 @@ namespace aspx_site.Controllers
         }
         public ActionResult Create()
         {
-            var selectedEvents = (from e in _db.novaevents
+/*            var selectedEvents = (from e in _db.novaevents
                                   where e.AppID == defaultappid
                                   orderby e.EventStart descending
                                   select e);
-            ViewData["eventlist"] = selectedEvents.Take(10).ToList();
+*/
+
+            ViewData["eventlist"] = eventmodel.getEvents(defaultappid, 10);//selectedEvents.Take(10).ToList();
 
             return View();
         }

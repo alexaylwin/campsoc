@@ -12,14 +12,18 @@ namespace aspx_site.Controllers
         //
         // GET: /Mobile/
         Util utility;
+        ProcessEvents eventmodel;
         novamainEntities _db;
         ProcessFeedback feedbackmodel;
+        ProcessMessages messagemodel;
 
         public MobileController()
         {
             utility = new Util();
             _db = new novamainEntities();
             feedbackmodel = new ProcessFeedback();
+            eventmodel = new ProcessEvents();
+            messagemodel = new ProcessMessages();
         }
 
         public ActionResult Index()
@@ -75,12 +79,12 @@ namespace aspx_site.Controllers
 
             //get all the events
             //DateTime compareDate = DateTime.Now.Subtract(TimeSpan.FromDays(30));
-            var selectedEvents = from events in _db.novaevents
+/*            var selectedEvents = from events in _db.novaevents
                                  where events.AppID == appid //&& events.EventStart > compareDate
                                  orderby events.EventStart descending
                                  select events;
-            
-            ViewData.Model = selectedEvents.Take(10).ToList();
+*/
+            ViewData.Model = eventmodel.getEvents(appid, 10);//selectedEvents.Take(10).ToList();
 
             return View();
         }
@@ -107,12 +111,12 @@ namespace aspx_site.Controllers
 
             //get all the events
             //DateTime compareDate = DateTime.Now.Subtract(TimeSpan.FromDays(30));
-            var selectedMessages = from messages in _db.messages
+/*            var selectedMessages = from messages in _db.messages
                                    where messages.AppID == appid //&& messages.MessageDate > compareDate
                                    orderby messages.MessageDate descending
                                    select messages;
-
-            ViewData.Model = selectedMessages.Take(10).ToList();
+*/
+            ViewData.Model = messagemodel.getMessages(appid,10);//selectedMessages.Take(10).ToList();
 
             return View();
         }
@@ -121,10 +125,12 @@ namespace aspx_site.Controllers
         {
             //Display event info
 
-            var selectedEvent = (from events in _db.novaevents
+ /*           var selectedEvent = (from events in _db.novaevents
                                  where events.EventID == id && events.Disabled == 0
                                  select events).First();
-            ViewData.Model = selectedEvent;
+ */
+            novaevent selectedEvent = eventmodel.getEvent(id);
+            ViewData.Model = selectedEvent;//selectedEvent;
 
             ViewData["EventID"] = selectedEvent.EventID;
 
@@ -232,9 +238,11 @@ namespace aspx_site.Controllers
         
         public ActionResult MessageDetails(int id)
         {
-            var selectedMessage = (from messages in _db.messages
+/*            var selectedMessage = (from messages in _db.messages
                                  where messages.MessageID == id
                                  select messages).First();
+*/
+            message selectedMessage = messagemodel.getMessage(id);
 
             ViewData["MessageTitle"] = selectedMessage.MessageTitle;
             ViewData["MessageContents"] = selectedMessage.MessageContents;

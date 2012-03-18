@@ -82,6 +82,29 @@ namespace aspx_site.Models
             }
 
         }
+
+        public List<message> getMessages(int appid, int count)
+        {
+            var selectedMessages = (from m in _db.messages
+                                    where m.AppID == appid
+                                    orderby m.MessageDate descending
+                                    select m).Take(count).ToList();
+            return selectedMessages;
+
+        }
+
+        public message getMessage(int messageid)
+        {
+            var selectedMessage = (from m in _db.messages
+                                   where m.MessageID == messageid
+                                   select m).First();
+            return selectedMessage;
+        }
+        
+    
     }
+
+
+
 
 }

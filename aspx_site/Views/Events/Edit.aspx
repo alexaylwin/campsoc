@@ -78,14 +78,14 @@
  <div class="createform">
  <% using (Html.BeginForm()) { %>
  <table class="itemtable">
-    <tr><td class="header">Event ID</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("EventID", ViewData["EventID"], new { @class = "textinput"})%></td></tr>
-    <tr><td class="header">Event Name</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("EventName", ViewData["EventName"], new { @class = "textinput" })%></td></tr>
-    <tr><td class="header">Event Location</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("EventLocation", ViewData["EventLocation"], new {@class="textinput"}) %></td></tr>
-    <tr><td class="header">Event Description</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextArea("EventDescription", new { @class = "longtext textinput" })%></td></tr>
-    <tr><td class="header">Runs from</td></tr> <tr><td><%: Html.TextBox("EventStartDate", ViewData["EventStartDate"], new { @class = "dateinput" })%> <%: Html.DropDownList("EventStartTime", strtimelist, new { @class = "timeinput" })%> <%: Html.DropDownList("EventStartTimeAMPM", strampm, new { @class = "timeinput ampm" })%> to <%: Html.TextBox("EventEndDate", ViewData["EventEndDate"], new { @class = "dateinput" })%> <%: Html.DropDownList("EventEndTime", endtimelist, new { @class = "timeinput" })%> <%: Html.DropDownList("EventEndTimeAMPM", endampm, new { @class = "timeinput ampm" })%></td></tr>
+    <!--<tr><td class="header">Event ID</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("EventID", ViewData["EventID"], new { @class = "textinput"})%></td></tr>-->
+    <tr><td class="itemheader">Event Name</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("EventName", ViewData["EventName"], new { @class = "textinput" })%></td></tr>
+    <tr><td class="itemheader">Event Location</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("EventLocation", ViewData["EventLocation"], new {@class="textinput"}) %></td></tr>
+    <tr><td class="itemheader">Event Description</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextArea("EventDescription", new { @class = "longtext textinput" })%></td></tr>
+    <tr><td class="itemheader">Runs from</td></tr> <tr><td><%: Html.TextBox("EventStartDate", ViewData["EventStartDate"], new { @class = "dateinput" })%> <%: Html.DropDownList("EventStartTime", strtimelist, new { @class = "timeinput" })%> <%: Html.DropDownList("EventStartTimeAMPM", strampm, new { @class = "timeinput ampm" })%> to <%: Html.TextBox("EventEndDate", ViewData["EventEndDate"], new { @class = "dateinput" })%> <%: Html.DropDownList("EventEndTime", endtimelist, new { @class = "timeinput" })%> <%: Html.DropDownList("EventEndTimeAMPM", endampm, new { @class = "timeinput ampm" })%></td></tr>
     <tr><td>&nbsp;&nbsp;&nbsp;No end date:<%: Html.CheckBox("NoEndDate",noend, new { @class="checkboxinput"}) %></td></tr>
-    <tr><td class="header">Attending</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("Attending", ViewData["Attending"], new { @class = "numberinput" })%></td></tr>
-    <tr><td class="header">Not Attending</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("NotAttending", ViewData["NotAttending"], new { @class = "numberinput" })%></td></tr>
+    <tr><td class="itemheader">Attending</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("Attending", ViewData["Attending"], new { @class = "numberinput" })%></td></tr>
+    <tr><td class="itemheader">Not Attending</td></tr> <tr><td>&nbsp;&nbsp;&nbsp;<%: Html.TextBox("NotAttending", ViewData["NotAttending"], new { @class = "numberinput" })%></td></tr>
     <tr><td>Do not publish:<%: Html.CheckBox("Disabled",disabled, new { @class="checkboxinput"}) %></td></tr>
  </table>
  </div>

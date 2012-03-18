@@ -7,7 +7,7 @@ using aspx_site.Models;
 
 namespace aspx_site.Controllers
 {
-
+    [Authorize]
     public class BaseController : Controller
     {
         public novamainEntities _db;
@@ -16,9 +16,10 @@ namespace aspx_site.Controllers
         public ProcessUsers usersmodel;
         public ProcessFeedback feedbackmodel;
 
-        public int defaultappid = 4;
+        public int defaultappid = 5;
         public Util utility;
-
+        
+        
         public BaseController()
         {
             _db = new novamainEntities();
@@ -32,7 +33,8 @@ namespace aspx_site.Controllers
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
             base.Initialize(requestContext);
-            defaultappid = (int) requestContext.HttpContext.Session["appid"];
+            //requestContext.HttpContext.Session.
+            defaultappid = utility.getCustomerAppID(this.User.Identity.Name);
         }
 
 

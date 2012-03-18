@@ -39,6 +39,10 @@ namespace aspx_site.Models
             }
         }
 
+        public int addEvent(int appid, string desc, string name, DateTime start, DateTime end,
+            int notattending, int attending, string location, int disabled, int survey)
+        { return 0; }
+
         public int updateEvent(int appid, novaevent updatedevent)
         {
             try
@@ -109,5 +113,24 @@ namespace aspx_site.Models
                                  select e).First();
             return selectedEvents.EventID;
         }
+
+        public List<novaevent> getEvents(int appid, int count)
+        {
+            var selectedEvents = (from e in _db.novaevents
+                                  where e.AppID == appid
+                                  orderby e.EventStart descending
+                                  select e).Take(count).ToList();
+            return selectedEvents;
+           
+        }
+
+        public novaevent getEvent(int eventid)
+        {
+            var selectedEvent = (from events in _db.novaevents
+                                 where events.EventID == eventid
+                                 select events).First();
+            return selectedEvent;
+        }
+        
     }
 }

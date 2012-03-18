@@ -656,3 +656,8 @@ div#title a:hover
     background-color:transparent;
     border-style:none;
  }
+ 
+ #signupform button a
+ {
+     text-decoration: none;
+ }

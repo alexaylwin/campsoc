@@ -74,5 +74,15 @@ namespace aspx_site.Models
             
             return selectedUser.UserID;
         }
+    
+        public List<appuser> getUsers(int appid, int count)
+        {
+            var selectedUsers = (from u in _db.appusers
+                                 where u.AppID == appid
+                                 orderby u.UserID descending
+                                 select u).Take(count).ToList();
+            return selectedUsers;
+
+        }
     }
 }

@@ -196,9 +196,14 @@ namespace aspx_site.Models
 
         public int getCustomerAppID(string username)
         {
+            //TODO: Handle nulls
             var selected_customer = (from c in _db.customers
                                      where c.Username == username
                                      select c).FirstOrDefault();
+            if (selected_customer == null)
+            {
+                return 0;
+            }
             if (selected_customer.UserId > 0 && selected_customer.AppID > 0)
             {
                 return selected_customer.AppID;
@@ -208,5 +213,33 @@ namespace aspx_site.Models
 
 
         }
+
+        public int clearThirdPartyAccounts(int appid)
+        {
+            try
+            {
+                var selected_app = (from sa in _db.appinfoes
+                                    where (sa.AppID == appid)
+                                    select sa).First();
+
+                selected_app.FacebookAccessToken = null;
+                selected_app.FacebookUserId = null;
+                selected_app.FacebookPageId = null;
+                selected_app.FacebookPageAccessToken = null;
+                selected_app.TwitterAccessToken = null;
+                selected_app.TwitterAccessTokenSecret = null;
+                selected_app.TwitterUserId = null;
+
+                _db.appinfoes.ApplyCurrentValues(selected_app);
+                _db.SaveChanges();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+            return 1;
+        }
     }
+
 }

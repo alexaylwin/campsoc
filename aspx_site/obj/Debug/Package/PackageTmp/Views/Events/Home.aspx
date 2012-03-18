@@ -27,6 +27,7 @@
     <tr>
     <td>
     <h3> New Event </h3>
+    <%= ViewData["ReturnMessage"] %>
     <%: Html.ActionLink("Create New Event", "Create", "Events", new { @class="createeventlink" })%>
     </td>
     <td>
@@ -40,17 +41,20 @@
         <h3> Existing Events </h3>
         Below is a list of all your current events.
             <ul id="eventlist">
-            <%foreach (var e in ViewData.Model)
-              { %>           
+            <%if (ViewData.Model != null)
+              {
+                  foreach (var e in ViewData.Model)
+                  { %>           
             <li class="eventlistitem">
             <a href="Details?id=<%= e.EventID%>">
             Event Id: <%= e.EventID%> <br />
-            Event Name: <%= e.EventName %> <br />
-            Event Description: <%= e.EventDesc %> <br />
+            Event Name: <%= e.EventName%> <br />
+            Event Description: <%= e.EventDesc%> <br />
             </a>
             </li>
             
-            <%} %>
+            <%}
+              }%>
         </ul>
     </div>
     </td>

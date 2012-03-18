@@ -31,7 +31,7 @@
         </table>
         <br />
 
-        <div class="subheader collapsible" id='facebooksubheader'>Create Facebook Event <%: Html.CheckBox("PostToFacebook",false, new { @class="checkboxinput"}) %></div>
+        <div class="subheader collapsible" id='facebooksubheader'>Create Facebook Wall Post <%: Html.CheckBox("PostToFacebook",false, new { @class="checkboxinput"}) %></div>
          <table class="itemtable" id="facebook">
             <%if(ViewData["facebookRegistered"] != null && (bool)ViewData["facebookRegistered"] == true){
                 %>

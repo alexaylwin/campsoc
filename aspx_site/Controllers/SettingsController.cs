@@ -22,6 +22,8 @@ namespace aspx_site.Controllers
 
         //Util utility;
         //int defaultappid = 4;
+        //string siteURL = "localhost:2222";
+        string siteURL = "campsoc.com";
 
         public SettingsController() : base()
         {
@@ -198,7 +200,7 @@ namespace aspx_site.Controllers
                     //This says to get the request token if we don't have one (should redirect to twitter.com)
                     if (Request.QueryString["oauth_token"] == null)
                     {
-                        OAuthTokenResponse requestToken = OAuthUtility.GetRequestToken(consumerkey, consumersecret, "http://campsoc.com/Settings/TwitterAccount");
+                        OAuthTokenResponse requestToken = OAuthUtility.GetRequestToken(consumerkey, consumersecret, "http://"+siteURL+"/Settings/TwitterAccount");
 
                         Uri authenticationUri = OAuthUtility.BuildAuthorizationUri(requestToken.Token);
                         Response.Redirect(authenticationUri.ToString());
@@ -248,14 +250,14 @@ namespace aspx_site.Controllers
                 {
                     //first submit, this is if the user presses the 'link facebook account button'
                     //it redirects to facebooks auth dialog
-                    redirect_url = "https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=http://campsoc.com/settings/facebookaccount&scope=create_event,offline_access,manage_pages,publish_stream";
+                    redirect_url = "https://www.facebook.com/dialog/oauth?client_id=" + appId + "&redirect_uri=http://"+siteURL+"/settings/facebookaccount&scope=create_event,offline_access,manage_pages,publish_stream"; //"&redirect_uri=http://campsoc.com/settings/facebookaccount&scope=create_event,offline_access,manage_pages,publish_stream";
                     Response.Redirect(redirect_url);
                 }
                 else
                 {
                     //if they accept, this is called with code set to an authorization code
                     redirect_url = "https://graph.facebook.com/oauth/access_token?";
-                    redirect_url = redirect_url + "client_id=" + appId + "&redirect_uri=" + "http://campsoc.com/settings/facebookaccount" + "&";
+                    redirect_url = redirect_url + "client_id=" + appId + "&redirect_uri=" + "http://"+siteURL+"/settings/facebookaccount" + "&";
                     redirect_url = redirect_url + "client_secret=" + appSecret + "&code=" + Request.QueryString["code"];
 
                     //make the request
