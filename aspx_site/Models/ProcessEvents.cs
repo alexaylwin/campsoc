@@ -29,7 +29,18 @@ namespace aspx_site.Models
         {
             try
             {
+                //create the meta object for this event
+                objectmeta obj = new objectmeta();
+                obj.TimesViewedApp = 0;
+                obj.TimesViewedWeb = 0;
+                obj.ObjectID = newevent.EventID;
+                obj.ObjectType = 1;
+                obj.FacebookImpressions = 0;
+                obj.FacebookRSVPs = 0;
+
                 _db.novaevents.AddObject(newevent);
+                _db.objectmetas.AddObject(obj);
+
                 _db.SaveChanges();
                 return 1;
             }

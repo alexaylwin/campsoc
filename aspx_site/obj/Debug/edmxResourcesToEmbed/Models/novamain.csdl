@@ -13,6 +13,7 @@
     <EntitySet Name="customers" EntityType="novaModel.customer" />
     <EntitySet Name="eventfeedbacks" EntityType="novaModel.eventfeedback" />
     <EntitySet Name="eventsurveys" EntityType="novaModel.eventsurvey" />
+    <EntitySet Name="objectmetas" EntityType="novaModel.objectmeta" />
   </EntityContainer>
   <EntityType Name="appinfo">
     <Key>
@@ -173,5 +174,16 @@
     <Property Type="String" Name="QuestionThreeMC2" />
     <Property Type="String" Name="QuestionThreeMC3" />
     <Property Type="String" Name="SurveyName" />
+  </EntityType>
+  <EntityType Name="objectmeta">
+    <Key>
+      <PropertyRef Name="ObjectID" />
+    </Key>
+    <Property Type="Int32" Name="ObjectID" Nullable="false" />
+    <Property Type="Int32" Name="TimesViewedApp" />
+    <Property Type="Int32" Name="TimesViewedWeb" />
+    <Property Type="Int32" Name="FacebookImpressions" />
+    <Property Type="Int32" Name="FacebookRSVPs" />
+    <Property Type="Int32" Name="ObjectType" />
   </EntityType>
 </Schema>

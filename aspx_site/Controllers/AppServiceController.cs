@@ -19,6 +19,7 @@ namespace aspx_site.Controllers
         ProcessUsers usermodel;
         Util utility_functions;
         ProcessComments commentmodel;
+        ProcessObjectMeta metamodel;
 
         public AppServiceController()
         {
@@ -29,6 +30,7 @@ namespace aspx_site.Controllers
             rsvpmodel = new ProcessRSVPs();
             usermodel = new ProcessUsers();
             commentmodel = new ProcessComments();
+            metamodel = new ProcessObjectMeta();
 
         }
 
@@ -108,7 +110,13 @@ namespace aspx_site.Controllers
                     root.Add(currevent);
                 }
             }
-
+            if (eventlist != null)
+            {
+                foreach (var e in eventlist)
+                {
+                    metamodel.addObjectViewedApp(e.EventID, 1);
+                }
+            }
             utility_functions.insertServerEvent("events checked", app_id, client_id, last_updated, Request.RawUrl, Request.UserHostAddress);
             return new XmlResult(root);
         }
@@ -151,6 +159,14 @@ namespace aspx_site.Controllers
                     currmessage.Add(curr_node);
 
                     root.Add(currmessage);
+                }
+            }
+
+            if (messagelist != null)
+            {
+                foreach (var e in messagelist)
+                {
+                    metamodel.addObjectViewedApp(e.MessageID, 2);
                 }
             }
             utility_functions.insertServerEvent("messages checked", app_id, client_id, last_updated, Request.RawUrl, Request.UserHostAddress);

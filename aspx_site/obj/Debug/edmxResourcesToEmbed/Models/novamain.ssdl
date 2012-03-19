@@ -11,6 +11,7 @@
     <EntitySet Name="eventsurvey" EntityType="novaModel.Store.eventsurvey" store:Type="Tables" Schema="novamain" />
     <EntitySet Name="lastupdates" EntityType="novaModel.Store.lastupdates" store:Type="Tables" Schema="novamain" />
     <EntitySet Name="messages" EntityType="novaModel.Store.messages" store:Type="Tables" Schema="novamain" />
+    <EntitySet Name="objectmeta" EntityType="novaModel.Store.objectmeta" store:Type="Tables" Schema="novamain" />
     <EntitySet Name="rsvp" EntityType="novaModel.Store.rsvp" store:Type="Tables" Schema="novamain" />
     <EntitySet Name="server_logs" EntityType="novaModel.Store.server_logs" store:Type="Tables" Schema="novamain" />
   </EntityContainer>
@@ -149,6 +150,17 @@
     <Property Name="MessageTitle" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="MessageContents" Type="varchar" Nullable="false" MaxLength="5000" />
     <Property Name="MessageDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="objectmeta">
+    <Key>
+      <PropertyRef Name="ObjectID" />
+    </Key>
+    <Property Name="ObjectID" Type="int" Nullable="false" />
+    <Property Name="ObjectType" Type="int" />
+    <Property Name="TimesViewedApp" Type="int" />
+    <Property Name="TimesViewedWeb" Type="int" />
+    <Property Name="FacebookImpressions" Type="int" />
+    <Property Name="FacebookRSVPs" Type="int" />
   </EntityType>
   <EntityType Name="rsvp">
     <Key>

@@ -15,6 +15,7 @@ namespace aspx_site.Controllers
         public ProcessMessages messagesmodel;
         public ProcessUsers usersmodel;
         public ProcessFeedback feedbackmodel;
+        public ProcessObjectMeta metamodel;
 
         public int defaultappid = 5;
         public Util utility;
@@ -27,6 +28,7 @@ namespace aspx_site.Controllers
             messagesmodel = new ProcessMessages();
             usersmodel = new ProcessUsers();
             feedbackmodel = new ProcessFeedback();
+            metamodel = new ProcessObjectMeta();
             utility = new Util();
         }
 

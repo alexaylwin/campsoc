@@ -54,7 +54,16 @@ namespace aspx_site.Models
             newmessage.AppID = appid;
             try
             {
+                objectmeta obj = new objectmeta();
+                obj.TimesViewedApp = 0;
+                obj.TimesViewedWeb = 0;
+                obj.ObjectID = newmessage.MessageID;
+                obj.ObjectType = 2;
+                obj.FacebookImpressions = 0;
+                obj.FacebookRSVPs = 0;
+
                 _db.messages.AddObject(newmessage);
+                _db.objectmetas.AddObject(obj);
                 _db.SaveChanges();
                 return 1;
             }

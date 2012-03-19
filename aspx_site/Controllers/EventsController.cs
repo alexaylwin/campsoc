@@ -25,11 +25,6 @@ namespace aspx_site.Controllers
         //
         // GET: /Events/
 
-        //novamainEntities _db;
-        //ProcessEvents eventmodel;
-       // Util utility;
-        //int defaultappid = 4;
-
         public EventsController() : base()
         {
             //_db = new novamainEntities();
@@ -289,6 +284,16 @@ namespace aspx_site.Controllers
                                  where events.EventID == id && events.AppID == defaultappid
                                  select events).First();
             ViewData.Model = selectedEvent;
+
+            objectmeta obj = metamodel.getObjectMeta(id, 1);
+            //to get facebook views, use
+            //GET:graph.facebook.com/eventid/attending
+            //this returns an array of {name,id,rsvp_status} objects
+            //count these
+
+
+            ViewData["totalviews"] = obj.TimesViewedWeb + obj.TimesViewedApp;
+
             return View();
         }
 

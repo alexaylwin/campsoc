@@ -26,6 +26,49 @@ namespace aspx_site.Controllers
             messagemodel = new ProcessMessages();
         }
 
+        protected override void OnActionExecuted(ActionExecutedContext filterContext)
+        {
+            int appid = 0;
+            if (Request.Cookies["appid"] == null)
+            {
+                if (Request.QueryString["appid"] != null)
+                {
+                    appid = utility.getAppID(Request.QueryString["appid"]);
+                    HttpCookie mobilecookie = new HttpCookie("appid", Request.QueryString["appid"]);
+                    Response.SetCookie(mobilecookie);
+                }
+                else
+                {
+                    appid = 0;
+                }
+            }
+            else
+            {
+                appid = utility.getAppID(Request.Cookies["appid"].Value);
+            }
+
+            var action = filterContext.Result as ViewResult;
+
+            if(action != null)
+            {
+                switch (appid)
+                {
+                    case 4:
+                        action.MasterName = "~/Content/mobilesites/masterpages/macengsociety.Master";
+                        break;
+                    case 5:
+                        action.MasterName = "~/Content/mobilesites/masterpages/campusdemo.Master";
+                        break;
+                    default:
+                        action.MasterName = "~/Content/mobilesites/masterpages/campusdemo.Master";
+                        break;
+                }
+            }
+
+            base.OnActionExecuted(filterContext);
+        }
+
+
         public ActionResult Index()
         {
             return RedirectToAction("Home");

@@ -16,6 +16,7 @@
           <EntitySet Name="eventsurvey" EntityType="novaModel.Store.eventsurvey" store:Type="Tables" Schema="novamain" />
           <EntitySet Name="lastupdates" EntityType="novaModel.Store.lastupdates" store:Type="Tables" Schema="novamain" />
           <EntitySet Name="messages" EntityType="novaModel.Store.messages" store:Type="Tables" Schema="novamain" />
+          <EntitySet Name="objectmeta" EntityType="novaModel.Store.objectmeta" store:Type="Tables" Schema="novamain" />
           <EntitySet Name="rsvp" EntityType="novaModel.Store.rsvp" store:Type="Tables" Schema="novamain" />
           <EntitySet Name="server_logs" EntityType="novaModel.Store.server_logs" store:Type="Tables" Schema="novamain" />
         </EntityContainer>
@@ -155,6 +156,17 @@
           <Property Name="MessageContents" Type="varchar" Nullable="false" MaxLength="5000" />
           <Property Name="MessageDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="objectmeta">
+          <Key>
+            <PropertyRef Name="ObjectID" />
+          </Key>
+          <Property Name="ObjectID" Type="int" Nullable="false" />
+          <Property Name="ObjectType" Type="int" />
+          <Property Name="TimesViewedApp" Type="int" />
+          <Property Name="TimesViewedWeb" Type="int" />
+          <Property Name="FacebookImpressions" Type="int" />
+          <Property Name="FacebookRSVPs" Type="int" />
+        </EntityType>
         <EntityType Name="rsvp">
           <Key>
             <PropertyRef Name="RsvpID" />
@@ -196,6 +208,7 @@
           <EntitySet Name="customers" EntityType="novaModel.customer" />
           <EntitySet Name="eventfeedbacks" EntityType="novaModel.eventfeedback" />
           <EntitySet Name="eventsurveys" EntityType="novaModel.eventsurvey" />
+          <EntitySet Name="objectmetas" EntityType="novaModel.objectmeta" />
         </EntityContainer>
         <EntityType Name="appinfo">
           <Key>
@@ -357,6 +370,17 @@
           <Property Type="String" Name="QuestionThreeMC3" />
           <Property Type="String" Name="SurveyName" />
         </EntityType>
+        <EntityType Name="objectmeta">
+          <Key>
+            <PropertyRef Name="ObjectID" />
+          </Key>
+          <Property Type="Int32" Name="ObjectID" Nullable="false" />
+          <Property Type="Int32" Name="TimesViewedApp" />
+          <Property Type="Int32" Name="TimesViewedWeb" />
+          <Property Type="Int32" Name="FacebookImpressions" />
+          <Property Type="Int32" Name="FacebookRSVPs" />
+          <Property Type="Int32" Name="ObjectType" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -507,6 +531,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="objectmetas">
+            <EntityTypeMapping TypeName="novaModel.objectmeta">
+              <MappingFragment StoreEntitySet="objectmeta">
+                <ScalarProperty Name="ObjectType" ColumnName="ObjectType" />
+                <ScalarProperty Name="FacebookRSVPs" ColumnName="FacebookRSVPs" />
+                <ScalarProperty Name="FacebookImpressions" ColumnName="FacebookImpressions" />
+                <ScalarProperty Name="TimesViewedWeb" ColumnName="TimesViewedWeb" />
+                <ScalarProperty Name="TimesViewedApp" ColumnName="TimesViewedApp" />
+                <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -540,6 +576,7 @@
         <EntityTypeShape EntityType="novaModel.customer" Width="1.5" PointX="3.375" PointY="7.75" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="novaModel.eventfeedback" Width="1.5" PointX="5.375" PointY="7.75" Height="2.5571907552083335" />
         <EntityTypeShape EntityType="novaModel.eventsurvey" Width="2.25" PointX="7.375" PointY="7.75" Height="3.7109993489583335" />
+        <EntityTypeShape EntityType="novaModel.objectmeta" Width="1.5" PointX="8.625" PointY="0.75" Height="1.9802864583333388" />
       </Diagram>
     </Diagrams>
   </Designer>

@@ -173,5 +173,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="objectmetas">
+      <EntityTypeMapping TypeName="novaModel.objectmeta">
+        <MappingFragment StoreEntitySet="objectmeta">
+          <ScalarProperty Name="ObjectType" ColumnName="ObjectType" />
+          <ScalarProperty Name="FacebookRSVPs" ColumnName="FacebookRSVPs" />
+          <ScalarProperty Name="FacebookImpressions" ColumnName="FacebookImpressions" />
+          <ScalarProperty Name="TimesViewedWeb" ColumnName="TimesViewedWeb" />
+          <ScalarProperty Name="TimesViewedApp" ColumnName="TimesViewedApp" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

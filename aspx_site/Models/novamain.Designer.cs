@@ -256,6 +256,22 @@ namespace aspx_site.Models
             }
         }
         private ObjectSet<eventsurvey> _eventsurveys;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<objectmeta> objectmetas
+        {
+            get
+            {
+                if ((_objectmetas == null))
+                {
+                    _objectmetas = base.CreateObjectSet<objectmeta>("objectmetas");
+                }
+                return _objectmetas;
+            }
+        }
+        private ObjectSet<objectmeta> _objectmetas;
 
         #endregion
         #region AddTo Methods
@@ -354,6 +370,14 @@ namespace aspx_site.Models
         public void AddToeventsurveys(eventsurvey eventsurvey)
         {
             base.AddObject("eventsurveys", eventsurvey);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the objectmetas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToobjectmetas(objectmeta objectmeta)
+        {
+            base.AddObject("objectmetas", objectmeta);
         }
 
         #endregion
@@ -2793,6 +2817,181 @@ namespace aspx_site.Models
         private Nullable<global::System.Int32> _Survey;
         partial void OnSurveyChanging(Nullable<global::System.Int32> value);
         partial void OnSurveyChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="novaModel", Name="objectmeta")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class objectmeta : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new objectmeta object.
+        /// </summary>
+        /// <param name="objectID">Initial value of the ObjectID property.</param>
+        public static objectmeta Createobjectmeta(global::System.Int32 objectID)
+        {
+            objectmeta objectmeta = new objectmeta();
+            objectmeta.ObjectID = objectID;
+            return objectmeta;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ObjectID
+        {
+            get
+            {
+                return _ObjectID;
+            }
+            set
+            {
+                if (_ObjectID != value)
+                {
+                    OnObjectIDChanging(value);
+                    ReportPropertyChanging("ObjectID");
+                    _ObjectID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ObjectID");
+                    OnObjectIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ObjectID;
+        partial void OnObjectIDChanging(global::System.Int32 value);
+        partial void OnObjectIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> TimesViewedApp
+        {
+            get
+            {
+                return _TimesViewedApp;
+            }
+            set
+            {
+                OnTimesViewedAppChanging(value);
+                ReportPropertyChanging("TimesViewedApp");
+                _TimesViewedApp = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TimesViewedApp");
+                OnTimesViewedAppChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _TimesViewedApp;
+        partial void OnTimesViewedAppChanging(Nullable<global::System.Int32> value);
+        partial void OnTimesViewedAppChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> TimesViewedWeb
+        {
+            get
+            {
+                return _TimesViewedWeb;
+            }
+            set
+            {
+                OnTimesViewedWebChanging(value);
+                ReportPropertyChanging("TimesViewedWeb");
+                _TimesViewedWeb = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TimesViewedWeb");
+                OnTimesViewedWebChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _TimesViewedWeb;
+        partial void OnTimesViewedWebChanging(Nullable<global::System.Int32> value);
+        partial void OnTimesViewedWebChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> FacebookImpressions
+        {
+            get
+            {
+                return _FacebookImpressions;
+            }
+            set
+            {
+                OnFacebookImpressionsChanging(value);
+                ReportPropertyChanging("FacebookImpressions");
+                _FacebookImpressions = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FacebookImpressions");
+                OnFacebookImpressionsChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _FacebookImpressions;
+        partial void OnFacebookImpressionsChanging(Nullable<global::System.Int32> value);
+        partial void OnFacebookImpressionsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> FacebookRSVPs
+        {
+            get
+            {
+                return _FacebookRSVPs;
+            }
+            set
+            {
+                OnFacebookRSVPsChanging(value);
+                ReportPropertyChanging("FacebookRSVPs");
+                _FacebookRSVPs = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FacebookRSVPs");
+                OnFacebookRSVPsChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _FacebookRSVPs;
+        partial void OnFacebookRSVPsChanging(Nullable<global::System.Int32> value);
+        partial void OnFacebookRSVPsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ObjectType
+        {
+            get
+            {
+                return _ObjectType;
+            }
+            set
+            {
+                OnObjectTypeChanging(value);
+                ReportPropertyChanging("ObjectType");
+                _ObjectType = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ObjectType");
+                OnObjectTypeChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ObjectType;
+        partial void OnObjectTypeChanging(Nullable<global::System.Int32> value);
+        partial void OnObjectTypeChanged();
 
         #endregion
     

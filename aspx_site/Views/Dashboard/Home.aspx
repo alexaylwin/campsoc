@@ -115,4 +115,21 @@
     </table>
 
     </form>
+    <div class="tourparagraph" id="tour_pagetext">
+        <p>Welcome to the Campus Social dashboard! From here, you can see and manage all aspects of your app. 
+        You can see your recent events, messages and feedback from users. You can also take shortcuts to common
+        tasks with the 'quick tasks' buttons. The tabs along the top of the page take you to different sections of the site.
+        </p>
+    </div>
+
+<script type="text/javascript">
+    var tourpage = <%=ViewData["tourpage"] %>
+    $(document).ready(function () {
+        if(tourpage == 1)
+        {
+            $('#tour_pagetext').dialog();
+        }
+    });
+</script>
+
 </asp:Content>

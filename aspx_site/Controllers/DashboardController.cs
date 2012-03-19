@@ -110,11 +110,6 @@ namespace aspx_site.Controllers
 
                 ViewData["eventlistjson"] = replaced;
 
-
-                //get user feedback and survey results
-              //  var selectedFeedback = (from f in _db.eventfeedbacks
-              //                          orderby f.SubmitTime descending
-              //                          select f).Take(5).ToList();
                 novaevent currentEvent;
 
                 var selectedFeedback = feedbackmodel.getFeedback(defaultappid, 5);
