@@ -425,3 +425,8 @@ span.button a
 {
     
 }
+
+.tourelement
+{
+    outline: #FF0000 solid 1px;
+}

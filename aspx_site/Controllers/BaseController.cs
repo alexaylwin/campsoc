@@ -37,6 +37,20 @@ namespace aspx_site.Controllers
             base.Initialize(requestContext);
             //requestContext.HttpContext.Session.
             defaultappid = utility.getCustomerAppID(this.User.Identity.Name);
+            if (defaultappid == 5)
+            {
+                HttpCookie tourcookie = new HttpCookie("ontour", "1");
+                Response.SetCookie(tourcookie);
+            }
+            else
+            {
+                if (Request.Cookies["ontour"] != null)
+                {
+                    HttpCookie tourcookie = new HttpCookie("ontour");
+                    tourcookie.Expires = DateTime.Now.AddDays(-1d);
+                    Response.Cookies.Add(tourcookie);
+                }
+            }
         }
 
 

@@ -154,6 +154,7 @@ namespace aspx_site.Controllers
             //ViewData.Model = selectedEvents.ToList();
             ViewData["appid"] = defaultappid;
             ViewData["controlleruserid"] = this.User.Identity.Name;
+            
             return View();
         }
 

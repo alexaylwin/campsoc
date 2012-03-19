@@ -33,4 +33,18 @@
     </td>
     </tr>
     </table>
+
+        <div class="tourparagraph" id="tour_pagetext" title="Manage Messages">
+        <p>
+        This page lets you manage all your existing messages and create new messages. Click 'Create New Message' to send a new message.
+        </p>
+    </div>
+<script type="text/javascript">
+    var ontour = readCookie('ontour');
+    $(document).ready(function () {
+        if (ontour == 1) {
+            $('#tour_pagetext').dialog();
+        }
+    });
+</script>
 </asp:Content>

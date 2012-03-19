@@ -62,4 +62,18 @@
 
     </table>
 
+        <div class="tourparagraph" id="tour_pagetext" title="Manage Events">
+        <p>
+        This page lets you manage all your existing events and create new events. Click 'Create New Event' to make a new event. Use the calendar
+        or list of events to browse and view event details.
+        </p>
+    </div>
+<script type="text/javascript">
+    var ontour = readCookie('ontour');
+    $(document).ready(function () {
+        if (ontour == 1) {
+            $('#tour_pagetext').dialog();
+        }
+    });
+</script>
 </asp:Content>

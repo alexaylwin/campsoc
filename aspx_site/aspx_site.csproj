@@ -150,7 +150,7 @@
     <Content Include="Content\jquery.mobile-1.0.min.css" />
     <Content Include="Content\jquery.mobile.simpledialog.min.css" />
     <Content Include="Content\mobilesites\scripts\campusdemo.css" />
-    <Content Include="Scripts\TourHelp.js" />
+    <Content Include="Scripts\cookie.js" />
     <Content Include="Scripts\jquery.fittext.js" />
     <Content Include="Scripts\jquery.mobile-1.0.min.js" />
     <Content Include="Content\LandingPage.css" />

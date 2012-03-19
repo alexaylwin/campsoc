@@ -202,4 +202,26 @@
     </script>
  <%} %>
  </div>
+
+    <div class="tourparagraph" id="tour_pagetext" title="Create an event">
+        <p>
+            This page lets you create a new event. On the left-hand side, fill in all the appropriate information for your event. These details
+            will be published to the app and mobile site.
+        </p>
+        <p>
+            On the right hand side, you can choose to publish the event to Facebook and Twitter, if you've linked these accounts to your Campus Social account.
+            Click on the checkbox beside either to expand the box and publish the event to that service.
+        </p>
+        <p>
+            The 'Do Not Publish' checkbox allows you to save the event, but not publish it anywhere. This lets you create an event, then go back and edit it to publish it later.
+        </p>
+    </div>
+<script type="text/javascript">
+    var ontour = readCookie('ontour');
+    $(document).ready(function () {
+        if (ontour == 1) {
+            $('#tour_pagetext').dialog();
+        }
+    });
+</script>
  </asp:Content>
