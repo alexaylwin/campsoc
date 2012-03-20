@@ -56,6 +56,33 @@ namespace aspx_site.Models
             return selected_app.HomeScreenText;
         }
 
+        public int setHomeText(int appid, string newhometext)
+        {
+            var selected_app = (from a in _db.appinfoes
+                                where (a.AppID == appid)
+                                select a).FirstOrDefault();
+            selected_app.HomeScreenText = newhometext;
+
+            var lastupdates = (from lu in _db.lastupdates
+                               where (lu.AppID == appid)
+                               select lu).FirstOrDefault();
+            lastupdates.LastHomescreenUpdate = DateTime.Now;
+
+            try
+            {
+                _db.appinfoes.ApplyCurrentValues(selected_app);
+                _db.lastupdates.ApplyCurrentValues(lastupdates);
+                _db.SaveChanges();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+
+            return 0;
+        }
+
         public int insertBetaEvent(string event_desc, string submitted_by, string col1, string col2, string col3, string col4, string col5)
         {
             try

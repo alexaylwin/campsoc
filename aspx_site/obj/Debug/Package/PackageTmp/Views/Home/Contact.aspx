@@ -7,6 +7,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2>Contact</h2>
+            I'm Alex, and I'm a fifth year undergradate at McMaster University, studying
+        Software Engineering and minoring in Philosophy. You can get in touch with me a whole bunch of ways. <br /> <br />
+        Email: AlexAylwin@gmail.com<br />
+        LinkedIn: <a href="http://linkedin.com/in/alexaylwin">http://linkedin.com/in/alexaylwin</a><br />
+        Web: <a href="http://alexaylwin.campsoc.com">http://alexaylwin.campsoc.com</a>
 
          <div id="buttons">
         <div id="text"><strong> Learn more:</strong></div>

@@ -28,7 +28,7 @@
     <h2>Dashboard</h2>
 
     <p>
-    Welcome back to Campus Social, <%: Page.User.Identity.Name %> <%= ViewData["appid"] %>!
+    Welcome back to Campus Social <%= Page.User.Identity.Name %>!<!-- <%= ViewData["appid"] %>, <%= ViewData["controlleruserid"] %>!-->
     </p>
     <div id="dashboardbuttons"><span>Quick Tasks:</span> <a href="../Events/Create" class="cssbutton_small">Create Event</a><a href="../Messages/Create" class="cssbutton_small">Send Message</a><a href="../Settings/Accounts" class="cssbutton_small">Link Social Accounts</a><a href="../mobile/home?appid=<%=ViewData["hashedappid"] %>" class="cssbutton_small">View Mobile Site</a></div>
 
@@ -115,4 +115,81 @@
     </table>
 
     </form>
+    <div class="tourparagraph" id="tour_pagetext" title="Welcome to Campus Social">
+        <p>Welcome to the Campus Social dashboard! From here, you can see and manage all aspects of your app. 
+        You can see your recent events, messages and feedback from users. The tabs along the top of the page take you to different sections of the site.
+        </p>
+        <p>
+        <b>Click on any element on the page outlined in red to find out more about it!</b>
+        </p>
+    </div>
+
+    <div class="tourparagraph" id="tour_quickbartext" title="Quick Tasks">
+        <p>
+        These buttons let you take shortcuts to the most common Campus Social tasks. Click one to navigate to that section of the site.
+        </p>
+    </div>
+
+    <div class="tourparagraph" id="tour_recenteventstext" title="Recent Events">
+        <p>
+        This panel shows the most recent events you've created. You can click on one to view the details of that event, or to edit it.
+        </p>
+    </div>
+
+    <div class="tourparagraph" id="tour_recentmessagestext" title="Recent Messages">
+        <p>
+        This panel shows the most recent messages you've created. You can click on one to view the details of that message.
+        </p>
+    </div>
+
+     <div class="tourparagraph" id="tour_recentfeedbacktext" title="Recent Feedback">
+        <p>
+        This panel shows the most recent feedback you've recieved from users. This would include RSVPs, comments, and survey results. Click on an element
+        to be taken to the feedback page for that event.
+        </p>
+    </div>
+
+<script type="text/javascript">
+    var ontour = readCookie('ontour');
+    $(document).ready(function () {
+        if (ontour == 1) {
+
+            $('#dashboardbuttons').addClass("tourelement");
+            $('#events').children("h3").addClass("tourelement");
+            $('#messages').children("h3").addClass("tourelement");
+            $('#feedback').children("h3").addClass("tourelement");
+
+            $('#tour_pagetext').dialog();
+
+            $('#dashboardbuttons').click(function (e) {
+                if ($('#dashboardbuttons').hasClass("tourelement")) {
+                    $('#tour_quickbartext').dialog();
+                    $('#dashboardbuttons').removeClass("tourelement");
+                }
+            });
+
+            $('#events').children("h3").click(function (e) {
+                if ($('#events').children("h3").hasClass("tourelement")) {
+                    $('#tour_recenteventstext').dialog();
+                    $('#events').children("h3").removeClass("tourelement");
+                }
+            });
+
+            $('#messages').children("h3").click(function (e) {
+                if ($('#messages').children("h3").hasClass("tourelement")) {
+                    $('#tour_recentmessagestext').dialog();
+                    $('#messages').children("h3").removeClass("tourelement");
+                }
+            });
+
+            $('#feedback').children("h3").click(function (e) {
+                if ($('#feedback').children("h3").hasClass("tourelement")) {
+                    $('#tour_recentfeedbacktext').dialog();
+                    $('#feedback').children("h3").removeClass("tourelement");
+                }
+            });
+        }
+    });
+</script>
+
 </asp:Content>

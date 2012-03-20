@@ -14,7 +14,10 @@
     <b>Event Start:</b> <%= ViewData.Model.EventStart%> <br />
     <b>Event End:</b> <%= ViewData.Model.EventEnd%> <br /> <br />
     <b>Event Description:</b> <br /><%= ViewData.Model.EventDesc%><br /><br />
-    <b>Attending:</b> <%= ViewData.Model.Attending%> <b>Not Attending</b>: <%= ViewData.Model.NotAttending%>
+    <b>Attending:</b> <%= ViewData.Model.Attending%> <b>Not Attending</b>: <%= ViewData.Model.NotAttending%> <br /> <br />
+
+    <b>Times viewed (mobile site + app): <%= ViewData["totalviews"] %></b>
+
     <br /><br />
     <span style="font-size:1.1em;font-weight:bold;background-color: #E0E0E0;padding: 5px;"><a href="Edit?id=<%= ViewData.Model.EventID%>"> Edit this event </a></span>
 </asp:Content>

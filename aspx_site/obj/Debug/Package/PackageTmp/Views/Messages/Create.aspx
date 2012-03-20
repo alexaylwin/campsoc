@@ -31,7 +31,7 @@
         </table>
         <br />
 
-        <div class="subheader collapsible" id='facebooksubheader'>Create Facebook Event <%: Html.CheckBox("PostToFacebook",false, new { @class="checkboxinput"}) %></div>
+        <div class="subheader collapsible" id='facebooksubheader'>Create Facebook Wall Post <%: Html.CheckBox("PostToFacebook",false, new { @class="checkboxinput"}) %></div>
          <table class="itemtable" id="facebook">
             <%if(ViewData["facebookRegistered"] != null && (bool)ViewData["facebookRegistered"] == true){
                 %>
@@ -123,4 +123,23 @@
         });
     </script>
 
+
+    <div class="tourparagraph" id="tour_pagetext" title="Create a message">
+        <p>
+            This page lets you send a new message. On the left-hand side, fill in all the appropriate information for your message. These details
+            will be published to the app and mobile site.
+        </p>
+        <p>
+            On the right hand side, you can choose to publish the message to Facebook and Twitter, if you've linked these accounts to your Campus Social account.
+            Click on the checkbox beside either to expand the box and publish the message to that service.
+        </p>
+    </div>
+<script type="text/javascript">
+    var ontour = readCookie('ontour');
+    $(document).ready(function () {
+        if (ontour == 1) {
+            $('#tour_pagetext').dialog();
+        }
+    });
+</script>
  </asp:Content>

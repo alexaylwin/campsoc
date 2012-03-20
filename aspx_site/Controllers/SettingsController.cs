@@ -341,5 +341,23 @@ namespace aspx_site.Controllers
 
             return RedirectToAction("Accounts");
         }
+     
+        public ActionResult HomescreenText()
+        {
+            ViewData["currhometext"] = "";
+
+            ViewData["currhometext"] = utility.getHomeText(defaultappid);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult HomescreenText(FormCollection collection)
+        {
+            int ret = utility.setHomeText(defaultappid, collection["Hometext"]);
+
+            return RedirectToAction("Home");
+        }
     }
+
+
 }

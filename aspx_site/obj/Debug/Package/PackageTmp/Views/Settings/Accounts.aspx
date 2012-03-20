@@ -55,5 +55,31 @@
           <input type="submit" name="submit" value="Unlink Facebook Account" />
           <%} %>
     <%} %>
-    
+
+
+        <div class="tourparagraph" id="tour_pagetext" title="Manage Accounts">
+        <p>
+        From here, you can link a Twitter and Facebook account to your Campus Social account. This will let you post events to Facebook and Twitter
+        from Campus Social.
+        </p>
+        <p>
+        Linking an account is easy. For Twitter, just click the 'Link Account' button. You'll be redirected to Twitter where you can sign in to the right account
+        and give permission for Campus Social to make posts.
+        </p>
+        <p>
+        With Facebook, you start by linking any personal Facebook account that can manage your club's Facebook page. After that, you'll be brought back here, and you'll
+        see a list of pages that the linked account can manage. You can click on any of these pages, and the events will be posted as that page. Please note that Campus Social cannot
+        access an individuals Facebook after their account has been linked, only the pages they manage.
+        </p>
+    </div>
+<script type="text/javascript">
+    var ontour = readCookie('ontour');
+    $(document).ready(function () {
+        if (ontour == 1) {
+            $('#tour_pagetext').dialog();
+        }
+    });
+</script>
 </asp:Content>
+
+

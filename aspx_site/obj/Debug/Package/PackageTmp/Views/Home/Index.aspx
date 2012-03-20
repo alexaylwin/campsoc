@@ -12,17 +12,17 @@
         <br />Campus Social focuses on: <br />
         <strong>&nbsp;&nbsp;Customizability:</strong> Each student club is different, and is going to have different needs to be successful. <br />
         <strong>&nbsp;&nbsp;Cost:</strong> Club budgets are tight. Enough said. <br />
-        <strong>&nbsp;&nbsp;Support and experience:</strong> I know how hard it can be to run student clubs, because I have before. I know what it takes, and I know how to help.<br />
+        <strong>&nbsp;&nbsp;Support and experience:</strong> I know how hard it can be to run student clubs, because I've run them too. I know what it takes, and I know how to help.<br />
         </div>
 
-        <div id="signupform">
+        <!--<div id="signupform">
         <% using (Html.BeginForm()) { %>
             Interested? Submit your email for more information: <%: Html.TextBox("email") %> <br /> <br />
              <button type="submit">
             <a href="#" id="submit_link" class="cssbutton_med">I want info!</a>
             </button>
         <%} %>
-        </div>
+        </div>-->
         
         <div id="buttons">
         <div id="text"><strong> Learn more:</strong></div>

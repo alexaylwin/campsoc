@@ -155,9 +155,9 @@
         if (ontour == 1) {
 
             $('#dashboardbuttons').addClass("tourelement");
-            $('#events:first-child').addClass("tourelement");
-            $('#messages:first-child').addClass("tourelement");
-            $('#feedback:first-child').addClass("tourelement");
+            $('#events').children("h3").addClass("tourelement");
+            $('#messages').children("h3").addClass("tourelement");
+            $('#feedback').children("h3").addClass("tourelement");
 
             $('#tour_pagetext').dialog();
 
@@ -168,24 +168,24 @@
                 }
             });
 
-            $('#events:first-child').click(function (e) {
-                if ($('#events:first-child').hasClass("tourelement")) {
+            $('#events').children("h3").click(function (e) {
+                if ($('#events').children("h3").hasClass("tourelement")) {
                     $('#tour_recenteventstext').dialog();
-                    $('#events:first-child').removeClass("tourelement");
+                    $('#events').children("h3").removeClass("tourelement");
                 }
             });
 
-            $('#messages:first-child').click(function (e) {
-                if ($('#messages:first-child').hasClass("tourelement")) {
+            $('#messages').children("h3").click(function (e) {
+                if ($('#messages').children("h3").hasClass("tourelement")) {
                     $('#tour_recentmessagestext').dialog();
-                    $('#messages:first-child').removeClass("tourelement");
+                    $('#messages').children("h3").removeClass("tourelement");
                 }
             });
 
-            $('#feedback:first-child').click(function (e) {
-                if ($('#feedback:first-child').hasClass("tourelement")) {
+            $('#feedback').children("h3").click(function (e) {
+                if ($('#feedback').children("h3").hasClass("tourelement")) {
                     $('#tour_recentfeedbacktext').dialog();
-                    $('#feedback:first-child').removeClass("tourelement");
+                    $('#feedback').children("h3").removeClass("tourelement");
                 }
             });
         }

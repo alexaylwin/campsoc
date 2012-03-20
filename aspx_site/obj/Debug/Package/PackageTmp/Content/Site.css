@@ -413,3 +413,20 @@ span.button a
     border-style:none;
     text-decoration:none;
 }
+
+/* Styles for tour help
+--------------------------------------------------*/
+.tourparagraph
+{
+    display:none;
+}
+
+.helpbutton
+{
+    
+}
+
+.tourelement
+{
+    color: #FF0000;
+}
