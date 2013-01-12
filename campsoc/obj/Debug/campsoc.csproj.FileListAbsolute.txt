@@ -1,0 +1,11 @@
+Z:\Code\Nova\campsoc\campsoc\obj\Debug\ResolveAssemblyReference.cache
+Z:\Code\Nova\campsoc\campsoc\bin\campsoc.dll
+Z:\Code\Nova\campsoc\campsoc\bin\campsoc.pdb
+Z:\Code\Nova\campsoc\campsoc\bin\MvcContrib.dll
+Z:\Code\Nova\campsoc\campsoc\bin\MvcContrib.xml
+Z:\Code\Nova\campsoc\campsoc\bin\Newtonsoft.Json.pdb
+Z:\Code\Nova\campsoc\campsoc\bin\Newtonsoft.Json.xml
+Z:\Code\Nova\campsoc\campsoc\bin\Twitterizer2.pdb
+Z:\Code\Nova\campsoc\campsoc\bin\Twitterizer2.xml
+Z:\Code\Nova\campsoc\campsoc\obj\Debug\campsoc.dll
+Z:\Code\Nova\campsoc\campsoc\obj\Debug\campsoc.pdb

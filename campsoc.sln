@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aspx_site", "aspx_site\aspx_site.csproj", "{C5A307AF-A35D-4564-A5F4-9904DAB86805}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "campsoc", "campsoc\campsoc.csproj", "{C5A307AF-A35D-4564-A5F4-9904DAB86805}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
