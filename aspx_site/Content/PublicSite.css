@@ -590,6 +590,7 @@ div#title a:hover
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a19fa1', endColorstr='#e3e3e3');
 	background-color:#a19fa1;
 }
+/**
 .cssbutton_med:active {
 	position:relative;
 	top:1px;
@@ -599,7 +600,7 @@ div#title a:hover
     color: #0000FF;
     text-decoration:none;
 }
-
+**/
 .cssbutton_small {
 	-moz-box-shadow:inset 0px 0px 0px 0px #ffffff;
 	-webkit-box-shadow:inset 0px 0px 0px 0px #ffffff;

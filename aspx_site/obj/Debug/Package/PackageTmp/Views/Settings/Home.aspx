@@ -8,6 +8,7 @@
 
     <h2>Settings</h2>
 
-    <%: Html.ActionLink("Manage your third-party account settings", "Accounts", "Settings")%>
+    <%: Html.ActionLink("Manage your third-party account settings", "Accounts", "Settings")%> <br />
+    <%: Html.ActionLink("Change home screen text", "HomescreenText", "Settings")%>
 
 </asp:Content>

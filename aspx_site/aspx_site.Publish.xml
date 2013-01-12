@@ -8,7 +8,7 @@
     <file relUrl="Content/images/ui-icons_808080_256x240.png" publishTime="01/10/2012 11:09:12" />
     <file relUrl="Content/mobilesites/scripts/campusdemo.css" publishTime="03/18/2012 23:59:21" />
     <file relUrl="Views/Events/Details.aspx" publishTime="03/19/2012 00:05:17" />
-    <file relUrl="Views/Settings/Home.aspx" publishTime="01/18/2012 01:33:15" />
+    <file relUrl="Views/Settings/Home.aspx" publishTime="03/20/2012 13:18:01" />
     <file relUrl="Views/Events/Edit.aspx" publishTime="03/18/2012 16:30:53" />
     <file relUrl="Content/images/ui-icons_ffffff_256x240.png" publishTime="01/10/2012 11:09:12" />
     <file relUrl="Views/Account/LogOn.aspx" publishTime="03/19/2012 12:03:49" />
@@ -32,7 +32,7 @@
     <file relUrl="Content/images/ui-icons_8dc262_256x240.png" publishTime="01/10/2012 11:09:12" />
     <file relUrl="Content/jquery-ui-1.8.16.custom.css" publishTime="01/10/2012 11:09:11" />
     <file relUrl="Web.sitemap" publishTime="10/01/2011 22:18:40" />
-    <file relUrl="Views/Dashboard/Home.aspx" publishTime="03/19/2012 10:43:05" />
+    <file relUrl="Views/Dashboard/Home.aspx" publishTime="03/19/2012 11:36:06" />
     <file relUrl="Scripts/MicrosoftAjax.js" publishTime="07/17/2011 19:01:42" />
     <file relUrl="Content/mobilesites/masterpages/macengsociety.Master" publishTime="03/18/2012 23:52:05" />
     <file relUrl="Views/Shared/LogOnUserControl.ascx" publishTime="10/02/2011 12:40:16" />
@@ -42,7 +42,7 @@
     <file relUrl="Content/images/ui-icons_847e71_256x240.png" publishTime="01/10/2012 11:09:12" />
     <file relUrl="bin/MvcContrib.dll" publishTime="07/18/2011 18:33:47" />
     <file relUrl="Content/images/logo.png" publishTime="01/11/2012 23:08:20" />
-    <file relUrl="bin/aspx_site.dll" publishTime="03/19/2012 09:57:26" />
+    <file relUrl="bin/aspx_site.dll" publishTime="08/14/2012 21:07:02" />
     <file relUrl="Scripts/jquery.mobile.simpledialog.min.js" publishTime="01/19/2012 16:37:41" />
     <file relUrl="Views/AppService/AppRequest.aspx" publishTime="07/19/2011 21:33:22" />
     <file relUrl="Content/images/ui-icons_cd0a0a_256x240.png" publishTime="01/10/2012 11:09:12" />
@@ -56,7 +56,7 @@
     <file relUrl="Views/Account/ChangePassword.aspx" publishTime="07/17/2011 19:01:42" />
     <file relUrl="Views/Home/About.aspx" publishTime="01/19/2012 14:17:36" />
     <file relUrl="Content/images/ui-bg_gloss-wave_100_ece8da_500x100.png" publishTime="01/10/2012 11:09:11" />
-    <file relUrl="Views/Home/Contact.aspx" publishTime="03/19/2012 11:44:06" />
+    <file relUrl="Views/Home/Contact.aspx" publishTime="03/20/2012 12:47:04" />
     <file relUrl="Views/Home/Index.aspx" publishTime="03/19/2012 11:43:01" />
     <file relUrl="Views/Settings/Accounts.aspx" publishTime="03/19/2012 11:08:27" />
     <file relUrl="Content/images/ajax-loader.png" publishTime="01/19/2012 16:05:21" />
@@ -96,17 +96,18 @@
     <file relUrl="Views/Mobile/Events.aspx" publishTime="03/18/2012 23:55:33" />
     <file relUrl="Scripts/MicrosoftAjax.debug.js" publishTime="07/17/2011 19:01:42" />
     <file relUrl="Views/Messages/Details.aspx" publishTime="01/18/2012 01:35:12" />
-    <file relUrl="bin/aspx_site.pdb" publishTime="03/19/2012 09:57:26" />
+    <file relUrl="bin/aspx_site.pdb" publishTime="08/14/2012 21:07:02" />
     <file relUrl="Content/fullcalendar/gcal.js" publishTime="01/08/2012 22:10:03" />
     <file relUrl="Scripts/MicrosoftMvcAjax.debug.js" publishTime="07/17/2011 19:01:42" />
     <file relUrl="Content/images/ui-bg_highlight-hard_100_f5f3e5_1x100.png" publishTime="01/10/2012 11:09:11" />
     <file relUrl="Views/Account/ChangePasswordSuccess.aspx" publishTime="07/17/2011 19:01:42" />
     <file relUrl="Scripts/cookie.js" publishTime="03/19/2012 09:53:21" />
     <file relUrl="Views/Events/Home.aspx" publishTime="03/19/2012 10:51:16" />
-    <file relUrl="Scripts/jquery.validate.js" publishTime="07/17/2011 19:01:42" />
+    <file relUrl="Views/Settings/HomescreenText.aspx" publishTime="03/20/2012 13:22:57" />
     <file relUrl="bin/Twitterizer2.xml" publishTime="01/11/2012 09:52:50" />
     <file relUrl="Views/Surveys/Create.aspx" publishTime="02/28/2012 20:12:50" />
     <file relUrl="Views/Messages/Create.aspx" publishTime="03/19/2012 11:38:04" />
     <file relUrl="Views/Mobile/Home.aspx" publishTime="03/18/2012 23:53:55" />
+    <file relUrl="Scripts/jquery.validate.js" publishTime="07/17/2011 19:01:42" />
   </publishProfile>
 </publishData>

@@ -124,6 +124,11 @@ namespace aspx_site.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+
+            //First we need to check the collection, and see that all required fields are filled in.
+
+
+
             //try
             //{
                 appinfo app = utility.getAppInfo(defaultappid);

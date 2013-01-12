@@ -16,6 +16,9 @@ namespace aspx_site
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.IgnoreRoute("stats/{*pathInfo}");
+            routes.IgnoreRoute("nwr/{*pathInfo}");
+            routes.IgnoreRoute("{resource}nwr/{*pathInfo}");
+            routes.IgnoreRoute("{resource}.php/{*pathInfo}");
 
             routes.MapRoute(
                 "Default", // Route name

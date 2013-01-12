@@ -49,10 +49,17 @@
    </div>
  
 
-<div id="submitdiv">
-<button type="submit">
-<a href="#" id="submit_link" class="cssbutton_med">Send Message</a>
-</button>
+ <div id="buttonbar">
+    <div id="submitdiv" >
+        <button type="submit" >
+           <a href="#" id="submit_link" class="cssbutton_med">Create Message</a>
+        </button>
+    </div>
+     <div id="canceldiv" >
+        <button type="submit">
+            <a href="#" id="cancel_link" class="cssbutton_med">Cancel</a>
+        </button>
+    </div>
 </div>
 <%} %>
 </div>

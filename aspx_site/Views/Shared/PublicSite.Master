@@ -31,11 +31,8 @@
     <div class="page">
 
         <div id="header">
-            <div id="title">
-                <%: Html.ActionLink("Campus Social", "Index", "Home", new { @id = "title_logo" })%>
-            </div>
-              
-            <span id="logindisplay">
+            <a href="<%:Url.Action("Index", "Home")%>"><div id="title"></div></a>
+               <span id="logindisplay">
                 <% Html.RenderPartial("LogOnUserControl"); %>
             </span>
             

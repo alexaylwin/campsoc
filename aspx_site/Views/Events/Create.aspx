@@ -83,12 +83,18 @@
  </table>
 </div>
  
- 
- <div id="submitdiv">
- <button type="submit">
-    <a href="#" id="submit_link" class="cssbutton_med">Create Event</a>
-</button>
-</div>
+ <span id="buttonbar">
+    <div id="submitdiv" >
+        <button type="submit">
+           <a href="#" id="submit_link" class="cssbutton_med">Create Event</a>
+        </button>
+    </div>
+     <div id="canceldiv">
+        <button type="submit">
+            <a href="#" id="cancel_link" class="cssbutton_med">Cancel</a>
+        </button>
+    </div>
+</span>
     <script src="../../Scripts/slideFade.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () {

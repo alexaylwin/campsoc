@@ -386,13 +386,23 @@ span.button a
     padding: 3px;
 }
 
-.createform #submitdiv
+.createform #buttonbar
 {
-    margin-top: 10px;
     width: 100%;
-    text-align:center;
-    float:left;
+    margin-top: 20px;
+    float: left;
     margin-bottom: 50px;
+}
+
+.createform #buttonbar #submitdiv
+{
+    margin-right: 15%;
+    float:right;
+}
+.createform #buttonbar #canceldiv
+{
+    margin-left: 15%;
+    float:left;
 }
 
 .createform .submitbutton

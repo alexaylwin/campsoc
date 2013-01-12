@@ -20,10 +20,7 @@
     <div class="page">
 
         <div id="header">
-            <div id="title">
-                <h1><%: Html.ActionLink("Campus Social", "Index", "Home")%></h1>
-            </div>
-              
+            <a href="<%: Url.Action("Home", "Dashboard") %>"><div id="title"></div></a>
             <div id="logindisplay">
                 <% Html.RenderPartial("LogOnUserControl"); %>
             </div> 
